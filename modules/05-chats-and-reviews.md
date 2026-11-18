@@ -121,14 +121,15 @@ drafts tomorrow morning.
 
 1. "Want me to do this by myself? I'll read your chats and reviews and have the replies **ready** for your YES."
    ```
-   A) Twice a day, 9am and 3pm ★
-   B) Once, in the morning
+   A) Twice a day, 10am and 3pm ★
+   B) Once, at 10am
    C) Not now
    ```
 2. A or B → follow "How to schedule an automation" in `<HQ>/CLAUDE.md` for `chat-review-check`:
    `taskId` `shopee-chat-review-check`, `title` "Shopee · Chat and review check", description "Reads waiting
-   chats and reviews and drafts replies for the owner's YES", cron `0 9,15 * * *` (A) or the morning time (B).
-   In `automations.json`: `{"id": "chat-review-check", "name": "Chat and review check", "when": "Every day at 9am
+   chats and reviews and drafts replies for the owner's YES", cron `0 10,15 * * *` (A) or `0 10 * * *` (B).
+   (10am, not earlier, so it doesn't share the browser with the stock check.)
+   In `automations.json`: `{"id": "chat-review-check", "name": "Chat and review check", "when": "Every day at 10am
    and 3pm", "status": "on", "schedule_id": "shopee-chat-review-check", "recipe":
    "automations/chat-review-check.md", "last_run": "<now>", "last_result": "<this module's result>"}`.
 3. Run it once now with `run_scheduled_task` so they can click **Always allow** (same as Module 4). It will find
@@ -144,7 +145,7 @@ drafts tomorrow morning.
 1. "Press **Cmd+R** / **Ctrl+R** on your dashboard: Chats and Reviews are live, and anything waiting for your
    YES is at the top."
 2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 5 done · next: module6", and one line under "The shop", e.g.
-   "Chat and review check at 9am and 3pm, replies sent only after YES."
+   "Chat and review check at 10am and 3pm, replies sent only after YES."
 3. Say:
    - "Done: your chats and reviews get answered in your voice, and nothing goes out without your YES."
    - Value line: "Answering chats and reviews is often an hour a day. Now it's two minutes and a YES."

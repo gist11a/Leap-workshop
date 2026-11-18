@@ -50,7 +50,7 @@ They move on by typing the next module word (`module1`, `module2` …), never wi
 | 3:35 | **8 · Campaigns** | Products picked and priced from their rules, ready to nominate |
 | 4:10 | **9 · Affiliates** | Sample requests and creators checked against their rules |
 | 4:30 | **10 · Product images** | Image check per product + ready-to-use image briefs |
-| 4:50 | **11 · Your daily routine + finale** | One morning job that does everything, a checklist, next steps |
+| 4:50 | **11 · Your daily routine + finale** | One morning routine runs every check in order (replaces the separate morning schedules), morning summary + optional Gmail draft, a personal 5-minute checklist (`MY-ROUTINE.md`), finale card |
 | 5:30 | Close | |
 
 Times are rough. A gate word keeps the room together; nobody is rushed.
@@ -91,6 +91,9 @@ Desktop/Shopee HQ/
 - **Scheduled runs use Sonnet**, so the daily jobs cost little. Claude creates the schedule itself (the app's
   scheduled-tasks tool, local time) and starts a first "Run now" so the attendee can click **Always allow** once.
   A scheduled run that starts on Opus hands the whole job to a Sonnet helper (the app has no model setting per task).
+- **Schedules on the day:** each module adds its own morning job (9:00 stock, 9:10 ads, 9:15 affiliates, 9:20 profit,
+  9:30 campaigns, 10:00 + 15:00 chats, Mon 9:45 images). Module 11 merges the morning ones into one routine so they
+  never share the browser at once. If an attendee stops before Module 11, their separate jobs can overlap.
 - **A scheduled run needs the laptop on and Claude's browser open** (Seller Centre signed in). That is a stated
   requirement, not a bug: if the laptop is closed, that run is skipped. Attendees hear this in Modules 4 and 11.
 

@@ -29,7 +29,8 @@ module10  Product images
 module11  Your daily routine + finale
 ```
 
-- Each module lives in `<HQ>/course/modules/`. **When they type a module word, read ONLY that module's file**, then
+- Each module lives in `<HQ>/course/modules/`, named by its two-digit number (`module3` → `03-….md`,
+  `module11` → `11-….md`). **When they type a module word, read ONLY that module's file**, then
   run it. Never read ahead (it wastes their Claude allowance).
 - They move on by typing the next word, e.g. `module3`. **No `/` in front** (the app swallows anything starting with `/`).
 - At every gate say where they are: "That's 4 of 11 done."

@@ -56,6 +56,19 @@ Keep it short. Details live in `rules/`.
 - Never edit `dashboard/index.html` during the workshop. Afterwards, if they want a new kind of card or chart,
   first copy it to `dashboard/index-backup.html`, make the change, and check the page still opens.
 
+## Things the owner may say (after the workshop too)
+- **"what needs my YES?"** → the approvals routine below.
+- **"refresh my dashboard"** → run the refresh step, then "Press Cmd+R / Ctrl+R on the dashboard."
+- **"check my stock now"** (or ads, profit, campaigns, chats, affiliates, images) → follow that recipe in
+  `automations/` now, as a live chat (one helper reads the pages).
+- **"pause my automations"** / **"resume my automations"** → see "How to schedule an automation" (pause/resume
+  every Shopee scheduled task and set `status` in `automations.json`). Confirm in one line.
+- **"check my fees again"** → `course/modules/07-real-profit.md`, Step 3, then update `rules/costs.json`.
+- **A rule change** ("we now ship within 1 day", "the Gift Box costs RM12") → update the right file in `rules/`,
+  say what changed in one line.
+- **"write my selling points"** → "Writing selling points" in `automations/image-check.md`.
+- A module word (`module6`…) → run that module from `course/modules/`, as on the workshop day.
+
 ## "What needs my YES?" (approvals)
 When the owner asks what's waiting (or says "show approvals"):
 1. List `waiting` items from `approvals.json`, grouped: **Needs you** (hand-overs), **Chats**, **Reviews**,
