@@ -4,6 +4,7 @@
 **Gate at the end:** `module2`.
 
 Follow START.md's rules all the way through: short messages, menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §1 (read only that). Worth saying when it fits: one login can run several shops (so the helper always checks "Current Shop"), and only Seller Chat mixes them all.
 
 ---
 
@@ -40,7 +41,7 @@ Silently:
 1. Copy the starter files without overwriting anything they already have:
    `cp -Rn "<HQ>/course/templates/." "<HQ>/"`
 2. In `<HQ>/CLAUDE.md`, replace every `<HQ>` with the real full folder location.
-3. Check these exist: `CLAUDE.md`, `rules/`, `helpers/`, `tools/`, `dashboard/`, `automations.json`, `progress.json`.
+3. Check these exist: `CLAUDE.md`, `rules/`, `helpers/`, `tools/`, `dashboard/`, `automations.json`, `progress.json`, `knowledge/`.
 
 Say: "Your Shopee HQ is set up. Think of it as a filing cabinet for your shop: your rules, a page of notes for
 each day, and a dashboard. It all stays on this laptop."

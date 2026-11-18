@@ -13,5 +13,12 @@
   "morning_check_at": "09:00",
   "alert_email": null,
   "morning_email": false,
-  "notes": "Filled in during Module 2. Change anything by asking Claude."
+  "notify": {
+    "how": [
+      "dashboard"
+    ],
+    "email_to": null,
+    "slack_to": null
+  },
+  "notes": "Filled in during Module 2. Change anything by asking Claude. notify = how Claude tells the owner when Shopee needs them (signed out, or a puzzle check): how can hold \"dashboard\", \"email\" (sent only to email_to, their own address), \"slack\" (to slack_to)."
 }

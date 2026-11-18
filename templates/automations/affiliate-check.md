@@ -41,8 +41,8 @@ after step 5 without alerts.
   `rules/costs.json` → `products` (match on the start of the name):
   - `after_commission` = margin_percent − commission_percent.
   - flag **"Loses money"** if after_commission < 0; **"Too high"** if it's below `keep_after_commission_percent`;
-    **"Room to raise"** if after_commission > 25 and the product sells well (one of the 10 highest `l7d` in
-    the latest `data/stock/` file's `all_products`);
+    **"Room to raise"** if after_commission > 25 and the product sells well (one of the 10 highest `units_30d` in
+    the newest `data/sales-speed/` file);
     else **"OK"**.
   - Save to `rules/affiliates.json` → `commission.by_product`: `{"commission_percent", "margin_percent", "flag"}`.
 - `note`: one plain line, e.g. "Affiliates sold RM37 yesterday (1 order), commission RM0. 2 sample requests waiting."

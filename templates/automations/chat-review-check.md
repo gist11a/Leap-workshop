@@ -36,9 +36,9 @@ The job:
 > "found": [...]}` and reviews to `<HQ>/data/reviews/<today>.json` as `{"read_at", "source_pages",
 > "summary": {"to_reply", "shop_rating", "unreplied_bad"}, "found": [...]}`. Reply with the two counts.
 
-`VERIFY` (Shopee's puzzle check): live chat → show the browser, ask the owner to do the puzzle themselves, then
-read again; scheduled run → urgent alert "Shopee wants a quick check that you're a person. Please do it in Claude's
-browser.", log "skipped: Shopee check", refresh, stop.
+`VERIFY` (Shopee's puzzle check, which opening chats can trigger): follow "When Shopee needs the owner" in
+`<HQ>/CLAUDE.md` (live chat: the owner does the puzzle, then read again; scheduled run: alert + their chosen notice,
+log, stop). Never touch the puzzle.
 `SIGNED_OUT`: live chat → ask the owner to sign in; scheduled run → urgent alert "Seller Centre is signed out.
 Please sign in in Claude's browser.", log the run as "skipped: signed out", refresh, stop.
 
@@ -82,6 +82,10 @@ Then write the day files again with:
 ## 4. Alerts
 First remove alerts with `topic` "chats" or "reviews" dated today. Then add:
 - `urgent` if any chat has waited more than 12 hours: "<N> chats waiting over 12 hours. Say 'what needs my YES?'".
+  (Shopee's response rate counts only replies by a person within 12 hours: `knowledge/shopee-basics.md` §4.)
+- `watch` if any chat has waited 9–12 hours (Shopee marks it "Due Soon"): "<N> chats are close to 12 hours."
+- Chats whose last buyer message is **over 7 days old** can't be answered on Shopee any more: draft nothing, and
+  mention them once in the `note`.
 - `urgent` for every hand-over: "<buyer_short> needs you: <reason>."
 - `watch` if there are bad reviews to answer: "<N> bad reviews to reply to."
 - `info` for drafts ready: "<N> chat replies and <M> review replies ready for your YES."

@@ -25,11 +25,15 @@ For each one, **only if** its entry in `automations.json` exists and its `status
    > you read the Seller Centre pages yourself with the built-in browser, following every rule in reader.md.
    > <For image-check add: "Do the weekly check only.">
    > Read only: never change anything in the shop, never type a password or code, never run JavaScript.
-   > Reply in at most 3 lines; start with SIGNED_OUT if Seller Centre asked for a login.
+   > Never touch a puzzle or slider check. Reply in at most 3 lines; start with SIGNED_OUT if Seller Centre asked
+   > for a login, or VERIFY if Shopee showed a puzzle check.
 2. **Wait for it to finish** before starting the next one (they share one browser).
-3. If it replied `SIGNED_OUT`: make sure there is one urgent alert "Seller Centre is signed out. Please sign in in
-   Claude's browser.", add `{"time", "automation": "Daily routine", "result": "skipped: signed out"}` to
+3. If it replied `SIGNED_OUT`: follow "When Shopee needs the owner" in `<HQ>/CLAUDE.md` (alert + their chosen
+   notice), add `{"time", "automation": "Daily routine", "result": "skipped: signed out"}` to
    `data/runs/<today>.json`, run the refresh step, and **stop the whole routine**.
+   If it replied `VERIFY` (usually the chat check: opening chats can make Shopee show a puzzle): follow "When Shopee
+   needs the owner", log that check as "skipped: Shopee check", and go on with the next check. If the next check
+   also replies `VERIFY`, stop the whole routine (the puzzle blocks every page until the owner does it).
 4. If it failed or got stuck: add `{"time", "automation": "<name>", "result": "failed: <reason in a few words>"}` to
    `data/runs/<today>.json` and go on with the next check.
 

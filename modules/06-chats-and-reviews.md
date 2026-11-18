@@ -7,6 +7,7 @@ The recipe `automations/chat-review-check.md` is already in their folder. Read i
 **Gate at the end:** `module7`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §4 (read only that). Worth saying when it fits: the response rate counts only replies by a person within 12 hours (auto-replies don't count); Shopee flags chats "Due Soon" at 9 hours; after 7 days a chat can't be answered; opening many chats can bring a puzzle check only the owner can do.
 This is the first module where Claude **changes** something in their shop (sending replies). Go slowly here,
 and make the YES feel safe and normal.
 
@@ -70,8 +71,9 @@ drafts tomorrow morning.
          are halal certified. Have a lovely day!"
 
    2  mel***: "When will my order ship?"
-      → "Hi dear! … We ship within 2 days, and Shopee shows the tracking once
-         it's on the way. Have a lovely day!"
+      → "Hi dear! … We ship today if you paid before 2pm, otherwise the next
+         working day, and Shopee shows the tracking once it's on the way.
+         Have a lovely day!"
 
    NEEDS YOU
    3  arj***: "The box arrived crushed"  (damaged item)
@@ -133,10 +135,29 @@ drafts tomorrow morning.
    "automations/chat-review-check.md", "last_run": "<now>", "last_result": "<this module's result>"}`.
    Say: "Remember: each time it reads a chat, Shopee marks it as read. Your list of what's waiting is on the
    dashboard and in **what needs my YES?**."
-3. Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
+3. **Chats need a little supervision (say it plainly, it matters):**
+   - "One thing Shopee does: when chats are opened, it sometimes shows a **puzzle check** (slide a piece into place)
+     to make sure a person is there. I can't do puzzles, and I never try. Only you can."
+   - "If that happens, the chat check stops safely, nothing is sent, and I tell you straight away. You do the puzzle
+     in my browser, and the next check carries on."
+   - "That's why the chat check runs at a time you're usually near the laptop." If 10am isn't such a time, move it
+     (keep it at least 60 minutes after the stock check).
+   Then: "How should I tell you when Shopee needs you (a puzzle, or you're signed out)?"
+   ```
+   A) An email to you ★ (only to your own address, only for "Shopee needs you")
+   B) A Slack message to you (if Slack is connected to your Claude)
+   C) Just the red alert on my dashboard and here in Claude
+   D) Something else — tell me
+   ```
+   Save `notify` in `rules/shop.json`: `how` is always `["dashboard"]` plus `"email"` (A) or `"slack"` (B).
+   A → `email_to` = `alert_email` if Module 2 saved one, else ask. Check Gmail is connected in their Claude (Settings
+   → Connectors); if not: "Gmail isn't connected, so it's the dashboard for now. Connect it later and tell me
+   'email me when Shopee needs me'." B → ask where (their own name in Slack, or a channel), save `slack_to`.
+   Say: "Done. That's the only message I'll ever send by myself, and only to you."
+4. Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
    together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
-4. Teach the one phrase (make them type it once now, it's the habit that matters):
+5. Teach the one phrase (make them type it once now, it's the habit that matters):
    "Each day, open Claude in your Shopee HQ and type **what needs my YES?** I'll show you every reply waiting.
    Try it now."
    Run "What needs my YES?" from `<HQ>/CLAUDE.md`. Most likely nothing is waiting: "Nothing waiting. That's what a

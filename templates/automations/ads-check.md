@@ -40,6 +40,10 @@ Please sign in in Claude's browser.", log the run as "skipped: signed out", refr
 ## 3. Work it out (you do this, not the helper)
 With `rules/ads.json` (if `target_roas` is empty, use 4 and say so). If an ad's name matches a product in
 `rules/costs.json` that has a `break_even_roas`, use that product's number instead of `target_roas` for that ad:
+Shopee's rules (`knowledge/shopee-basics.md` §5): ads need **at least 7 days** to learn, yesterday's ad sales keep
+growing for a few days, and switching ads on and off a lot can restrict traffic. So judge on the 7-day numbers, and
+call an ad "Still learning" (no suggestion for it) when its start date on the page is within the last 7 days, or
+`approvals.json` shows a change to it done in the last 7 days.
 - **wasted**: a row with `spend` > `wasted_spend.spend_over` and `orders` = 0 in the last 7 days.
 - **below target**: `orders` > 0 and `roas` < `target_roas`.
 - **great**: `roas` ≥ 1.5 × `target_roas` with at least 3 orders.
@@ -49,7 +53,7 @@ With `rules/ads.json` (if `target_roas` is empty, use 4 and say so). If an ad's 
 
 Write the day file again with `summary` (all the numbers from step 2 plus `wasted_spend_7d`, `credit_days_left`,
 `target_roas`), `items` (every row: `ad`, `spend`, `sales`, `orders`, `roas`, `flag` = "No orders" / "Below target"
-/ "Great" / "OK", sorted No orders → Below target → Great → OK, then by spend), and a one-line `note`, e.g.
+/ "Great" / "Still learning" / "OK", sorted No orders → Below target → Great → OK, then by spend), and a one-line `note`, e.g.
 "RM212 spent last week at ROAS 4.4. RM51 went to 2 ads with no orders."
 
 ## 4. Suggestions (go to `approvals.json`, never done without a YES)
@@ -57,7 +61,8 @@ Skip anything in `never_touch`, anything in the **Shop GMV Max** group (Shopee m
 anything that already has a `waiting` ads suggestion. At most 3 suggestions per run:
 - Each **wasted** ad → `{"id": "A<n>", "created", "topic": "ads", "what": "Pause '<ad>' (RM<spend> spent in 7 days,
   no orders)", "where": {"page": "/portal/marketing/pas/index", "ad": "<ad>"}, "before": "Ongoing, RM<spend>
-  spent, 0 orders", "do": "Pause the ad '<ad>'", "kind": "pause", "status": "waiting"}`. Ids keep counting up
+  spent, 0 orders", "do": "Pause the ad '<ad>'", "kind": "pause", "note": "If this ad has ROAS Protection, pausing
+  ends it from today.", "status": "waiting"}`. Ids keep counting up
   from the highest `A` number already in the file.
 - **Great** ads: no suggestion today (budget changes need numbers this check doesn't read). Mention them in the
   note ("Kopi O Drip Bag is your best ad") so the owner can decide.

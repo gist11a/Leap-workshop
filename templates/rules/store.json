@@ -1,11 +1,13 @@
 {
   "ship_within_days": null,
+  "preorder_products": [],
   "couriers": [],
   "shopee_policy": [
     "Returns and refunds follow Shopee's Return/Refund policy. Buyers ask for them in the Shopee app (My Purchases → the order → Return/Refund), and Shopee decides if there's a dispute.",
     "Shopee Guarantee: Shopee holds the buyer's payment until they confirm the order arrived OK, so a buyer is always protected against wrong, damaged, missing or not-as-described items.",
     "Cancellations follow Shopee's rules. The shop never asks a buyer to cancel.",
     "Payments, refunds, vouchers and discounts only happen inside Shopee, never by bank transfer or another app.",
+    "Singapore: shops may not set their own return terms or charge extra for returns (Shopee can give penalty points). Malaysia: a return that's the shop's fault costs the shop both ways' shipping.",
     "The shop's own extra policies can add to these, never take anything away."
   ],
   "my_extra_policies": [],

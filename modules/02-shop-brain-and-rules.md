@@ -6,6 +6,7 @@ and with the Shop Scan `rules/shop-profile.md` + `data/scan/<today>.json`.
 **Gate at the end:** `module3`.
 
 Follow START.md's rules all the way through: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §3, §4 and §11 (read only that). Worth saying when it fits: orders paid before 2pm ship the same day, later ones by the next working day; Shopee counts only replies by a person within 12 hours; Shopee's return rules always apply.
 Every later module reads these rules, so this is the module that makes everything else "theirs".
 Write each answer to its file **as soon as they give it** (small edits), so nothing is lost if the chat breaks.
 
@@ -62,7 +63,7 @@ C) Not now
 - **Real buyer questions beat guesses:** in Round C, if part 3 is back, show the buyers' top questions from
   `rules/shop-profile.md` instead of the A–H list, and write the FAQ answers from "Answers the shop already gives"
   (cleaned up, checked against their rules).
-- Never let the scan override what the owner says. If they differ ("you said 2 days, but most orders ship in 3"),
+- Never let the scan override what the owner says. If they differ ("you said the next working day, but several orders shipped later"),
   ask once, plainly, and save what the owner decides.
 
 ## Step 3 · What did you bring? (menu)
@@ -120,14 +121,17 @@ Skip any question Step 3 already answered.
 
 Say first: "Now your promises. When I write a reply for you, I'll only promise what's written here."
 
-1. "How fast do you ship?"
+1. Shipping time is Shopee's rule, not a choice (`knowledge/shopee-basics.md` §3). Say: "Shopee's rule: orders paid
+   **before 2pm ship the same day**, later ones **by the next working day**. Shipping late costs penalty points. Only
+   products listed as **pre-order** may take longer." Then ask:
    ```
-   A) Same day or next day
-   B) Within 2 days ★
-   C) Within 3 days
-   D) Longer — tell me
+   A) All my products ship like that ★
+   B) Some are pre-order — tell me which, and how many days
+   C) I often ship later than that — tell me
    ```
-   Save `ship_within_days` (1, 2, 3 or their number).
+   Save `ship_within_days` 1 ("next working day"), and for B `preorder_products` (`{"product", "days"}`).
+   C → don't save a slower promise: "Then let's mark those products as pre-order in Shopee, or late shipments
+   will cost you points. Your trainer can show you." Note it under "How the owner likes things".
 2. Couriers: if the scan's part 1 is back, "Your orders go out with **<couriers seen in the orders>**. Right?"
    (YES or fix). Otherwise ask: "Which couriers do you use?" (free text). Save `couriers`.
 3. **Policies.** Say first (don't ask): "Shopee's own policies always apply to your shop: its return and refund
@@ -145,6 +149,9 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
    - Each other letter → one short follow-up for the detail, then save it to `my_extra_policies` as
      `{"policy": "1-year warranty", "details": "Brand handles it; buyer chats us with the order number"}`.
    - If Step 3 gave you their policy, show what you saved instead of asking: "From your file: <policy>. Right?"
+   - **Singapore shops:** Shopee doesn't allow shops to set their own return terms (§11 of
+     `knowledge/shopee-basics.md`), so C (exchanges) goes to `always_hand_to_me` as "exchange requests", not into
+     `my_extra_policies`. Say: "In Singapore, exchanges go through Shopee's return process, so I'll pass those to you."
    - **An extra policy can add to Shopee's, never take away.** "No returns", "no refunds" or "returns only by bank
      transfer" can't override Shopee's rules: "Shopee's return rules still apply to every buyer, so I can't promise
      that. I'll pass those chats to you instead." Add it to `always_hand_to_me` and save nothing in `my_extra_policies`.
@@ -254,7 +261,7 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
    Kopi & Co · Shopee Malaysia · normal shop
    Sells: coffee beans and drip bags
    Goal this month: less time on admin
-   Ships within 2 days · SPX, J&T
+   Ships same day if paid before 2pm, else next working day · SPX, J&T
    Policies: Shopee's (always) + 1-year warranty · 100% original
    Replies: warm and friendly · English and Malay
    Chat now: 92% answered · about 2h 10m to reply (last 30 days)

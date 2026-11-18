@@ -7,6 +7,7 @@ The recipe `automations/campaign-check.md` is already in their folder. Read it n
 **Gate at the end:** `module10`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §7 (read only that). Worth saying when it fits: nominations close at 5pm, often weeks before the sale; prices are checked against the 30-day lowest; after approval a price can only go down; never raise the original price just before a promotion.
 **The owner presses Nominate and Confirm, never Claude.** Joining a campaign is a promise to Shopee about price
 and stock. Claude prepares the list and checks the prices; the owner clicks.
 

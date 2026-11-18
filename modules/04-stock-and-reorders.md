@@ -8,6 +8,7 @@ it in Step 4, and in Module 5 it runs by itself every morning.
 **Gate at the end:** `module5`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §2 and §3 (read only that). Worth saying when it fits: Shopee's stock page rounds sales averages up to at least 1 a day (so we use real units sold); cancelling an order because it's out of stock raises the Non-Fulfilment Rate and can cost penalty points.
 
 ---
 
@@ -70,11 +71,21 @@ Say: "I've written your first automation: the morning stock check. Let's run it 
 
 0. If the Shop Scan from Module 2 is still running, wait for it first ("My helper is finishing your shop scan. One
    minute."), then show its "What I learned" card (Module 2 Step 5).
-1. Say: "Sending my helper to read your **My Inventory** page. If you have lots of products this takes 2 or 3
-   minutes. It only reads, it doesn't change anything."
-2. Follow `automations/stock-check.md` steps 2 to 5 exactly (you're in a live chat, so use a helper for step 2).
-3. While you wait, one line: "While it reads: Shopee works out 'days of supply' for each product. I check it
-   against your rules, and add how many to order."
+1. Say: "Sending my helper to read your **My Inventory** page and your real sales in **Business Insights**. If you
+   have lots of products this takes 3 or 4 minutes. It only reads, it doesn't change anything."
+2. Follow `automations/stock-check.md` steps 2 to 5 exactly (you're in a live chat, so use a helper for step 2; the
+   first run always does job 4, the real sales speed).
+3. While you wait, explain **what Shopee does and what we do about it** (short, plain):
+   - "Shopee's stock page shows a 'sales average' for each product, but in whole numbers. Anything that sold even
+     once shows as **at least 1 a day**. A product that sold 3 in a month looks like it sells 30 a month, and its
+     'days of supply' is wrong too."
+   - "So I don't use those numbers for speed. I take how many of each product **really sold in the last 30 days**
+     from Business Insights, and divide by 30. Your reorder amounts come from that."
+   - "And I double-check: if all the speeds added up are much more than your shop really sells in a day, I hold the
+     reorder amounts back instead of giving you wrong ones."
+   - If the helper says `NO_SPEED_DATA` (Shopee hasn't loaded the day yet, usually before about 10am): show the
+     statuses only ("these are low") without amounts, and say "Amounts come at the next run, when Shopee's sales
+     data is ready." The recipe already holds the amounts back.
 
 ## Step 5 · Show the result, then check it with them
 
@@ -105,7 +116,7 @@ Say: "I've written your first automation: the morning stock check. Let's run it 
    - D → add to `ignore_products`.
    Fix the rule, re-work the numbers from the saved day file (**don't send the helper again**), show the updated card.
 3. Hero products: "Which products must **never** run out? Pick up to five." Menu of their 8 best sellers by
-   7-day sales average (`l7d` in `all_products`; `l30d` if that's 0), several letters allowed, last option "None for now".
+   real sales (`units_30d` in the newest `data/sales-speed/` file), several letters allowed, last option "None for now".
    Save to `hero_products`. "These always show on your dashboard, and I flag them as urgent."
 
 ## Step 6 · A message for your supplier (the payoff)

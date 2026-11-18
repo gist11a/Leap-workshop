@@ -101,6 +101,19 @@ Desktop/Shopee HQ/
   products in detail, stock, ads, reviews, chat settings and up to 10 past (already read) chats of their own shop, then write
   `rules/shop-profile.md`. The interview still runs; the scan lets Claude confirm instead of ask, and use real
   buyer questions and the shop's own answers for the FAQ.
+- **Real stock speed.** Shopee's My Inventory rounds sales averages up to whole numbers (anything that sold shows at
+  least "1 a day"), which made reorder amounts far too high in a real run. The stock check now reads real units sold
+  from Business Insights → Product → Performance once a week (`data/sales-speed/`), ignores Shopee's Days of Supply,
+  and holds back reorder amounts if the speeds add up to more than twice what the shop really sells. Module 4 tells
+  the owner what Shopee does and what we do about it.
+- **Puzzle checks need a person.** Opening chats can make Shopee show a slide puzzle; Claude never touches it.
+  Helpers reply `VERIFY`, the run stops safely, and the owner is told: a dashboard alert plus their choice from
+  Module 6 (an email to their own address, or a Slack message). Those notices are the only messages Claude sends
+  by itself.
+- **Shopee know-how.** `knowledge/shopee-basics.md` (structure, what the numbers mean, timing, chat/ads/campaign/
+  fee/listing rules, SG vs MY) is copied into every Shopee HQ. Each module names the section it uses; checks apply
+  the rules (ads "still learning" for 7 days, chat Due Soon at 9h and no replies after 7 days, campaign price rules,
+  shipping by the next working day, SG shops can't set their own return terms).
 - **Optional extras.** `automations/extras.md` has 20 ready-made extras (slow movers, order-by dates, FAQ learner,
   review themes, ads stock guard, loss makers, month-end report, campaign stock cover, sample sorter, listing health,
   Friday weekly review…). Modules 4 and 6–12 offer theirs as a menu. Each rides on an existing check, so no new

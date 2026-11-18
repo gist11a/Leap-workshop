@@ -73,6 +73,9 @@ First: if this automation's entry in `automations.json` has `"extras"`, run the 
    sessions/time slots) and, for every product shown (up to 30), `product`, `variation`, `current_price`,
    `suggested_price` (Shopee's recommended or proposed campaign price, if shown), `campaign_stock` if shown.
    Click nothing on this page except tabs or page numbers. Save to `<HQ>/data/campaign-check-<campaign short>.json`."
+   Shopee's rules (`knowledge/shopee-basics.md` §7): prices are checked against the shop's 30-day lowest and average
+   price and must fit that session's range; **after approval a price can only go down and stock only up**; never
+   raise the original price just before a promotion (it counts as a misleading discount).
 3. Compare each product with `rules/campaigns.json` → `price_floor`: the floor is the higher of `lowest_prices`
    and `owner_lowest_prices` for that product. Products with no floor: work it out from `rules/costs.json`
    (as in Module 9) or say "no cost yet".

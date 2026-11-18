@@ -8,6 +8,7 @@ The recipe `automations/morning-routine.md` is already in their folder. Read it 
 **This is the last module.** Only say the day is finished at the end of Step 7.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §10 (read only that). Worth saying when it fits: penalty points count on Mondays and reset each quarter; 15 in a quarter freezes the account; keep 0 points to join campaigns.
 
 ---
 
@@ -150,8 +151,8 @@ schedule or approve, and most cost almost no allowance. Read only that file's "H
    - "This morning your shop needed you to check everything. From tomorrow, it checks itself and tells you what
      matters."
    - "Everything lives in your Shopee HQ folder on this laptop. It's yours. Nothing was sent to Leap."
-   - "Remember the one rule: laptop on, Claude open, my browser on Seller Centre. If Shopee signs you out, the red
-     alert tells you."
+   - "Remember the one rule: laptop on, Claude open, my browser on Seller Centre. If Shopee signs you out or shows
+     a puzzle check, I can't do those: the red alert (and your email or Slack, if you chose it) tells you."
    - "Want to change anything later? Just open Claude in your Shopee HQ and tell me in plain words."
 3. Feedback (optional, quick): "One last thing: how was today, from 1 to 5, and one thing to improve? I'll write it
    as a draft email to the Leap team, and you choose whether to send it." Draft to scale@leapecommerce.com only if

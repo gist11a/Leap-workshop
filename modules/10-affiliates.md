@@ -7,6 +7,7 @@ The recipe `automations/affiliate-check.md` is already in their folder. Read it 
 **Gate at the end:** `module11`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §8 (read only that). Worth saying when it fits: commission is paid only on completed orders, on the price after the shop's voucher; affiliate days are final two days later; affiliate sales are never added to ad sales.
 **Claude suggests; the owner changes commissions and approves samples in Shopee.** Keep this module short: it's
 late in the day.
 

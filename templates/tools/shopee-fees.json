@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-11-01",
+  "checked_on": "2026-11-19",
   "source": "Shopee MY and SG fee pages, as reconciled by Leap E-commerce. Shopee changes fees; if a real order shows different fees, trust the order.",
   "MY": {
     "tax_note": "Rates below already include 8% SST.",
@@ -63,7 +63,8 @@
     "transaction_fee_percent": 3.78,
     "platform_fee_per_order": 0.54,
     "seller_shipping_per_order": 0,
-    "campaign_days": "Double dates (1.1 \u2026 12.12): 3 days before until the day. Mid-month (15th) and payday (25th): the day before and the day."
+    "campaign_days": "Double dates (1.1 … 12.12): 3 days before until the day. Mid-month (15th) and payday (25th): the day before and the day.",
+    "new_seller_note": "Commission starts after 120 days or 200 completed orders. The RM0.54 support fee is waived for the first 60 days and for very small shops."
   },
   "SG": {
     "tax_note": "Rates below already include 9% GST.",
@@ -98,11 +99,14 @@
       "normal_days": 5.45,
       "campaign_days": 6.54,
       "cap_per_item": 60,
-      "low_band_note": "Phones, cameras, computer parts, gaming, alcohol, pets, baby: 3.27 normal / 4.36 campaign."
+      "low_band_note": "Phones, cameras, computer parts, gaming, alcohol, pets, baby: 3.27 normal / 4.36 campaign.",
+      "campaign_cap_per_item": 70
     },
     "transaction_fee_percent": 3.27,
     "platform_fee_per_order": 0,
     "seller_shipping_per_order": 2.3,
-    "campaign_days": "Double dates, 15th and 25th sales: assume the same windows as Malaysia."
+    "campaign_days": "Double dates, 15th and 25th sales: assume the same windows as Malaysia.",
+    "new_seller_note": "New sellers pay 0% commission for their first 120 days.",
+    "commission_caps_note": "Before tax, per item: S$60 (normal) / S$120 (Mall) on electronics and furniture; S$300 on fashion shoes, bags and watches (normal shops). Other categories have no cap."
   }
 }

@@ -7,6 +7,7 @@ The recipe `automations/profit-check.md` and the fee table `tools/shopee-fees.js
 **Gate at the end:** `module9`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §6 (read only that). Worth saying when it fits: campaign days raise Shopee's programme fee on every order, nominated or not; Shopee-funded vouchers don't cost the shop.
 **Never present an estimate as exact.** Say "about" for estimates, and say where each number came from.
 
 ---
@@ -67,8 +68,8 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
 
 ## Step 4 · Your product costs
 
-1. Pick their **8 best sellers**: from `data/stock/<latest>.json` → `all_products` (highest `l7d`, the 7-day sales average;
-   `l30d` if that's 0).
+1. Pick their **8 best sellers**: the highest `units_30d` in the newest `data/sales-speed/` file (real units sold;
+   Shopee's rounded inventory averages aren't good enough for this).
    If `rules/my-shop-info.md` has costs, use them and only ask about missing ones.
 2. "What does one of each cost you, delivered to you? Rough is fine. Reply with the numbers in this order, or
    paste your cost list." List the products numbered, with their price if you know it (ask for the price too if not).
@@ -110,7 +111,7 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
    money." That's usually the moment it lands. Don't make changes here; say "Your ads check now uses these
    numbers, so tomorrow's suggestions take this into account."
 4. Update `rules/ads.json`: `target_roas` = total price ÷ total left-before-ads across these products, weighted by
-   how much each sells (`l7d`), rounded **up** to the next 0.5. `target_roas_source` "profit". Say: "Your shop-wide ads target is
+   how much each sells (`units_30d` from `data/sales-speed/`), rounded **up** to the next 0.5. `target_roas_source` "profit". Say: "Your shop-wide ads target is
    now <n> (it was 4 as a starting point)."
 5. Products with less than 10% margin: "This one barely makes money even without ads. Worth a price check, or no
    ads on it." Don't change prices.

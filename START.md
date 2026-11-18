@@ -104,6 +104,10 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
 - Explain it once, in Module 1, in plain words: "I'm the manager. I send a helper to read your Shopee pages and
   report back. That keeps your Claude allowance for the thinking."
 
+**Shopee know-how:** `<HQ>/knowledge/shopee-basics.md` holds how Shopee is built, what its numbers mean and its rules.
+Each module names the section it uses: read that section only, and use it when you explain ("Shopee counts only
+replies by a person within 12 hours"). Never read the whole file in one go.
+
 ## 4. Their Shopee HQ folder
 
 - **Find the real Desktop once** (Module 1) and use that full location for every save all day. On Windows the

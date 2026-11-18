@@ -7,6 +7,7 @@ The recipe `automations/image-check.md` is already in their folder. Read it now.
 **Gate at the end:** `module12`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §9 (read only that). Worth saying when it fits: images 1:1 at 1024px or more, a cover plus up to 8; a "category doesn't match" warning is a listing violation the owner should fix.
 Be kind about photos: owners often took them themselves. Lead with what works, then the one fix.
 **Claude doesn't draw the images.** Shopee's AI makes the poster images from the selling points Claude writes;
 better photos come from the owner (or their photographer) using Claude's brief.

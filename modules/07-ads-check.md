@@ -7,6 +7,7 @@ The recipe `automations/ads-check.md` is already in their folder. Read it now; y
 **Gate at the end:** `module8`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §5 (read only that). Worth saying when it fits: GMV Max ads need at least 7 days to learn, so judge on 7 days, not yesterday; Shopee asks for changes of 10% or less, at most 1–2 a day; ROAS = sales ÷ expense.
 **Money is involved here. Claude never tops up, never starts a new ad, never joins anything.** It reads, explains,
 and suggests; the owner decides.
 

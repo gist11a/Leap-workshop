@@ -36,8 +36,8 @@ Allowance: **tiny** = reads no new pages · **small** = one page · **medium** =
 
 ### slow-movers · Slow movers
 - **Rides on:** `stock-check` · **Days:** Mondays · **Reads:** nothing new · **Allowance:** tiny
-- **Works out:** from today's stock file, products with stock > 0 that sold nothing in 30 days (L30D average 0, or
-  days of supply over 120). Cash tied up = stock × cost, if `rules/costs.json` has the cost.
+- **Works out:** products with stock > 0 that sold nothing in 30 days: missing from the newest `data/sales-speed/`
+  file, or `units_30d` 0 (never Shopee's rounded averages). Cash tied up = stock × cost, if `rules/costs.json` has the cost.
 - **Tells the owner:** one `info` alert: "<n> products haven't sold in 30 days (about RM<cash> of stock). Ideas: a
   bundle, a campaign slot, or a shop voucher. Ask me for a plan." `items`: product, stock, cash_tied_up.
 

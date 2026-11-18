@@ -31,6 +31,8 @@ Keep it short. Details live in `rules/`.
 - `rules/` — the owner's rules: shop, store, chat, stock, ads, campaigns, affiliates, costs.
 - `rules/my-shop-info.md` — what the owner brought (costs, policies, buyer questions, lowest prices…), in their words.
   Later modules take their numbers from here before asking again.
+- `knowledge/shopee-basics.md` — how Shopee works: its structure, what the numbers mean, its rules and fees (SG + MY).
+  Read only the section you need before explaining a Shopee number or rule, or making a suggestion.
 - `rules/shop-profile.md` — what Claude learned from the Shop Scan (best sellers, product facts, what buyers ask, how
   the shop replies). Read it before writing replies or advice. The owner's own rules win if they differ.
 - `automations/` — one recipe per automation (what to read, what to check, what to save).
@@ -109,11 +111,8 @@ When the owner asks what's waiting (or says "show approvals"):
    >    summary. On Sonnet, follow <HQ>/automations/<id>.md from start to finish as a scheduled run.
    > 3. Read only. Never change anything in the Shopee shop, never type a password or code, never run
    >    JavaScript in the browser. Changes go to <HQ>/approvals.json for the owner's YES.
-   > 4. If Claude's browser isn't open or Seller Centre is signed out: add an urgent alert in
-   >    <HQ>/alerts.json ("Seller Centre is signed out. Please sign in in Claude's browser."), log the run as
-   >    "skipped", refresh the dashboard, and stop. If Shopee shows a puzzle or slider check, don't touch it: add an
-   >    urgent alert ("Shopee wants a quick check that you're a person. Please do it in Claude's browser."), log the
-   >    run as "skipped: Shopee check", refresh, and stop.
+   > 4. If Claude's browser isn't open, Seller Centre is signed out, or Shopee shows a puzzle or slider check
+   >    (never touch it): follow "When Shopee needs the owner" in <HQ>/CLAUDE.md, then stop.
    > 5. End with a summary of three short lines.
 2. In `automations.json` set `status` "on", `when` in plain words, `schedule_id` = the taskId.
 3. **Test run:** only where the module says so (Module 5 and Module 12): start it with `run_scheduled_task` and
@@ -126,6 +125,23 @@ When the owner asks what's waiting (or says "show approvals"):
    separate jobs stay off: everything points to `shopee-morning-routine`).
 - It only runs while the laptop is on with Claude open and Claude's browser open on Seller Centre. A run missed
   while Claude was closed happens when the owner next opens Claude.
+
+## When Shopee needs the owner (signed out, or a puzzle check)
+Claude can't sign in and can't do Shopee's puzzle checks, and never tries. When a helper replies `SIGNED_OUT` or
+`VERIFY` (or the browser isn't open):
+1. **Live chat:** say it in the chat, show the browser (Cmd+Shift+B / Ctrl+Shift+B), and wait for DONE.
+2. **Scheduled run:** add ONE urgent alert dated today with `topic` "shopee" (don't repeat one already there today):
+   signed out → "Seller Centre is signed out. Please sign in in Claude's browser."; puzzle → "Shopee wants a quick
+   check that you're a person. Please do the puzzle in Claude's browser." Then tell the owner the way
+   `rules/shop.json` → `notify` says:
+   - `"email"` in `how`: send ONE email with the Gmail connector to `email_to` only (their own address), subject
+     "Shopee needs you: <sign in / puzzle check>", body: that alert line + "Your other checks carry on. Nothing was
+     sent to buyers." No shop data. At most one such email per morning and one per afternoon.
+   - `"slack"` in `how`: send that same line to `slack_to` with the Slack connector.
+   - Connector missing or it fails: skip it quietly; the dashboard alert is enough.
+   These owner notices are the **only** messages Claude sends by itself, because the owner chose them in Module 6.
+3. Log the run ("skipped: signed out" / "skipped: Shopee check"), refresh the dashboard, stop that check.
+   The next scheduled run tries again by itself.
 
 ## Optional extras
 Ready-made extra automations live in `automations/extras.md`. One is switched on by adding its id to `"extras"` on
