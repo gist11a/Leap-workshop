@@ -46,6 +46,7 @@ mkdir -p "$HQ/dashboard"
   printf '"automations": '; emit_file "$HQ/automations.json"; printf ',\n'
   printf '"approvals": ';   emit_file "$HQ/approvals.json";   printf ',\n'
   printf '"alerts": ';      emit_file "$HQ/alerts.json";      printf ',\n'
+  printf '"layout": ';      emit_file "$HQ/dashboard/layout.json"; printf ',\n'
 
   printf '"data": {'
   tfirst=1

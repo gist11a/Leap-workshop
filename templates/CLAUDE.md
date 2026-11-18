@@ -32,8 +32,28 @@ Keep it short. Details live in `rules/`.
 - `alerts.json` — things the owner should look at (newest first, keep 50).
 - `data/<topic>/<YYYY-MM-DD>.json` — what was read that day. Same job twice a day replaces the file.
   Topics: home, shop, stock, orders, ads, chats, reviews, campaigns, affiliates, profit, images, runs.
-- `dashboard/index.html` — the dashboard. `dashboard/data.js` is rebuilt by the refresh step.
+- `dashboard/index.html` — the dashboard (never edit it). `dashboard/layout.json` — what the dashboard shows:
+  card order (`sections`, `show`), the top tiles (`today`), names (`labels`), extra note cards (`notes`).
+  Change the dashboard by editing `layout.json` only. `dashboard/data.js` is rebuilt by the refresh step.
 - `course/` — the workshop files. Don't edit.
+
+## The shape of every file (so the dashboard can show it)
+- Day file `data/<topic>/<date>.json`: `{"read_at": "2026-11-19 09:02", "source_pages": [...],
+  "summary": {"low_stock": 4, ...}, "items": [{...}, ...], "note": "one plain line"}`. `summary` holds numbers
+  (the field names in `dashboard/layout.json`); `items` is the table (columns as in `layout.json`). Exception:
+  `data/runs/<date>.json` is a plain list of runs.
+- `alerts.json` (newest first, keep 50): `{"date", "level": "urgent|watch|info", "topic", "text"}`.
+- `approvals.json`: `{"id", "created", "topic", "what" (plain words), "where", "before", "do",
+  "status": "waiting|approved|done|failed|changed_since|declined"}`.
+- `automations.json`: `{"id", "name", "when" (plain words), "status": "on|paused", "last_run", "last_result"}`.
+
+## When the owner wants the dashboard changed
+- Change `dashboard/layout.json` only: `today` (the top numbers, best 3–6, each needs `label`, `topic`, `field`,
+  `up_is` good/bad/neutral, `money` true for ringgit), `sections` (order, `"show": false` hides one), `title`,
+  `labels` (rename any number), `notes` (`{"title", "text"}` sticky notes).
+- Keep it valid, refresh, then tell them: "Press Cmd+R (Mac) or Ctrl+R (Windows) on the dashboard."
+- Never edit `dashboard/index.html` during the workshop. Afterwards, if they want a new kind of card or chart,
+  first copy it to `dashboard/index-backup.html`, make the change, and check the page still opens.
 
 ## Every job ends with these three steps
 1. Add a line to today's `data/runs/<YYYY-MM-DD>.json` (a list): `{"time","automation","result","alerts","approvals"}`.

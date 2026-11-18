@@ -1,0 +1,196 @@
+{
+  "title": "Shopee HQ",
+  "today": [
+    {
+      "label": "Orders to process",
+      "topic": "home",
+      "field": "to_process",
+      "up_is": "neutral"
+    },
+    {
+      "label": "Low on stock",
+      "topic": "stock",
+      "field": "low_stock",
+      "up_is": "bad"
+    },
+    {
+      "label": "Chats waiting",
+      "topic": "chats",
+      "field": "waiting",
+      "up_is": "bad"
+    },
+    {
+      "label": "Ad spend today",
+      "topic": "ads",
+      "field": "spend_today",
+      "money": true,
+      "up_is": "neutral"
+    },
+    {
+      "label": "Ad sales per RM1 spent",
+      "topic": "ads",
+      "field": "roas",
+      "up_is": "good"
+    },
+    {
+      "label": "Profit yesterday",
+      "topic": "profit",
+      "field": "profit",
+      "money": true,
+      "up_is": "good"
+    }
+  ],
+  "sections": [
+    {
+      "id": "attention",
+      "title": "Needs you",
+      "show": true
+    },
+    {
+      "id": "automations",
+      "title": "Automations",
+      "show": true
+    },
+    {
+      "id": "shop",
+      "title": "My shop today",
+      "show": true
+    },
+    {
+      "topic": "stock",
+      "title": "Stock and reorders",
+      "module": 3,
+      "show": true,
+      "about": "Days left = stock ÷ what you sell in a day.",
+      "columns": [
+        "product",
+        "stock",
+        "sold_per_day",
+        "days_left",
+        "reorder_qty"
+      ]
+    },
+    {
+      "topic": "chats",
+      "title": "Chats",
+      "module": 5,
+      "show": true,
+      "columns": [
+        "buyer",
+        "asked",
+        "status"
+      ]
+    },
+    {
+      "topic": "reviews",
+      "title": "Reviews",
+      "module": 5,
+      "show": true,
+      "columns": [
+        "product",
+        "stars",
+        "review",
+        "status"
+      ]
+    },
+    {
+      "topic": "ads",
+      "title": "Ads",
+      "module": 6,
+      "show": true,
+      "about": "ROAS = sales from ads ÷ ad spend. 5 means RM5 of sales for every RM1.",
+      "columns": [
+        "ad",
+        "spend",
+        "sales",
+        "roas",
+        "flag"
+      ]
+    },
+    {
+      "topic": "profit",
+      "title": "Real profit",
+      "module": 7,
+      "show": true,
+      "about": "After Shopee fees, ads and your product cost.",
+      "columns": [
+        "product",
+        "price",
+        "takeaway",
+        "profit",
+        "margin_percent"
+      ]
+    },
+    {
+      "topic": "campaigns",
+      "title": "Campaigns",
+      "module": 8,
+      "show": true,
+      "columns": [
+        "campaign",
+        "type",
+        "deadline",
+        "status"
+      ]
+    },
+    {
+      "topic": "affiliates",
+      "title": "Affiliates",
+      "module": 9,
+      "show": true
+    },
+    {
+      "topic": "images",
+      "title": "Product images",
+      "module": 10,
+      "show": true,
+      "columns": [
+        "product",
+        "issue",
+        "fix"
+      ]
+    },
+    {
+      "id": "rules",
+      "title": "My rules",
+      "show": true
+    },
+    {
+      "id": "log",
+      "title": "What ran",
+      "show": true
+    }
+  ],
+  "labels": {
+    "to_process": "Orders to process",
+    "return_refund_cancel": "Returns and cancels",
+    "banned_or_deboosted": "Products with problems",
+    "roas": "ROAS",
+    "spend_today": "Ad spend today",
+    "sales_from_ads_today": "Sales from ads today",
+    "wasted_spend": "Spend with no orders",
+    "sold_per_day": "Sold a day",
+    "reorder_qty": "Order this many",
+    "margin_percent": "Margin %",
+    "chat_enquiries_30d": "Chats, last 30 days",
+    "chat_response_rate": "Chats answered %",
+    "response_time": "Time to reply"
+  },
+  "money_fields": [
+    "spend_today",
+    "sales_from_ads_today",
+    "wasted_spend",
+    "ads_credit",
+    "spend",
+    "sales",
+    "price",
+    "takeaway",
+    "profit",
+    "fees",
+    "ad_spend",
+    "cost_of_goods",
+    "commission",
+    "affiliate_sales"
+  ],
+  "notes": []
+}
