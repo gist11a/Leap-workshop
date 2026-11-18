@@ -1,0 +1,108 @@
+{
+  "checked_on": "2026-11-01",
+  "source": "Shopee MY and SG fee pages, as reconciled by Leap E-commerce. Shopee changes fees; if a real order shows different fees, trust the order.",
+  "MY": {
+    "tax_note": "Rates below already include 8% SST.",
+    "commission_percent": {
+      "note": "By category. Mall shops pay more. 'on_programme' = on Shopee Cashback.",
+      "health": {
+        "normal_on_programme": 16.2,
+        "normal": 18.36,
+        "mall_on_programme": 19.98,
+        "mall": 22.14
+      },
+      "beauty": {
+        "normal_on_programme": 16.2,
+        "normal": 18.36,
+        "mall_on_programme": 20.52,
+        "mall": 22.68
+      },
+      "mom_baby": {
+        "normal_on_programme": 14.04,
+        "normal": 16.2,
+        "mall_on_programme": 17.28,
+        "mall": 19.44
+      },
+      "home_living": {
+        "normal_on_programme": 14.58,
+        "normal": 16.74,
+        "mall_on_programme": 18.9,
+        "mall": 21.06
+      },
+      "appliances": {
+        "normal_on_programme": 11.88,
+        "normal": 14.04,
+        "mall_on_programme": 15.12,
+        "mall": 17.28
+      },
+      "phones": {
+        "normal_on_programme": 8.1,
+        "normal": 11.88,
+        "mall_on_programme": 11.34,
+        "mall": 15.12
+      },
+      "pets": {
+        "normal_on_programme": 14.04,
+        "normal": 16.2,
+        "mall_on_programme": 17.82,
+        "mall": 19.98
+      },
+      "sports": {
+        "normal_on_programme": 14.04,
+        "normal": 16.2,
+        "mall_on_programme": 17.28,
+        "mall": 19.44
+      },
+      "other": null
+    },
+    "programme_service_fee_percent": {
+      "normal_days": 5.94,
+      "campaign_days": 8.1,
+      "cap_per_item": 108
+    },
+    "transaction_fee_percent": 3.78,
+    "platform_fee_per_order": 0.54,
+    "seller_shipping_per_order": 0,
+    "campaign_days": "Double dates (1.1 \u2026 12.12): 3 days before until the day. Mid-month (15th) and payday (25th): the day before and the day."
+  },
+  "SG": {
+    "tax_note": "Rates below already include 9% GST.",
+    "commission_percent": {
+      "note": "By category. Mall shops pay more. 'on_programme' = on Promo Xtra.",
+      "most_categories": {
+        "normal_on_programme": 10.9,
+        "normal": 14.17,
+        "mall_on_programme": 14.17,
+        "mall": 17.44
+      },
+      "baby_pets_alcohol": {
+        "normal_on_programme": 8.72,
+        "normal": 11.99,
+        "mall_on_programme": 11.99,
+        "mall": 15.26
+      },
+      "food_essentials_books": {
+        "normal_on_programme": 6.54,
+        "normal": 10.9,
+        "mall_on_programme": 9.81,
+        "mall": 14.17
+      },
+      "phones_tablets_laptops": {
+        "normal_on_programme": 8.72,
+        "normal": 11.99,
+        "mall_on_programme": 9.81,
+        "mall": 13.08
+      }
+    },
+    "programme_service_fee_percent": {
+      "normal_days": 5.45,
+      "campaign_days": 6.54,
+      "cap_per_item": 60,
+      "low_band_note": "Phones, cameras, computer parts, gaming, alcohol, pets, baby: 3.27 normal / 4.36 campaign."
+    },
+    "transaction_fee_percent": 3.27,
+    "platform_fee_per_order": 0,
+    "seller_shipping_per_order": 2.3,
+    "campaign_days": "Double dates, 15th and 25th sales: assume the same windows as Malaysia."
+  }
+}

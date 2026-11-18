@@ -1,9 +1,17 @@
 {
   "settings": {
     "is_mall": null,
-    "on_cashback_programme": null,
+    "on_programme": null,
+    "category": null,
+    "fee_percent_normal": null,
+    "fee_percent_campaign": null,
+    "fixed_fee_per_order": null,
+    "fees_from": null,
     "fees_checked_on": null,
-    "notes": "Filled in Module 7 from Shopee's fee pages and the owner's answers."
+    "packaging_per_order": 0,
+    "other_cost_per_order": 0,
+    "notes": "fee_percent_* = everything Shopee takes as a % of the price (commission + programme service fee + transaction fee). fixed_fee_per_order = flat fees (MY platform fee RM0.54, SG seller shipping share). fees_from: 'real orders' or 'fee table'."
   },
-  "products": []
+  "products": [],
+  "notes": "products: {\"product\", \"price\", \"cost\", \"left_before_ads\", \"margin_percent\", \"break_even_roas\"} \u2014 cost = what one unit costs you to buy or make, delivered to you. The last three are worked out by Claude."
 }

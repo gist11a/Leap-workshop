@@ -235,7 +235,7 @@ tr:hover td{background:#FBFAF6}
   function dShort(s){ var d = pd(s); return d ? d.getDate() + " " + MON[d.getMonth()] : s; }
   function todayStr(){ var d = new Date(); return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
   function daysBetween(a, b){ var x = pd(a), y = pd(b); return (x && y) ? Math.round((y - x) / 864e5) : null; }
-  function dates(topic){ return Object.keys(D[topic] || {}).filter(function(k){ return D[topic][k] != null; }).sort(); }
+  function dates(topic){ return Object.keys(D[topic] || {}).filter(function(k){ return /^\d{4}-\d{2}-\d{2}$/.test(k) && D[topic][k] != null; }).sort(); }
   function latest(topic){ var ds = dates(topic); return ds.length ? {date: ds[ds.length-1], file: D[topic][ds[ds.length-1]]} : null; }
   function series(topic, field){
     return dates(topic).map(function(d){ var f = D[topic][d]; var v = f && f.summary ? f.summary[field] : undefined; return {d: d, v: v}; })

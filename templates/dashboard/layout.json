@@ -142,13 +142,23 @@
       "title": "Real profit",
       "module": 7,
       "show": true,
-      "about": "After Shopee fees, ads and your product cost.",
+      "about": "Yesterday, after Shopee fees, your product costs, packing and ads. Numbers marked estimated use your average margin.",
       "columns": [
         "product",
-        "price",
-        "takeaway",
+        "units",
+        "sales",
         "profit",
-        "margin_percent"
+        "margin_percent",
+        "status"
+      ],
+      "fields": [
+        "sales",
+        "profit",
+        "margin_percent",
+        "fees",
+        "cost_of_goods",
+        "ad_spend",
+        "estimated_percent"
       ]
     },
     {
@@ -222,7 +232,14 @@
     "roas_7d": "ROAS, 7 days",
     "wasted_spend_7d": "Spent with no orders, 7 days",
     "ads_credit": "Ads credit left",
-    "credit_days_left": "Days of credit left"
+    "credit_days_left": "Days of credit left",
+    "sales": "Sales",
+    "profit": "Profit",
+    "fees": "Shopee fees",
+    "cost_of_goods": "Product costs",
+    "ad_spend": "Ads",
+    "estimated_percent": "Estimated part %",
+    "units": "Sold"
   },
   "money_fields": [
     "ad_spend",
@@ -231,6 +248,7 @@
     "commission",
     "cost_of_goods",
     "fees",
+    "packaging",
     "price",
     "profit",
     "sales",

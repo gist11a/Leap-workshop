@@ -38,7 +38,8 @@ The job:
 Please sign in in Claude's browser.", log the run as "skipped: signed out", refresh, stop.
 
 ## 3. Work it out (you do this, not the helper)
-With `rules/ads.json` (if `target_roas` is empty, use 4 and say so):
+With `rules/ads.json` (if `target_roas` is empty, use 4 and say so). If an ad's name matches a product in
+`rules/costs.json` that has a `break_even_roas`, use that product's number instead of `target_roas` for that ad:
 - **wasted**: a row with `spend` > `wasted_spend.spend_over` and `orders` = 0 in the last 7 days.
 - **below target**: `orders` > 0 and `roas` < `target_roas`.
 - **great**: `roas` ≥ 1.5 × `target_roas` with at least 3 orders.
