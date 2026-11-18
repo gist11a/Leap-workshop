@@ -49,7 +49,7 @@ They move on by typing the next module word (`module2`, `module3` …), never wi
 | 1:30 | **6 · Chats and reviews** | Replies drafted in their shop's voice, sent only after their YES |
 | 2:15 | **7 · Ads check** | Morning ad check against their goals, wasted spend flagged |
 | 2:50 | Break | |
-| 3:05 | **8 · Real profit** | Profit per product after Shopee fees and their costs |
+| 3:05 | **8 · Real profit** | Profit per product after Shopee fees, shipping, packing and their costs |
 | 3:35 | **9 · Campaigns** | Products picked and priced from their rules, ready to nominate |
 | 4:10 | **10 · Affiliates** | Sample requests and creators checked against their rules |
 | 4:30 | **11 · Product images** | Image check per product + ready-to-use image briefs |
@@ -114,6 +114,13 @@ Desktop/Shopee HQ/
   fee/listing rules, SG vs MY) is copied into every Shopee HQ. Each module names the section it uses; checks apply
   the rules (ads "still learning" for 7 days, chat Due Soon at 9h and no replies after 7 days, campaign price rules,
   shipping by the next working day, SG shops can't set their own return terms).
+- **True profit, the calculator's way.** Module 8 and `tools/shopee-fees.json` follow Leap's takeaway calculator
+  (fees matched to real SG and MY income statements): fees are worked out on the price after the shop's own
+  voucher (a RM5 voucher costs about RM4), the transaction fee on what the buyer paid, MY's RM0.54 is taken out of
+  the "Service Fee" line, SG seller shipping goes by parcel weight, and instalment, pre-order and campaign-day
+  orders are kept out of the average. The owner adds packing or warehouse fees (with their tax), optional monthly
+  running costs per order, and SG GST registration; each product gets a break-even ROAS and the most ads may cost
+  per order. The daily profit check and campaign floors use the same numbers.
 - **Optional extras.** `automations/extras.md` has 20 ready-made extras (slow movers, order-by dates, FAQ learner,
   review themes, ads stock guard, loss makers, month-end report, campaign stock cover, sample sorter, listing health,
   Friday weekly review…). Modules 4 and 6–12 offer theirs as a menu. Each rides on an existing check, so no new

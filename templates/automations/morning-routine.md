@@ -42,7 +42,7 @@ After the last check, read today's day files that the checks wrote (only their `
 `approvals.json` (count `waiting`). Write **five lines at most**, in the owner's style (`rules/shop.json` →
 `how_to_talk_to_me`), most important first, leading with the number that matches their `main_goal`. Example:
 ```
-Good morning! Yesterday: RM1,284 sales, about RM221 profit (17%).
+Good morning! Yesterday: RM1,284 sales, about RM168 profit (13%).
 Order today: Kopi O Drip Bag (144) · Hazelnut is out of stock.
 Ads: RM51 wasted on 2 ads, pause suggested (waiting for your YES).
 Shopee wants a price confirm for December Campaign Pacing (about 23 Nov).

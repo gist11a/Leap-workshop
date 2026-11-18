@@ -142,7 +142,7 @@
       "title": "Real profit",
       "module": 8,
       "show": true,
-      "about": "Yesterday, after Shopee fees, your product costs, packing and ads. Numbers marked estimated use your average margin.",
+      "about": "Yesterday, after Shopee fees, your product costs, packing or warehouse fees, running costs and ads. Numbers marked estimated use your average margin.",
       "columns": [
         "product",
         "units",
@@ -158,6 +158,7 @@
         "fees",
         "cost_of_goods",
         "packaging",
+        "running_costs",
         "ad_spend",
         "affiliate_commission",
         "estimated_percent"
@@ -305,14 +306,15 @@
     "missing_selling_points": "No selling points yet",
     "to_be_optimised": "Shopee: to be optimised",
     "score": "Score /5",
-    "packaging": "Packing",
+    "packaging": "Packing / warehouse",
     "affiliate_commission": "Affiliate commission",
     "sales_30d": "Sales, 30 days",
     "orders_30d": "Orders, 30 days",
     "visitors_30d": "Visitors, 30 days",
     "conversion_30d": "Visitors who buy (%)",
     "ad_roas_7d": "Ad sales per RM1, 7 days",
-    "sold": "Sold"
+    "sold": "Sold",
+    "running_costs": "Running costs"
   },
   "money_fields": [
     "ad_sales_7d",
@@ -329,6 +331,7 @@
     "packaging",
     "price",
     "profit",
+    "running_costs",
     "sales",
     "sales_30d",
     "sales_7d",

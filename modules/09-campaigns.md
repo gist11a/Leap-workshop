@@ -61,20 +61,23 @@ Say, short:
 1. For each product in `rules/costs.json` → `products` (their best sellers from Module 8), with the
    **campaign-day** fee (`fee_percent_campaign`):
    **floor** = (`fixed_fee_per_order` + cost + `packaging_per_order` + `other_cost_per_order`) ÷
-   (1 − campaign fee% − min margin%), rounded **up** to the next 10 sen.
+   (1 − campaign fee% − min margin%), rounded **up** to the next 10 sen. (Fee % is of the price after the shop's own
+   voucher, so a shop voucher on top of the campaign price lowers what they get: count it in the price.)
+   Floors leave out running costs (`overhead_per_order`): rent and staff don't grow with extra sale-day orders. If
+   Module 8 has running costs, add one line: "At RM<floor + overhead> or more, your running costs are covered too."
    **Max discount** = 1 − floor ÷ normal price.
    Save to `price_floor.lowest_prices` (product → floor). If `owner_lowest_prices` has a higher number for a
    product, theirs wins; say so.
-2. Show it (EXAMPLE: campaign fee 23.66% + RM0.54, packing RM0.50, keep at least 10%):
+2. Show it (EXAMPLE: campaign fee 26.46% + RM0.54, packing RM0.50, keep at least 10%):
    ```
    YOUR PRICE FLOORS ON SALE DAYS
    ──────────────────────────────────
-   Kopi O Drip Bag x10    normal RM29.90 → never below RM15.90 (up to 47% off)
-   Robusta Beans 500g     normal RM38.00 → never below RM27.20 (up to 28% off)
-   Hazelnut Blend 250g    normal RM24.90 → never below RM22.40 (up to 10% off)
+   Kopi O Drip Bag x10    normal RM29.90 → never below RM16.60 (up to 44% off)
+   Robusta Beans 500g     normal RM38.00 → never below RM28.40 (up to 25% off)
+   Hazelnut Blend 250g    normal RM24.90 → never below RM23.40 (up to 6% off)
    ```
-3. Say: "So the drip bags can take a big discount. The hazelnut blend can't: more than 10% off and you lose
-   money on each sale. That's worth knowing before 12.12."
+3. Say: "So the drip bags can take a big discount. The hazelnut blend can't: more than 6% off and it keeps
+   less than your 10%. That's worth knowing before 12.12."
    No costs from Module 8? "We need your product costs for this. Let's add three now," and ask for the 3 best
    sellers' costs (as in Module 8 Step 4).
 
@@ -104,9 +107,9 @@ Follow "Checking prices for one campaign" at the bottom of `automations/campaign
    ```
    PRICE CHECK · DECEMBER CAMPAIGN PACING
    ──────────────────────────────────
-   ✓ Kopi O Drip Bag x10  Shopee asks RM19.90 · your floor RM15.90 · you keep 23%
-   ✗ Robusta Beans 500g   Shopee asks RM26.60 · your floor RM27.20 · you'd keep 9%
-   ✗ Hazelnut 250g        Shopee asks RM19.90 · your floor RM22.40 · you'd keep 2%
+   ✓ Kopi O Drip Bag x10  Shopee asks RM19.90 · your floor RM16.60 · you keep 21%
+   ✗ Robusta Beans 500g   Shopee asks RM26.60 · your floor RM28.40 · you'd keep 6%
+   ✗ Hazelnut 250g        Shopee asks RM19.90 · your floor RM23.40 · you'd lose 1%
    Requirements: at least 10% off · campaign stock at least 20
    ```
 3. Say: "My advice: join with the drip bags. Skip the other two, or offer them at your floor price if Shopee

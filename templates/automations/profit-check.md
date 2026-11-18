@@ -34,28 +34,31 @@ Please sign in in Claude's browser.", log "skipped: signed out", refresh, stop.
    count from 3 days before until the day; the 15th and the 25th count the day before and the day.
    If yes and `on_programme` is true, use `fee_percent_campaign`, else `fee_percent_normal`.
 2. For each row in `found`, find the product in `costs.json` → `products` (match on the start of the name).
-   - Matched: `fees` = sales × fee% + `fixed_fee_per_order` × orders. `cost_of_goods` = cost × units.
-     `packaging` = (`packaging_per_order` + `other_cost_per_order`) × orders.
-     `profit` = sales − fees − cost_of_goods − packaging. `margin_percent` = profit ÷ sales × 100.
+   - Matched: `fees` = sales × fee% (+ 2.16% more if the product has `preorder` true) + `fixed_fee_per_order` ×
+     orders. `cost_of_goods` = cost × units. `packaging` = (`packaging_per_order` + `other_cost_per_order`) × orders
+     (packing, or the warehouse / Fulfilled by Shopee fee with its tax). `running_costs` = `overhead_per_order` ×
+     orders. `profit` = sales − fees − cost_of_goods − packaging − running_costs.
+     `margin_percent` = profit ÷ sales × 100.
    - Not matched: leave `profit` null for now.
 3. **Average margin** = total profit ÷ total sales of the matched rows. Use it to estimate the unmatched rows and
    the sales not in the top 10 (`summary.sales` − the rows' sales). Add those to `estimated_sales`.
 4. **Ads:** `ad_spend` = `summary.spend_yesterday` from `data/ads/<today>.json` if it exists, else 0 and say
    "ads not included". If `data/affiliates/<today>.json` exists, `affiliate_commission` = its `summary.commission_yesterday`, else 0.
-5. Totals: `fees`, `cost_of_goods`, `packaging`, `ad_spend`, `profit` = all product profit (known + estimated)
+5. Totals: `fees`, `cost_of_goods`, `packaging`, `running_costs` (`overhead_per_order` × all orders), `ad_spend`,
+   `profit` = all product profit (known + estimated)
    − ad_spend − affiliate_commission, `margin_percent` = profit ÷ sales × 100,
    `estimated_percent` = estimated_sales ÷ sales × 100. Round money to 2 decimals.
 
 Write the day file again with `for_date`, `summary` (`sales`, `orders`, `visitors`, `conversion_rate`, `fees`,
-`cost_of_goods`, `packaging`, `ad_spend`, `affiliate_commission`, `profit`, `margin_percent`, `estimated_percent`, `campaign_day`),
+`cost_of_goods`, `packaging`, `running_costs`, `ad_spend`, `affiliate_commission`, `profit`, `margin_percent`, `estimated_percent`, `campaign_day`),
 `items` (one per row: `product`, `units`, `sales`, `profit` (estimated ones marked in `note` only), `margin_percent`,
 `status` = "Loss" if profit < 0, "Low" if margin < 10, else "Good") and a one-line `note`, e.g.
-"Yesterday: RM1,284 sales, about RM221 profit (17%) after fees, costs and RM38 of ads."
+"Yesterday: RM1,284 sales, about RM168 profit (13%) after fees, costs, running costs and RM38 of ads."
 
 ## 4. Alerts
 First remove alerts with `topic` "profit" dated today. Then add:
 - `urgent` if `profit` < 0: "You lost about RM<−profit> yesterday. Biggest cost: <the largest of fees, product
-  cost, ads>."
+  cost, packing, running costs, ads>."
 - `watch` for each product with status "Loss" (at most 3): "<product> lost money yesterday (RM<profit> on
   <units> sold)."
 - `info` if `estimated_percent` > 30: "<n>% of yesterday's profit is estimated. Add costs for more products to make
@@ -69,4 +72,4 @@ First: if this automation's entry in `automations.json` has `"extras"`, run the 
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
 4. Live chat: show it as in Module 8. Scheduled run: end with three lines, e.g.
-   "Yesterday RM1,284 sales · about RM221 profit (17%) · Hazelnut 250g sold at a loss."
+   "Yesterday RM1,284 sales · about RM168 profit (13%) · Hazelnut 250g sold at a loss."

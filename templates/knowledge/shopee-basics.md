@@ -1,7 +1,8 @@
 # How Shopee works: structure, numbers and rules (SG + MY)
 
 For Claude. **Read only the section you need** (each module and recipe names its section). Checked 19 Nov 2026 against
-Shopee's Seller Education Hubs and Shopee Ads help pages. Shopee changes rules often: when Seller Centre shows
+Shopee's Seller Education Hubs, Shopee Ads help pages and Leap's takeaway calculator (fees matched to real
+income statements). Shopee changes rules often: when Seller Centre shows
 something different, trust Seller Centre and say so. Explain any of this to the owner in plain words, never as a lecture.
 
 ## 1. How Shopee is built
@@ -80,16 +81,30 @@ Login (merchant account) ── can manage several shops, often SG + MY together
 
 ## 6. Fees and profit (Module 8). Rates: `tools/shopee-fees.json`
 ```
-net price      = price × qty − the shop's own discount/voucher   (Shopee-funded vouchers don't cost the shop)
-commission     = net price × category rate (Mall pays more; lower on Promo Xtra SG / Cashback MY)
-programme fee  = Promo Xtra (SG) / Cashback (MY) on EVERY order while enrolled; higher on campaign days
-transaction fee= % of what the buyer paid (incl. their shipping)
-MY only        = RM0.54 per order platform support fee; 2% pre-order fee; ads Growth Plan for some shops
-takeaway       = what Shopee pays out − packing/shipping;   profit = takeaway − product cost − ads
+price after voucher = price × qty − the shop's OWN vouchers/discounts   (Shopee-funded vouchers cost the shop nothing)
+commission     = price after voucher × category rate (Mall pays more; lower on Promo Xtra SG / Cashback MY; SG caps
+                 commission on electronics and furniture)
+programme fee  = price after voucher × Promo Xtra (SG, two bands) / Cashback (MY) on EVERY order while enrolled;
+                 higher on campaign days; capped per item (MY RM108, SG S$60 / S$70)
+transaction fee= what the buyer paid, incl. their shipping × 3.27% SG / 3.78% MY (instalment: MY 4.86%; SG 6.54% only
+                 on 6- and 12-month orders in the Special SPayLater Programme)
+MY only        = RM0.54 platform support per order (shown INSIDE the "Service Fee" line); opt-in Ads Escrow Top-Up
+                 2.16%; pre-order items 2.16%
+shipping       = SG: seller pays by parcel weight (S$2.30 up to 1 kg … S$11.20 up to 30 kg; buyer pays a fixed S$1.99;
+                 weight = the bigger of real weight and L×W×H÷6000). MY: usually nothing (Shopee rebates it)
+payout         = price after voucher − Shopee's fees − seller shipping
+takeaway       = payout − packing or warehouse fees (+ 8% SST MY / 9% GST SG on the warehouse bill)
+profit         = takeaway − product cost (incl. getting it to you) − running costs per order − ads
 ```
-- **Campaign days raise the programme fee on every order in the window, nominated or not.**
-- SG: GST is already inside the rates; new sellers pay 0% commission for 120 days. MY: 8% SST is added on fees;
-  commission starts after 120 days or 200 completed orders.
+- **Campaign days raise the programme fee on every order in the window, nominated or not.** Commission stays the same.
+- **A shop's own RM5 voucher costs it about RM4**, because the fees shrink with the price.
+- **Running costs** (staff, rent, tools, warehouse minimums) ÷ orders a month is often the biggest cost per order
+  for a small shop, and it shrinks as orders grow.
+- **Break-even:** ROAS = price ÷ what's left before ads; the most ads may cost per order = what's left before ads.
+- SG: GST is already inside the rates. Most shops aren't GST-registered (only a must above S$1m a year); a
+  registered shop claims back the GST in fees and warehouse bills but pays 9/109 of what buyers paid (about 6.5% of
+  every sale, net). MY: 8% SST is added on fees and warehouse bills, and nothing can be claimed back.
+- New sellers: SG pays 0% commission for 120 days. MY commission starts after 120 days or 200 completed orders.
 - Payout: SG when the buyer confirms receipt or the 15-day return window ends; MY 2–3 working days after.
 
 ## 7. Campaigns, promotions and vouchers (Module 9)
@@ -106,8 +121,9 @@ takeaway       = what Shopee pays out − packing/shipping;   profit = takeaway 
   everything. One seller voucher per order. SG vouchers: a fixed discount must be at least 3% of the minimum spend.
 
 ## 8. Affiliates (Module 10)
-- Commission is a rate the shop sets per product, on the price after the shop's voucher, paid **only on completed
-  orders**. Days are final on day +2. MY: orders through another shop's affiliate link pay **50%** of your rate.
+- Commission is a rate the shop sets per product, on what the buyer paid, charged **only on completed orders**
+  (MY adds 8% SST on top). Days are final on day +2. MY: orders through another shop's affiliate link pay **50%**
+  of your rate.
 
 ## 9. Listings and images (Module 11)
 - Images 1:1, at least 1024×1024; a cover plus up to 8 more; a video helps.
@@ -133,7 +149,9 @@ takeaway       = what Shopee pays out − packing/shipping;   profit = takeaway 
 | Money | S$, GST 9% inside the rates | RM, SST 8% added on fees |
 | Transaction fee | 3.27% | 3.78% |
 | Per-order fee | none | RM0.54 |
-| Programme fee | Promo Xtra 5.45% (campaign days 6.54%) | Cashback 5.94% (campaign days 8.10%) |
+| Programme fee | Promo Xtra 5.45% (campaign days 6.54%); 3.27% / 4.36% on phones, gaming, pets, baby | Cashback 5.94% (campaign days 8.10%) |
+| Seller shipping | by weight: S$2.30 up to 1 kg, S$3.21 up to 5 kg | usually none |
 | Late shipping point | LSR 5%+ | LSR 10%+ |
 | Campaign ban | curated, by penalty tier | 6+ points |
-| Pre-order fee | none | 2% |
+| Pre-order fee | none | 2.16% |
+| Fee shown on income details | separate lines | "Service Fee" = Cashback fee + RM0.54 |

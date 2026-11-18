@@ -1,112 +1,353 @@
 {
   "checked_on": "2026-11-19",
-  "source": "Shopee MY and SG fee pages, as reconciled by Leap E-commerce. Shopee changes fees; if a real order shows different fees, trust the order.",
+  "source": "Leap E-commerce's takeaway calculator, which matches real Shopee income statements to the cent in both markets (SG commission and Promo Xtra from 28 Aug 2026, shipping card from 1 Jan 2026; MY commission from 14 Aug 2026). Shopee changes fees: if a real order shows different fees, trust the order.",
+  "how_fees_work": [
+    "Commission and the programme service fee are charged on the price AFTER the shop's own (seller-funded) vouchers and discounts. Shopee-funded vouchers cost the shop nothing: Shopee adds them back.",
+    "So a 5 (S$ or RM) shop voucher costs the shop about 4, not 5: the fees shrink with the price.",
+    "The transaction fee is charged on what the buyer paid, including the buyer's shipping.",
+    "The programme service fee is charged on EVERY order while the shop is on the programme, used voucher or not, and it goes up on campaign days. Commission doesn't change on campaign days.",
+    "Affiliate (AMS) commission is the rate the shop sets per product, on what the buyer paid. The affiliate check counts it; keep it out of the fee %."
+  ],
   "MY": {
-    "tax_note": "Rates below already include 8% SST.",
+    "tax_note": "Shopee MY quotes fees without SST and adds 8% on top. Every % below already includes the 8%.",
     "commission_percent": {
-      "note": "By category. Mall shops pay more. 'on_programme' = on Shopee Cashback.",
+      "note": "By category, % of the price after your own voucher. 'on_programme' = on Shopee Cashback (SCP). Mall shops pay more. No caps.",
       "health": {
         "normal_on_programme": 16.2,
         "normal": 18.36,
         "mall_on_programme": 19.98,
-        "mall": 22.14
+        "mall": 22.14,
+        "covers": "personal care, food supplements, sexual wellness, other health"
+      },
+      "medical": {
+        "normal_on_programme": 14.58,
+        "normal": 18.36,
+        "mall_on_programme": 19.98,
+        "mall": 22.14,
+        "covers": "medical supplies"
       },
       "beauty": {
         "normal_on_programme": 16.2,
         "normal": 18.36,
         "mall_on_programme": 20.52,
-        "mall": 22.68
+        "mall": 22.68,
+        "covers": "all beauty, makeup and fragrance"
       },
-      "mom_baby": {
-        "normal_on_programme": 14.04,
-        "normal": 16.2,
-        "mall_on_programme": 17.28,
-        "mall": 19.44
+      "baby_diapers": {
+        "normal_on_programme": 11.88,
+        "normal": 14.04,
+        "mall_on_programme": 16.2,
+        "mall": 18.36,
+        "covers": "diapering and potty"
       },
-      "home_living": {
-        "normal_on_programme": 14.58,
-        "normal": 16.74,
-        "mall_on_programme": 18.9,
-        "mall": 21.06
-      },
-      "appliances": {
+      "baby_feeding": {
         "normal_on_programme": 11.88,
         "normal": 14.04,
         "mall_on_programme": 15.12,
-        "mall": 17.28
+        "mall": 17.28,
+        "covers": "feeding essentials, milk formula, baby food"
       },
-      "phones": {
-        "normal_on_programme": 8.1,
-        "normal": 11.88,
-        "mall_on_programme": 11.34,
-        "mall": 15.12
+      "baby_healthcare": {
+        "normal_on_programme": 13.5,
+        "normal": 15.66,
+        "mall_on_programme": 15.66,
+        "mall": 17.82,
+        "covers": "baby healthcare"
+      },
+      "maternity_healthcare": {
+        "normal_on_programme": 14.04,
+        "normal": 16.2,
+        "mall_on_programme": 16.2,
+        "mall": 18.36,
+        "covers": "maternity healthcare"
+      },
+      "baby_gift_sets": {
+        "normal_on_programme": 14.04,
+        "normal": 16.2,
+        "mall_on_programme": 18.36,
+        "mall": 20.52,
+        "covers": "mom and baby gift sets and packages"
+      },
+      "baby_other": {
+        "normal_on_programme": 14.04,
+        "normal": 16.2,
+        "mall_on_programme": 17.28,
+        "mall": 19.44,
+        "covers": "bath and body, safety, travel, nursery, toys, other mom and baby"
       },
       "pets": {
         "normal_on_programme": 14.04,
         "normal": 16.2,
         "mall_on_programme": 17.82,
-        "mall": 19.98
+        "mall": 19.98,
+        "covers": "all pet supplies"
+      },
+      "home_kitchen": {
+        "normal_on_programme": 14.58,
+        "normal": 16.74,
+        "mall_on_programme": 18.9,
+        "mall": 21.06,
+        "covers": "kitchenware, home care, organisers, lighting, gardening, tools"
+      },
+      "home_bedding_decor": {
+        "normal_on_programme": 14.58,
+        "normal": 16.74,
+        "mall_on_programme": 18.9,
+        "mall": 21.06,
+        "covers": "bedding, decoration, dinnerware, fengshui"
+      },
+      "home_bathroom": {
+        "normal_on_programme": 12.96,
+        "normal": 16.74,
+        "mall_on_programme": 17.28,
+        "mall": 21.06,
+        "covers": "bathrooms"
+      },
+      "furniture": {
+        "normal_on_programme": 14.04,
+        "normal": 17.82,
+        "mall_on_programme": 18.36,
+        "mall": 22.14,
+        "covers": "furniture"
+      },
+      "appliances": {
+        "normal_on_programme": 11.88,
+        "normal": 14.04,
+        "mall_on_programme": 15.12,
+        "mall": 17.28,
+        "covers": "kitchen, large and small household appliances, TVs"
+      },
+      "phones_tablets": {
+        "normal_on_programme": 8.1,
+        "normal": 11.88,
+        "mall_on_programme": 11.34,
+        "mall": 15.12,
+        "covers": "mobile phones and tablets (wearables and accessories cost more: check a real order)"
       },
       "sports": {
         "normal_on_programme": 14.04,
         "normal": 16.2,
         "mall_on_programme": 17.28,
-        "mall": 19.44
+        "mall": 19.44,
+        "covers": "sports and outdoors, incl. apparel and footwear (recreation equipment costs more)"
       },
       "other": null
     },
     "programme_service_fee_percent": {
+      "name": "Shopee Cashback (SCP)",
       "normal_days": 5.94,
       "campaign_days": 8.1,
-      "cap_per_item": 108
+      "cap_per_item": 108,
+      "msme_note": "Small shops (200 or fewer orders and RM3,000 or less sales last month) get a further discount on the SCP fee. Real orders show it."
     },
     "transaction_fee_percent": 3.78,
+    "transaction_fee_percent_instalment": 4.86,
     "platform_fee_per_order": 0.54,
+    "optional_fee_percent": {
+      "ads_escrow_topup": {
+        "percent": 2.16,
+        "when": "only if the shop switched on Ads Escrow Top-Up (paying ads from order money)"
+      },
+      "preorder": {
+        "percent": 2.16,
+        "when": "only on completed pre-order items (some made-to-order categories are exempt)"
+      }
+    },
     "seller_shipping_per_order": 0,
+    "shipping_note": "With Shopee Supported Logistics the seller normally pays nothing for delivery: the buyer pays part and Shopee rebates the rest. Real orders show it.",
+    "income_details_note": "On a Malaysian order's Income Details, the one 'Service Fee' line is TWO fees added together: the Cashback service fee (% of the price) + the RM0.54 platform support fee. Take RM0.54 off before working out the %.",
+    "warehouse_tax_percent": 8,
+    "warehouse_tax_note": "Warehouse (3PL) and Fulfilled by Shopee bills are quoted without SST; 8% is added and can't be claimed back.",
+    "fulfilled_by_shopee": {
+      "per_item_by_size": {
+        "x_small": 0.6,
+        "small": 1.15,
+        "standard": 1.6,
+        "large": 3.5,
+        "bulky": 20.0
+      },
+      "note": "Per item, before 8% SST; packing materials included. Storage free for the first 90 days. New sellers pay nothing for their first 90 days; bigger FBS shops get 15–50% off."
+    },
     "campaign_days": "Double dates (1.1 … 12.12): 3 days before until the day. Mid-month (15th) and payday (25th): the day before and the day.",
     "new_seller_note": "Commission starts after 120 days or 200 completed orders. The RM0.54 support fee is waived for the first 60 days and for very small shops."
   },
   "SG": {
-    "tax_note": "Rates below already include 9% GST.",
+    "tax_note": "Shopee SG's rates already include 9% GST. Never add GST again.",
     "commission_percent": {
-      "note": "By category. Mall shops pay more. 'on_programme' = on Promo Xtra.",
+      "note": "By category, % of the price after your own voucher. 'on_programme' = on Promo Xtra (PXP). Mall shops pay more. 'cap' = the most commission Shopee takes on one order (S$).",
       "most_categories": {
         "normal_on_programme": 10.9,
         "normal": 14.17,
         "mall_on_programme": 14.17,
-        "mall": 17.44
+        "mall": 17.44,
+        "covers": "health, beauty, makeup, fashion, shoes and bags, kitchen, toys, sports, automotive and everything else not listed",
+        "service_band": "high"
       },
-      "baby_pets_alcohol": {
-        "normal_on_programme": 8.72,
-        "normal": 11.99,
-        "mall_on_programme": 11.99,
-        "mall": 15.26
-      },
-      "food_essentials_books": {
-        "normal_on_programme": 6.54,
-        "normal": 10.9,
-        "mall_on_programme": 9.81,
-        "mall": 14.17
+      "home_furniture_bedding": {
+        "normal_on_programme": 10.9,
+        "normal": 14.17,
+        "mall_on_programme": 14.17,
+        "mall": 17.44,
+        "covers": "furniture, bathroom, bedding",
+        "service_band": "high",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
       },
       "phones_tablets_laptops": {
         "normal_on_programme": 8.72,
         "normal": 11.99,
         "mall_on_programme": 9.81,
-        "mall": 13.08
+        "mall": 13.08,
+        "covers": "mobile phones, tablets, laptops, desktops",
+        "service_band": "low",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
+      },
+      "cameras_drones": {
+        "normal_on_programme": 8.72,
+        "normal": 11.99,
+        "mall_on_programme": 10.9,
+        "mall": 14.17,
+        "covers": "cameras, lenses, drones",
+        "service_band": "low",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
+      },
+      "large_appliances": {
+        "normal_on_programme": 10.9,
+        "normal": 14.17,
+        "mall_on_programme": 11.99,
+        "mall": 15.26,
+        "covers": "large household appliances",
+        "service_band": "high",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
+      },
+      "computer_parts": {
+        "normal_on_programme": 10.9,
+        "normal": 14.17,
+        "mall_on_programme": 11.99,
+        "mall": 15.26,
+        "covers": "computer components, printers, scanners, software",
+        "service_band": "low",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
+      },
+      "gaming": {
+        "normal_on_programme": 10.9,
+        "normal": 14.17,
+        "mall_on_programme": 14.17,
+        "mall": 17.44,
+        "covers": "gaming consoles and video games",
+        "service_band": "low",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
+      },
+      "other_electronics": {
+        "normal_on_programme": 10.9,
+        "normal": 14.17,
+        "mall_on_programme": 14.17,
+        "mall": 17.44,
+        "covers": "all other electronics",
+        "service_band": "high",
+        "cap": {
+          "normal": 60,
+          "mall": 120
+        }
+      },
+      "baby_pets_alcohol": {
+        "normal_on_programme": 8.72,
+        "normal": 11.99,
+        "mall_on_programme": 11.99,
+        "mall": 15.26,
+        "covers": "diapering, milk formula and baby food; all pet supplies; alcohol",
+        "service_band": "low"
+      },
+      "food_essentials": {
+        "normal_on_programme": 6.54,
+        "normal": 10.9,
+        "mall_on_programme": 9.81,
+        "mall": 14.17,
+        "covers": "toilet paper, ready-to-eat, cooking essentials, dairy and eggs, food staples, fresh and frozen",
+        "service_band": "high"
+      },
+      "books_music": {
+        "normal_on_programme": 7.63,
+        "normal": 11.99,
+        "mall_on_programme": 10.9,
+        "mall": 15.26,
+        "covers": "books and musical instruments",
+        "service_band": "high"
       }
     },
     "programme_service_fee_percent": {
+      "name": "Promo Xtra (PXP)",
+      "high_band": {
+        "normal_days": 5.45,
+        "campaign_days": 6.54
+      },
+      "low_band": {
+        "normal_days": 3.27,
+        "campaign_days": 4.36,
+        "covers": "phones, cameras, computer parts, gaming, alcohol, pets, baby essentials"
+      },
+      "cap_per_order": {
+        "normal_days": 60,
+        "campaign_days": 70
+      },
       "normal_days": 5.45,
-      "campaign_days": 6.54,
-      "cap_per_item": 60,
-      "low_band_note": "Phones, cameras, computer parts, gaming, alcohol, pets, baby: 3.27 normal / 4.36 campaign.",
-      "campaign_cap_per_item": 70
+      "campaign_days": 6.54
     },
     "transaction_fee_percent": 3.27,
+    "transaction_fee_percent_instalment": 6.54,
+    "instalment_note": "Only for shops that opted into the Special SPayLater Programme, and only on 6- and 12-month orders. Every other SPayLater order pays the normal 3.27%.",
     "platform_fee_per_order": 0,
+    "optional_fee_percent": {},
+    "buyer_shipping_per_order": 1.99,
+    "seller_shipping_by_weight": {
+      "note": "The seller pays this part of delivery; the buyer always pays a fixed S$1.99 (or Shopee covers it with a free-shipping voucher). Weight = the bigger of the real weight and L x W x H (cm) / 6000.",
+      "up_to_1kg": 2.3,
+      "up_to_5kg": 3.21,
+      "up_to_10kg": 3.79,
+      "up_to_20kg": 6.07,
+      "up_to_30kg": 11.2,
+      "fulfilled_by_shopee": {
+        "up_to_1kg": 2.03,
+        "up_to_5kg": 2.87,
+        "up_to_10kg": 3.38,
+        "up_to_20kg": 5.42,
+        "up_to_30kg": 10.0
+      }
+    },
     "seller_shipping_per_order": 2.3,
+    "transaction_on_buyer_shipping": 0.07,
+    "income_details_note": "Seller shipping = the courier's charge − what the buyer paid for shipping − any Shopee shipping rebate. A typical parcel under 1 kg comes to S$2.30.",
+    "warehouse_tax_percent": 9,
+    "warehouse_tax_note": "Warehouse (3PL) and Fulfilled by Shopee bills are quoted without GST; 9% is added. A GST-registered shop claims it back.",
+    "gst_registered_note": "Only shops above S$1m a year must register for GST, so most aren't. A registered shop claims back the GST inside Shopee's fees and warehouse bills, but pays Singapore 9/109 (8.26%) of what buyers paid. Net, that's about 6.5% of every sale. Fee % for a registered shop = Shopee's fee % ÷ 1.09 + 8.26.",
+    "fulfilled_by_shopee": {
+      "per_item_by_size": {
+        "x_small": 0.8,
+        "small": 1.3,
+        "standard": 2.5,
+        "large": 3.7,
+        "bulky": 6.4
+      },
+      "note": "Per item, before 9% GST; packing materials included and seller shipping is cheaper (see above). Storage free for the first 30 days."
+    },
     "campaign_days": "Double dates, 15th and 25th sales: assume the same windows as Malaysia.",
-    "new_seller_note": "New sellers pay 0% commission for their first 120 days.",
-    "commission_caps_note": "Before tax, per item: S$60 (normal) / S$120 (Mall) on electronics and furniture; S$300 on fashion shoes, bags and watches (normal shops). Other categories have no cap."
+    "new_seller_note": "New sellers pay 0% commission for their first 120 days."
   }
 }
