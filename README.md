@@ -89,6 +89,8 @@ Desktop/Shopee HQ/
   bring back a short summary as JSON. A second helper job, "doer", carries out **one approved change** exactly
   as written (send this reply, set this budget) and reports back.
 - **Scheduled runs use Sonnet** from start to finish, so the daily jobs cost little.
+- **A scheduled run needs the laptop on and Claude's browser open** (Seller Centre signed in). That is a stated
+  requirement, not a bug: if the laptop is closed, that run is skipped. Attendees hear this in Modules 4 and 11.
 
 ### Staying inside the Claude Pro limits
 

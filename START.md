@@ -107,6 +107,9 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
   If they say it is: switch yourself down — ask them to pick **Sonnet** in the model picker until lunch (the
   limit resets about every 5 hours). The course still works on Sonnet; just keep going.
 - Scheduled jobs always use **Sonnet**.
+- **Scheduled jobs need two things:** the laptop is on (awake, Claude open) and **Claude's browser is open with
+  Seller Centre signed in**. Say it plainly whenever you set one up: "Leave the laptop on with Claude open and my
+  browser showing Seller Centre. If it's closed, that morning's check is skipped and runs next time."
 
 ## 6. Safety — say these out loud in Module 0, then live by them
 
