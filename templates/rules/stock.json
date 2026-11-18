@@ -1,0 +1,8 @@
+{
+  "alert_when_days_left_below": 14,
+  "reorder_to_cover_days": 30,
+  "supplier_lead_days": 7,
+  "hero_products": [],
+  "ignore_products": [],
+  "notes": "Days left = stock / average daily sales (last 7 or 30 days)."
+}

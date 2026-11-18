@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Ready · Shopee + Claude Workshop · Leap</title>
+<meta name="description" content="Get your laptop ready for the Leap E-commerce Shopee automation workshop. About 30 minutes. Your progress is saved on this device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#071718; --night2:#0B1F21; --teal:#0F454B; --teal-soft:#B0C2C4;
+  --ink:#12161F; --ink2:#535864; --ink3:#8A8F98;
+  --cream:#F4F2EC; --cream2:#ECE8DF; --line:#E2DED5; --card:#FFFFFF;
+  --yellow:#F9C600; --yellow2:#FACB39; --yellow-chip:#FBEFC4; --olive:#6B5A00;
+  --mint-chip:#DDEBEA; --mint-ink:#0F454B;
+  --peach:#FCEBE3; --peach-ink:#8A3A1C;
+  --green:#30B566;
+  --sans:"Plus Jakarta Sans",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;border-radius:8px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono)}
+.hl{font-weight:700;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:5px}
+.dot{color:var(--yellow)}
+svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- hero (dark) ---------- */
+.hero{background:radial-gradient(900px 520px at 72% 18%,rgba(15,69,75,.55),transparent 62%),radial-gradient(700px 500px at 8% 0%,rgba(15,69,75,.35),transparent 60%),var(--night);color:#fff;padding:0 0 64px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid rgba(249,198,0,.16)}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none;color:#fff}
+.navlink{font-size:14px;color:rgba(255,255,255,.72);text-decoration:none;transition:color .2s}
+.navlink:hover{color:var(--yellow)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-top:44px;padding:7px 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.03);font:500 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(249,198,0,.15)}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:22px 0 18px}
+h1 .y{color:var(--yellow)}
+.lede{display:flex;flex-direction:column;gap:12px;margin:0 0 30px;max-width:620px}
+.lede div{display:flex;gap:12px;align-items:flex-start;color:rgba(255,255,255,.74);font-size:17px}
+.tile{width:30px;height:30px;border-radius:9px;border:1px solid rgba(249,198,0,.35);background:rgba(249,198,0,.08);display:grid;place-items:center;color:var(--yellow);flex:none;margin-top:1px}
+.tile svg.i{width:15px;height:15px}
+.lede .hl{color:#fff}
+.info{border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.025);max-width:560px;overflow:hidden}
+.info .row{display:grid;grid-template-columns:122px 1fr;gap:12px;align-items:center;padding:13px 18px;border-top:1px solid rgba(255,255,255,.08)}
+.info .row:first-child{border-top:0}
+.info .k{display:flex;align-items:center;gap:10px;font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.info .k svg.i{color:var(--yellow);width:16px;height:16px}
+.info .v{font-weight:600;font-size:15px;color:#fff}
+.info .v span{font-weight:400;color:rgba(255,255,255,.65)}
+.info a{color:var(--yellow);text-decoration:none}
+.info a:hover{text-decoration:underline}
+@media (max-width:520px){.info .row{grid-template-columns:1fr;gap:4px}}
+
+/* ---------- buttons, chips ---------- */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:12px;border:0;font:700 15px var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s var(--ease),background-color .2s,box-shadow .2s}
+.btn:active{transform:scale(.97)}
+.btn-y{background:var(--yellow);color:var(--ink);box-shadow:0 6px 18px -8px rgba(249,198,0,.7)}
+.btn-y:hover{background:var(--yellow2)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#232a36}
+.btn-line{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1px #cfc9bb}
+.btn svg.i{width:16px;height:16px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:7px;font:600 10.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.chip-y{background:var(--yellow-chip);color:var(--olive)}
+.chip-m{background:var(--mint-chip);color:var(--mint-ink)}
+.chip-g{background:var(--cream2);color:var(--ink2)}
+
+/* ---------- checklist (light) ---------- */
+.list{padding:64px 0 120px}
+.label{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:0 0 12px}
+h2{font-size:clamp(28px,4.4vw,40px);line-height:1.1;letter-spacing:-.03em;font-weight:800;margin:0 0 12px}
+.sub{color:var(--ink2);font-size:17px;max-width:600px;margin:0 0 28px}
+
+.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:stretch;margin-bottom:28px}
+.progress{flex:1 1 300px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:16px}
+.big{font-weight:800;font-size:30px;letter-spacing:-.03em;line-height:1;min-width:64px}
+.big small{font-size:16px;color:var(--ink3);font-weight:600}
+.ptrack{flex:1;height:10px;border-radius:99px;background:var(--cream2);overflow:hidden}
+.pfill{height:100%;width:0;border-radius:99px;background:var(--yellow);transition:width .6s var(--ease)}
+.pmeta{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-top:8px}
+.os{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px var(--sans);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.pill:hover{border-color:#cfc9bb}
+.pill.on{background:var(--night);color:#fff;border-color:var(--night)}
+.pill svg.i{width:16px;height:16px}
+
+.group{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:36px 0 14px;display:flex;align-items:center;gap:12px}
+.group::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.step{scroll-margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:20px;margin-bottom:12px;box-shadow:0 1px 0 rgba(18,22,31,.02);transition:box-shadow .3s var(--ease),border-color .3s}
+.step.open{box-shadow:0 18px 40px -24px rgba(18,22,31,.28);border-color:#d8d3c7}
+.head{display:flex;align-items:center;gap:16px;padding:18px 20px;cursor:pointer;border-radius:20px}
+.num{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font:700 16px var(--sans);background:var(--cream);color:var(--ink);border:1px solid var(--line);cursor:pointer;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.num:hover{border-color:#cfc9bb}
+.num .ck{display:none}
+.step.done .num{background:var(--night);border-color:var(--night);color:var(--yellow)}
+.step.done .num .n{display:none}
+.step.done .num .ck{display:block}
+.num.pop{animation:pop .45s var(--ease)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+.ht{flex:1;min-width:0}
+.t{font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.3}
+.step.done .t{color:var(--ink2)}
+.s{font-size:14.5px;color:var(--ink2);margin-top:3px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chev{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--ink3);transition:transform .35s var(--ease),background-color .2s}
+.head:hover .chev{background:var(--cream)}
+.step.open .chev{transform:rotate(180deg)}
+.bodywrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.step.open .bodywrap{grid-template-rows:1fr}
+.bodyin{overflow:hidden}
+.body{padding:2px 20px 20px 80px;color:var(--ink2);opacity:0;transform:translateY(-4px);transition:opacity .3s .05s,transform .35s var(--ease)}
+.step.open .body{opacity:1;transform:none}
+@media (max-width:600px){.body{padding:2px 18px 18px 18px}.head{padding:16px 16px;gap:12px}.num{width:40px;height:40px}}
+.body p{margin:0 0 12px}
+.body b{color:var(--ink)}
+.body a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px}
+ol.how{margin:0 0 14px;padding:0;list-style:none;counter-reset:h}
+ol.how li{counter-increment:h;position:relative;padding:0 0 0 34px;margin:0 0 10px}
+ol.how li::before{content:counter(h);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:7px;background:var(--cream);border:1px solid var(--line);font:600 11.5px/20px var(--mono);text-align:center;color:var(--ink)}
+.note{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border-radius:14px;margin:4px 0 14px;font-size:15px}
+.note .nt{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;flex:none}
+.note .nt svg.i{width:15px;height:15px}
+.note-tip{background:var(--cream)}
+.note-tip .nt{background:var(--yellow-chip);color:var(--olive)}
+.note-help{background:var(--peach)}
+.note-help .nt{background:#fff;color:var(--peach-ink)}
+.note-help b{color:var(--peach-ink)}
+.say{background:var(--night);border-radius:14px;margin:6px 0 16px;overflow:hidden}
+.say .bar{display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.say .bar span{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.copy{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:9px;border:0;background:rgba(255,255,255,.08);color:#fff;font:600 13px var(--sans);cursor:pointer;transition:background-color .2s,color .2s}
+.copy:hover{background:rgba(255,255,255,.14)}
+.copy.ok{background:var(--yellow);color:var(--ink)}
+.copy svg.i{width:14px;height:14px}
+.say code{display:block;padding:14px 16px;font:400 14px/1.6 var(--mono);color:#E8F0EF;white-space:pre-wrap;word-break:break-word}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:6px}
+.os-only{display:none}
+body.os-mac .mac,body.os-win .win{display:revert}
+.pickos{color:var(--ink3);font-size:14px}
+body.os-mac .pickos,body.os-win .pickos{display:none}
+
+.check{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:8px}
+.check li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:background-color .2s,border-color .2s}
+.check li:hover{border-color:#cfc9bb}
+.check li.on{background:var(--cream)}
+.box{flex:none;width:24px;height:24px;border-radius:7px;border:1.5px solid #cfc9bb;display:grid;place-items:center;margin-top:1px;transition:background-color .2s,border-color .2s}
+.box svg.i{width:14px;height:14px;color:var(--yellow);opacity:0;transform:scale(.6);transition:opacity .2s,transform .25s var(--ease);stroke-width:2.6}
+.check li.on .box{background:var(--night);border-color:var(--night)}
+.check li.on .box svg.i{opacity:1;transform:none}
+.lt{display:block;font-weight:700;color:var(--ink);font-size:15px}
+.ls{display:block;font-size:14px;color:var(--ink2)}
+
+/* ---------- ready card (dark) ---------- */
+.ready{margin-top:40px;border-radius:24px;padding:30px 26px;background:radial-gradient(600px 300px at 90% 0%,rgba(15,69,75,.6),transparent 60%),var(--night);color:#fff;border:1.5px solid rgba(249,198,0,.55)}
+.ready h3{font-size:clamp(24px,3.6vw,32px);letter-spacing:-.03em;font-weight:800;margin:10px 0 8px;line-height:1.1}
+.ready p{color:rgba(255,255,255,.72);margin:0 0 16px;max-width:560px}
+.ready .label{color:rgba(255,255,255,.55)}
+.miss{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.miss li{display:flex;align-items:center;gap:10px;font-weight:600}
+.miss li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--yellow);flex:none}
+.allset{display:none;align-items:center;gap:12px;font-weight:700;font-size:18px;margin:0 0 18px}
+.allset .tile{width:34px;height:34px}
+.ready.complete .allset{display:flex}
+.ready.complete .miss,.ready.complete .stillopen{display:none}
+.ready .btn-line{background:rgba(255,255,255,.06);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.ready .btn-line:hover{background:rgba(255,255,255,.1)}
+.foot{text-align:center;color:var(--ink3);font-size:13px;margin-top:40px}
+.reset{background:none;border:0;color:var(--ink3);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-top:10px;padding:8px}
+.reset:hover{color:var(--ink)}
+
+/* ---------- floating bar ---------- */
+.float{position:fixed;left:50%;bottom:18px;z-index:20;transform:translate(-50%,0);display:flex;align-items:center;gap:14px;background:#14201F;color:#fff;padding:8px 8px 8px 18px;border-radius:999px;box-shadow:0 18px 40px -12px rgba(7,23,24,.55);max-width:calc(100% - 24px);transition:transform .4s var(--ease),opacity .3s}
+.float.hide{transform:translate(-50%,140%);opacity:0}
+.float .fm{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.float .ft{font-weight:700;font-size:14.5px;white-space:nowrap}
+.float .btn{min-height:42px;border-radius:999px;padding:0 18px;font-size:14px}
+@media (max-width:480px){.float .fm{display:none}.float{gap:10px;padding-left:16px}}
+body.embedded .float{display:none}
+.toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-160%);z-index:30;background:var(--night);color:#fff;font-weight:700;font-size:14px;padding:11px 18px;border-radius:12px;box-shadow:0 14px 30px -10px rgba(7,23,24,.5);transition:transform .35s var(--ease);display:flex;gap:10px;align-items:center}
+.toast svg.i{color:var(--yellow)}
+.toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-lap" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 4 14h7l-1 7 9-11h-7z"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+  <symbol id="i-tip" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="m5.6 5.6 4 4M14.4 14.4l4 4M18.4 5.6l-4 4M9.6 14.4l-4 4"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></symbol>
+  <symbol id="i-win" viewBox="0 0 24 24"><path d="M3.5 5.8 10.5 5v6.3h-7zM12 4.8 20.5 3.5v7.8H12zM3.5 12.8h7v6.3l-7-.9zM12 12.8h8.5v7.7L12 19.3z"/></symbol>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="https://www.leapecommerce.com" target="_blank" rel="noopener">Leap</a>
+      <a class="navlink" href="https://www.leapecommerce.com/leap-events" target="_blank" rel="noopener">Event details</a>
+    </nav>
+    <span class="eyebrow"><i></i>19 Nov · Workshop prep</span>
+    <h1>Get ready for<br><span class="y">Shopee + Claude day<span class="dot">.</span></span></h1>
+    <div class="lede">
+      <div><span class="tile"><svg class="i"><use href="#i-bolt"/></svg></span><span>About <span class="hl">30 minutes</span>, done before Thursday, so the whole day goes on building automations for your store.</span></div>
+      <div><span class="tile"><svg class="i"><use href="#i-store"/></svg></span><span>Tick each step as you go. Your progress <span class="hl">stays saved on this device</span>.</span></div>
+    </div>
+    <div class="info" role="list">
+      <div class="row" role="listitem"><span class="k"><svg class="i"><use href="#i-cal"/></svg>When</span><span class="v">Thu 19 Nov 2026 <span>· 9:30am – 5:30pm</span></span></div>
+      <div class="row" role="listitem"><span class="k"><svg class="i"><use href="#i-pin"/></svg>Where</span><span class="v">Asia School of Business<span>, Kuala Lumpur</span></span></div>
+      <div class="row" role="listitem"><span class="k"><svg class="i"><use href="#i-lap"/></svg>Bring</span><span class="v">Laptop + charger <span>· Mac or Windows, and your phone</span></span></div>
+      <div class="row" role="listitem"><span class="k"><svg class="i"><use href="#i-help"/></svg>Stuck</span><span class="v"><a href="mailto:scale@leapecommerce.com">scale@leapecommerce.com</a></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="list">
+  <div class="wrap">
+    <p class="label">Your checklist</p>
+    <h2>Nine steps. About thirty minutes<span class="dot">.</span></h2>
+    <p class="sub">Pick your computer first, so you only see the steps that apply to you.</p>
+
+    <div class="controls">
+      <div class="progress" aria-live="polite">
+        <div class="big" id="big">0<small>/9</small></div>
+        <div style="flex:1">
+          <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+          <div class="pmeta" id="pmeta">0 of 7 must-do steps done</div>
+        </div>
+      </div>
+      <div class="os" role="group" aria-label="Your computer">
+        <button class="pill" type="button" data-os="mac"><svg class="i"><use href="#i-apple"/></svg>Mac</button>
+        <button class="pill" type="button" data-os="win"><svg class="i"><use href="#i-win"/></svg>Windows</button>
+      </div>
+    </div>
+
+    <div class="group">Must do before the day</div>
+    <div id="must"></div>
+    <div class="group">Good to bring</div>
+    <div id="good"></div>
+
+    <section class="ready" id="ready">
+      <p class="label">Ready check</p>
+      <h3>See you Thursday<span class="dot">.</span></h3>
+      <div class="allset"><span class="tile"><svg class="i"><use href="#i-check"/></svg></span>All must-do steps are done. You're set for 9:30am.</div>
+      <p class="stillopen">Still open before 9:30am on Thursday:</p>
+      <ul class="miss" id="miss"></ul>
+      <p>On the day you open Claude in your <b style="color:#fff">Shopee HQ</b> folder and paste one line we give you. Claude takes it from there.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-y" type="button" id="copyStatus"><svg class="i"><use href="#i-copy"/></svg>Copy my checklist</button>
+        <a class="btn btn-line" href="https://www.leapecommerce.com/leap-events" target="_blank" rel="noopener">Event details</a>
+      </div>
+    </section>
+
+    <div class="foot">
+      Leap E-commerce · Shopee automation workshop<br>
+      <button class="reset" type="button" id="reset">Start over</button>
+    </div>
+  </div>
+</main>
+
+<div class="float hide" id="float">
+  <div>
+    <div class="fm">Thu 19 Nov · Kuala Lumpur</div>
+    <div class="ft" id="ftxt">0 of 9 steps done</div>
+  </div>
+  <button class="btn btn-y" type="button" id="fnext">Next step<svg class="i"><use href="#i-arrow"/></svg></button>
+</div>
+<div class="toast" id="toast" role="status"><svg class="i"><use href="#i-check"/></svg><span id="toastTxt">Copied</span></div>
+
+<script>
+(function(){
+  var KEY = "leap_shopee_ws_v1";
+  var state = { done:{}, items:{}, os:null, open:null };
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved && typeof saved === "object") state = Object.assign(state, saved); } catch(e) {}
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+  try { if (window.self !== window.top) document.body.classList.add("embedded"); } catch(e) { document.body.classList.add("embedded"); }
+
+  function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function ic(name){ return '<svg class="i"><use href="#i-' + name + '"/></svg>'; }
+  function say(text){
+    return '<div class="say"><div class="bar"><span>Paste this into Claude</span><button class="copy" type="button" data-copy="' + encodeURIComponent(text) + '">' + ic("copy") + 'Copy</button></div><code>' + esc(text) + '</code></div>';
+  }
+  function tip(html){ return '<div class="note note-tip"><span class="nt">' + ic("tip") + '</span><div>' + html + '</div></div>'; }
+  function help(html){ return '<div class="note note-help"><span class="nt">' + ic("life") + '</span><div>' + html + '</div></div>'; }
+  var MAC = function(h){ return '<span class="os-only mac">' + h + '</span>'; };
+  var WIN = function(h){ return '<span class="os-only win">' + h + '</span>'; };
+  var PICK = '<span class="pickos">(pick Mac or Windows above)</span>';
+
+  var MUST = [
+    { id:"pro", mins:3, title:"Get Claude Pro", sub:"The paid plan. Pro is enough for the whole day.",
+      body:'<p>The free plan can\'t do what we build. <b>Claude Pro</b> can.</p>' +
+        '<ol class="how"><li>Go to <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">claude.ai/upgrade</a> and sign in, or create an account.</li><li>Choose <b>Pro</b> and pay. Monthly is fine.</li></ol>' +
+        tip('Already on Pro or Max? Tick this one and move on.'),
+      cta:'<a class="btn btn-y" href="https://claude.ai/upgrade" target="_blank" rel="noopener">Get Claude Pro' + ic("arrow") + '</a>' },
+
+    { id:"desktop", mins:5, title:"Install the Claude app", sub:"Claude Desktop, signed in with your Pro account.",
+      body:'<ol class="how"><li>Go to <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> and download the app for your computer.</li>' +
+        '<li>' + MAC('Open the download and drag <b>Claude</b> into <b>Applications</b>, then open it.') + WIN('Run the installer and open Claude when it finishes.') + PICK + '</li>' +
+        '<li>Sign in with the <b>same account</b> you upgraded to Pro.</li>' +
+        '<li>Had it already? Update it: ' + MAC('<b>Claude</b> menu → <b>Check for Updates</b>.') + WIN('menu → <b>Help</b> → <b>Check for Updates</b>.') + PICK + '</li></ol>',
+      cta:'<a class="btn btn-y" href="https://claude.ai/download" target="_blank" rel="noopener">Download Claude' + ic("arrow") + '</a>' },
+
+    { id:"code", mins:8, title:"Open Claude Code and run a test", sub:"The part of the app that can work on your computer.",
+      body:'<p>Inside the Claude app there\'s a <b>Code</b> tab. You still just chat. The difference: here Claude can save files and use a browser for you. You will never type code.</p>' +
+        '<div class="os-only win">' + tip('<b>Windows: do this first.</b> Claude Code needs a free helper called Git. Go to <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a>, run the download, click <b>Next</b> on every screen, then <b>Install</b> and <b>Finish</b>. Close and reopen Claude.') + '</div>' +
+        '<ol class="how"><li>In the Claude app, click <b>Code</b>.</li><li>Start a new session. If it asks for a folder, pick your <b>Desktop</b> for now.</li><li>Paste this, then press Enter:</li></ol>' +
+        say("Create a file called hello.txt on my Desktop that says: ready for the Shopee workshop") +
+        '<p>If Claude asks for permission, click <b>Allow</b>. Then look at your Desktop. See <b>hello.txt</b>? It works. You can delete it.</p>' +
+        '<div class="os-only mac">' + tip('A box asks to install <b>command line developer tools</b>? Click <b>Install</b>, wait, then try again. Normal the first time on a Mac.') + '</div>' +
+        help('<b>No Code tab, or no file appears?</b> Don\'t spend more than 10 minutes. Email <a href="mailto:scale@leapecommerce.com">scale@leapecommerce.com</a> with a photo of your screen and we\'ll sort it before Thursday.') },
+
+    { id:"folder", mins:3, title:"Make your Shopee HQ folder", sub:"Everything you build on the day lives in here.",
+      body:'<ol class="how"><li>On your Desktop, make a new folder: ' + MAC('right-click → <b>New Folder</b>.') + WIN('right-click → <b>New</b> → <b>Folder</b>.') + PICK + '</li>' +
+        '<li>Name it exactly <b>Shopee HQ</b>.</li><li>In Claude\'s <b>Code</b> tab, start a new session and choose the <b>Shopee HQ</b> folder.</li></ol>' +
+        tip('On the day, you always start Claude in this folder. It\'s how Claude finds your shop\'s rules, data and dashboard.') +
+        '<div class="os-only win">' + help('<b>Two Desktops?</b> Some Windows laptops keep the Desktop inside OneDrive. Make the folder on the Desktop you actually see.') + '</div>' },
+
+    { id:"shopee", mins:6, title:"Sign in to Seller Centre in Claude's browser", sub:"So Claude can read your shop pages for you.",
+      body:'<p>Claude has its own small browser inside the app. You sign in to Shopee there <b>once</b>, and it remembers you.</p>' +
+        '<ol class="how"><li>In your Shopee HQ session, paste this:</li></ol>' +
+        say("Open Shopee Seller Centre Malaysia (seller.shopee.com.my) in your browser so I can sign in.") +
+        '<ol class="how" start="2" style="counter-reset:h 1"><li>A browser opens on the side. <b>Type your Shopee login yourself</b>, then the code Shopee sends to your phone.</li>' +
+        '<li>Use the <b>main shop account</b>, or a sub-account that can see Orders, Products, Marketing, Chat and Finance.</li>' +
+        '<li>When your Seller Centre home page shows, paste this:</li></ol>' +
+        say("Read my Seller Centre home page and tell me my shop name and how many orders are waiting to ship. Don't click anything.") +
+        tip('<b>Claude never types your password or the phone code.</b> You do that part. Claude reads pages, and always asks you before changing anything in your shop.') +
+        help('<b>Browser not showing?</b> Press ' + MAC('<b>Cmd + Shift + B</b>') + WIN('<b>Ctrl + Shift + B</b>') + '<span class="pickos"><b>Cmd/Ctrl + Shift + B</b></span>, or click the globe icon in the Claude window.') },
+
+    { id:"connect", mins:5, title:"Connect Gmail and Google Drive", sub:"For alerts by email, and your cost sheet in Google Sheets.",
+      body:'<ol class="how"><li>In the Claude app open <b>Settings → Connectors</b> (some versions: <b>Customize → Connectors</b>).</li>' +
+        '<li><b>Gmail</b> → <b>Connect</b> → sign in with the Google account you use for the shop → <b>Allow</b>.</li>' +
+        '<li>Same for <b>Google Drive</b>. This also lets Claude read your Google Sheets. See <b>Google Sheets</b> in the list too? Connect it.</li>' +
+        '<li>Asked about permissions? Reading can be <b>Always allow</b>. Anything that <b>sends or changes</b> stays on <b>Needs approval</b>.</li></ol>' +
+        '<p>Test it in your Shopee HQ session:</p>' +
+        say("Search my Gmail for the most recent email from Shopee and tell me only its subject line.") +
+        help('<b>Work email on Outlook or Microsoft 365?</b> Connect a personal Gmail for the day. Your work email can come later.') },
+
+    { id:"settings", mins:3, title:"Know three settings", sub:"Pick the model, see your allowance, keep the laptop awake.",
+      body:'<ol class="how"><li><b>Model picker</b>, at the bottom of the chat box. On the day we use <b>Opus</b> as the boss, and Claude sends <b>Sonnet</b> helpers for the browser work. Just find where it is.</li>' +
+        '<li><b>Your allowance</b>: <b>Settings → Usage</b> shows how much of your Claude limit is used. Pro resets every 5 hours, plus a weekly limit.</li>' +
+        '<li><b>Keep computer awake</b>: <b>Settings → Desktop app → General</b>. Turn it on, so your daily automations run on time.</li></ol>' +
+        tip('Please <b>don\'t use Claude heavily on Thursday morning</b>. Arrive with a full allowance.') }
+  ];
+  var GOOD = [
+    { id:"info", mins:15, rec:true, title:"Gather your shop info", sub:"Rough is fine. It makes your automations real, not made-up.",
+      items:[
+        { id:"costs", t:"Product cost list", s:"What each product costs you, per item. Excel or Google Sheet, even a rough one." },
+        { id:"policy", t:"Shipping and return promises", s:"Copy them from your shop page, or write 3–4 lines." },
+        { id:"faq", t:"The 10 questions buyers ask most", s:"Copy a few real ones from your Shopee chats." },
+        { id:"ads", t:"Your ad goals", s:"Daily ad budget, and the return you're happy with (e.g. spend RM1, get RM6 in sales)." },
+        { id:"floor", t:"Your lowest prices", s:"For campaigns: the lowest price, or smallest profit, you'd accept per product." },
+        { id:"lead", t:"Restock time", s:"How many days your supplier takes to deliver." }
+      ] },
+    { id:"phone", mins:1, rec:true, title:"Bring your phone, charged", sub:"Shopee sends a sign-in code to it.",
+      body:'<p>Shopee may ask for a code when you sign in on the day. Bring the phone with your Shopee number.</p>' }
+  ];
+  var ALL = MUST.concat(GOOD);
+
+  function stepHtml(s, i){
+    var chips = '<span class="chip ' + (s.rec ? "chip-m" : "chip-y") + '">' + (s.rec ? "Recommended" : "Must do") + '</span><span class="chip chip-g">' + s.mins + ' min</span>';
+    var body = s.body || "";
+    if (s.items){
+      body += '<ul class="check">' + s.items.map(function(it){
+        var key = s.id + "." + it.id;
+        return '<li data-item="' + key + '" role="checkbox" tabindex="0" aria-checked="false"><span class="box">' + ic("check") + '</span><span><span class="lt">' + it.t + '</span><span class="ls">' + it.s + '</span></span></li>';
+      }).join("") + '</ul>';
+    }
+    return '<article class="step" id="st-' + s.id + '">' +
+      '<div class="head" data-open="' + s.id + '" role="button" tabindex="0" aria-expanded="false" aria-controls="b-' + s.id + '">' +
+        '<button class="num" type="button" data-tick="' + s.id + '" aria-label="Mark ' + esc(s.title) + ' done"><span class="n">' + (i + 1) + '</span><svg class="i ck" style="width:20px;height:20px;stroke-width:2.6"><use href="#i-check"/></svg></button>' +
+        '<div class="ht"><div class="t">' + s.title + '</div><div class="s">' + s.sub + '</div><div class="chips">' + chips + '</div></div>' +
+        '<span class="chev">' + ic("chev") + '</span>' +
+      '</div>' +
+      '<div class="bodywrap" id="b-' + s.id + '"><div class="bodyin"><div class="body">' + body +
+        '<div class="actions"><div>' + (s.cta || "") + '</div><button class="btn btn-ink" type="button" data-tick="' + s.id + '"></button></div>' +
+      '</div></div></div></article>';
+  }
+
+  document.getElementById("must").innerHTML = MUST.map(stepHtml).join("");
+  document.getElementById("good").innerHTML = GOOD.map(function(s, i){ return stepHtml(s, MUST.length + i); }).join("");
+
+  function paint(){
+    ALL.forEach(function(s){
+      var el = document.getElementById("st-" + s.id);
+      var done = !!state.done[s.id], open = state.open === s.id;
+      el.classList.toggle("done", done);
+      el.classList.toggle("open", open);
+      el.querySelector(".head").setAttribute("aria-expanded", open ? "true" : "false");
+      var b = el.querySelector(".actions [data-tick]");
+      b.innerHTML = done ? "Mark as not done" : "Done, next step " + ic("arrow");
+      b.className = "btn " + (done ? "btn-line" : "btn-ink");
+    });
+    document.querySelectorAll("[data-item]").forEach(function(li){
+      var on = !!state.items[li.dataset.item];
+      li.classList.toggle("on", on); li.setAttribute("aria-checked", on ? "true" : "false");
+    });
+    document.body.classList.toggle("os-mac", state.os === "mac");
+    document.body.classList.toggle("os-win", state.os === "win");
+    document.querySelectorAll("[data-os]").forEach(function(b){ var on = b.dataset.os === state.os; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    var n = ALL.filter(function(s){ return state.done[s.id]; }).length;
+    var mustDone = MUST.filter(function(s){ return state.done[s.id]; }).length;
+    document.getElementById("big").innerHTML = n + "<small>/" + ALL.length + "</small>";
+    document.getElementById("pfill").style.width = Math.round(n / ALL.length * 100) + "%";
+    document.getElementById("pmeta").textContent = mustDone + " of " + MUST.length + " must-do steps done";
+    document.getElementById("ftxt").textContent = n === ALL.length ? "All done. See you Thursday!" : n + " of " + ALL.length + " steps done";
+    var miss = MUST.filter(function(s){ return !state.done[s.id]; });
+    document.getElementById("miss").innerHTML = miss.map(function(s){ return "<li>" + s.title + "</li>"; }).join("");
+    document.getElementById("ready").classList.toggle("complete", miss.length === 0);
+    document.getElementById("fnext").style.display = n === ALL.length ? "none" : "";
+  }
+
+  var tt;
+  function toast(msg){ document.getElementById("toastTxt").textContent = msg; var t = document.getElementById("toast"); t.classList.add("show"); clearTimeout(tt); tt = setTimeout(function(){ t.classList.remove("show"); }, 1800); }
+  function copyText(text, btn){
+    function ok(){ if (btn){ var old = btn.innerHTML; btn.classList.add("ok"); btn.innerHTML = ic("check") + "Copied"; setTimeout(function(){ btn.classList.remove("ok"); btn.innerHTML = old; }, 1600); } else toast("Copied"); }
+    function fb(){ var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly",""); ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch(e) {} ta.remove(); ok(); }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(ok, fb); else fb();
+  }
+  function scrollToStep(id){
+    var el = document.getElementById("st-" + id); if (!el) return;
+    // wait for the previous card to finish closing (0.4s), so the scroll lands in the right place
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setTimeout(function(){ el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block:"start" }); }, reduce ? 0 : 430);
+  }
+  function nextOpen(after){
+    var idx = after ? ALL.findIndex(function(s){ return s.id === after; }) : -1;
+    var rest = ALL.slice(idx + 1).concat(ALL.slice(0, idx + 1));
+    var f = rest.find(function(s){ return !state.done[s.id]; });
+    return f ? f.id : null;
+  }
+  var lastTick = { id:null, at:0 };
+  function tick(id){
+    var now = Date.now();
+    if (lastTick.id === id && now - lastTick.at < 700) return; // a double-click shouldn't undo the tick
+    lastTick = { id:id, at:now };
+    state.done[id] = !state.done[id];
+    var num = document.querySelector("#st-" + id + " .num");
+    if (state.done[id]){
+      num.classList.remove("pop"); void num.offsetWidth; num.classList.add("pop");
+      var nx = nextOpen(id); state.open = nx;
+      if (MUST.every(function(s){ return state.done[s.id]; }) && MUST.some(function(s){ return s.id === id; })) toast("All must-do steps done. See you Thursday!");
+      save(); paint(); if (nx) scrollToStep(nx);
+    } else { save(); paint(); }
+  }
+
+  document.addEventListener("click", function(e){
+    var t = e.target.closest("[data-tick]"); if (t){ e.stopPropagation(); tick(t.dataset.tick); return; }
+    var c = e.target.closest("[data-copy]"); if (c){ copyText(decodeURIComponent(c.dataset.copy), c); return; }
+    var it = e.target.closest("[data-item]"); if (it){ state.items[it.dataset.item] = !state.items[it.dataset.item]; save(); paint(); return; }
+    var o = e.target.closest("[data-open]"); if (o){ state.open = state.open === o.dataset.open ? null : o.dataset.open; save(); paint(); return; }
+    var os = e.target.closest("[data-os]"); if (os){ state.os = os.dataset.os; save(); paint(); return; }
+  });
+  document.addEventListener("keydown", function(e){
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-open],[data-item]")){ e.preventDefault(); e.target.click(); }
+  });
+  document.getElementById("fnext").addEventListener("click", function(){
+    var id = nextOpen(null); if (!id) return; state.open = id; save(); paint(); scrollToStep(id);
+  });
+  document.getElementById("copyStatus").addEventListener("click", function(){
+    var lines = ["My Shopee workshop checklist:"].concat(ALL.map(function(s){ return (state.done[s.id] ? "[x] " : "[ ] ") + s.title; }));
+    copyText(lines.join("\n"));
+  });
+  var armed = false;
+  document.getElementById("reset").addEventListener("click", function(e){
+    var b = e.currentTarget;
+    if (!armed){ armed = true; b.textContent = "Tap again to clear your progress"; setTimeout(function(){ armed = false; b.textContent = "Start over"; }, 3000); return; }
+    try { localStorage.removeItem(KEY); } catch(err) {}
+    state = { done:{}, items:{}, os:state.os, open:MUST[0].id }; armed = false; b.textContent = "Start over"; save(); paint(); window.scrollTo({ top:0, behavior:"smooth" });
+  });
+
+  // floating bar: show once the hero is scrolled past
+  var fl = document.getElementById("float");
+  function onScroll(){ fl.classList.toggle("hide", window.scrollY < 380); }
+  window.addEventListener("scroll", onScroll, { passive:true }); onScroll();
+
+  if (!state.os){ var ua = navigator.userAgent || ""; state.os = /Mac/i.test(ua) && !/iPhone|iPad/i.test(ua) ? "mac" : (/Windows/i.test(ua) ? "win" : null); }
+  if (state.open === undefined || (state.open && !ALL.some(function(s){ return s.id === state.open; }))) state.open = nextOpen(null);
+  if (state.open === null && !Object.keys(state.done).length) state.open = MUST[0].id;
+  paint();
+})();
+</script>
+</body>
+</html>

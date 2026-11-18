@@ -1,0 +1,7 @@
+{
+  "approve_samples_when": { "min_followers": null, "min_sales_last_30_days": null, "must_match_my_category": true },
+  "max_samples_per_week": null,
+  "commission": { "default_percent": null, "best_sellers_percent": null },
+  "never": [],
+  "decisions_need_my_yes": true
+}

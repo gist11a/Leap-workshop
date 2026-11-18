@@ -1,0 +1,9 @@
+{
+  "target_roas": null,
+  "daily_budget_total": null,
+  "wasted_spend": { "spend_over": 20, "with_zero_orders_for_days": 3 },
+  "max_change_percent": 30,
+  "never_touch": [],
+  "changes_need_my_yes": true,
+  "notes": "ROAS = sales from ads / ad spend. Budget changes always wait for the owner's YES."
+}

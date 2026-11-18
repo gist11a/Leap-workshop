@@ -1,0 +1,13 @@
+{
+  "tone": null,
+  "reply_in_buyers_language": true,
+  "languages": ["English", "Malay"],
+  "greeting": null,
+  "sign_off": null,
+  "always_hand_to_me": ["refund or return request", "damaged or wrong item", "angry buyer", "medical or safety question", "anything about money not in the rules"],
+  "never_say": [],
+  "faq": [],
+  "review_replies": { "thank_good_reviews": true, "bad_reviews_need_my_yes": true },
+  "auto_send": false,
+  "notes": "auto_send stays false: every reply waits for the owner's YES."
+}
