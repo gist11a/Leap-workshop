@@ -329,7 +329,7 @@
       }
     },
     "seller_shipping_per_order": 2.3,
-    "transaction_on_buyer_shipping": 0.07,
+    "transaction_on_buyer_shipping": 0,
     "income_details_note": "Seller shipping = the courier's charge − what the buyer paid for shipping − any Shopee shipping rebate. A typical parcel under 1 kg comes to S$2.30.",
     "warehouse_tax_percent": 9,
     "warehouse_tax_note": "Warehouse (3PL) and Fulfilled by Shopee bills are quoted without GST; 9% is added. A GST-registered shop claims it back.",
@@ -345,6 +345,7 @@
       "note": "Per item, before 9% GST; packing materials included and seller shipping is cheaper (see above). Storage free for the first 30 days."
     },
     "campaign_days": "Double dates, 15th and 25th sales: assume the same windows as Malaysia.",
-    "new_seller_note": "New sellers pay 0% commission for their first 120 days."
+    "new_seller_note": "New sellers pay 0% commission for their first 120 days.",
+    "transaction_note": "Most SG buyers pay no shipping: Shopee rebates the S$1.99, and that rebate is NOT added to the transaction fee's base (checked on real orders: 3.27% of S$40.00 = S$1.31). Only shipping a buyer actually paid adds to it."
   }
 }

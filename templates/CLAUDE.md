@@ -45,6 +45,7 @@ Keep it short. Details live in `rules/`.
   card order (`sections`, `show`), the top tiles (`today`), names (`labels`), extra note cards (`notes`).
   Change the dashboard by editing `layout.json` only. `dashboard/data.js` is rebuilt by the refresh step.
 - `progress.json` + `dashboard/progress.html` — the workshop progress page and badges (START.md says how).
+- `automations/monthly-pnl.md` — the true monthly profit from Shopee's Income Statement (owner downloads it).
 - `automations/extras.md` — the optional extra automations the owner can switch on (see "Optional extras" below).
 - `course/` — the workshop files. Don't edit.
 
@@ -74,6 +75,7 @@ Keep it short. Details live in `rules/`.
 - **"pause my automations"** / **"resume my automations"** → see "How to schedule an automation" (pause/resume
   every Shopee scheduled task and set `status` in `automations.json`). Confirm in one line.
 - **"check my fees again"** → `course/modules/08-real-profit.md`, Step 3, then update `rules/costs.json`.
+- **"do my monthly P&L"** → `automations/monthly-pnl.md` (the owner downloads the statement and types any password).
 - **A rule change** ("we now ship within 1 day", "the Gift Box costs RM12") → update the right file in `rules/`,
   say what changed in one line.
 - **"fix my broken Shopee HQ files"** (the dashboard names them) → open each named file, repair it to valid

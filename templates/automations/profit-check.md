@@ -30,6 +30,10 @@ The job:
 Please sign in in Claude's browser.", log "skipped: signed out", refresh, stop.
 
 ## 3. Work it out (you do this, not the helper)
+Business Insights "Sales" is **already after the shop's own vouchers** (checked against real orders), which is the
+same base Shopee's fee % uses. Never take vouchers off it again. This is a daily estimate; the monthly P&L
+(`automations/monthly-pnl.md`) is the exact number, so if this month's is saved, trust it over the sum of days.
+
 1. **Was yesterday a campaign day?** Use `campaign_days` in `shopee-fees.json`: double dates (1.1, 2.2 … 12.12)
    count from 3 days before until the day; the 15th and the 25th count the day before and the day.
    If yes and `on_programme` is true, use `fee_percent_campaign`, else `fee_percent_normal`.

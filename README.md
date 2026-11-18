@@ -121,6 +121,14 @@ Desktop/Shopee HQ/
   orders are kept out of the average. The owner adds packing or warehouse fees (with their tax), optional monthly
   running costs per order, and SG GST registration; each product gets a break-even ROAS and the most ads may cost
   per order. The daily profit check and campaign floors use the same numbers.
+- **Programme from the orders.** If the owner isn't sure they're on Promo Xtra / Cashback, the service fee on their
+  real orders decides it.
+- **True monthly P&L.** `automations/monthly-pnl.md` ("do my monthly P&L", offered in Module 8): the owner downloads
+  Shopee's Income Statement (Finance asks for their password), Claude takes Shopee's lines as printed, adds ads
+  spend, product cost, packing and running costs, and shows the month on the dashboard ("True month"). The know-how
+  file (§6b) says where Shopee keeps each money number and the traps: Business Insights sales are already after
+  vouchers, adjustments sit outside the payout total, statements go by release date, the ads invoice is credit
+  bought, not spent.
 - **Optional extras.** `automations/extras.md` has 20 ready-made extras (slow movers, order-by dates, FAQ learner,
   review themes, ads stock guard, loss makers, month-end report, campaign stock cover, sample sorter, listing health,
   Friday weekly review…). Modules 4 and 6–12 offer theirs as a menu. Each rides on an existing check, so no new

@@ -86,7 +86,8 @@ commission     = price after voucher × category rate (Mall pays more; lower on 
                  commission on electronics and furniture)
 programme fee  = price after voucher × Promo Xtra (SG, two bands) / Cashback (MY) on EVERY order while enrolled;
                  higher on campaign days; capped per item (MY RM108, SG S$60 / S$70)
-transaction fee= what the buyer paid, incl. their shipping × 3.27% SG / 3.78% MY (instalment: MY 4.86%; SG 6.54% only
+transaction fee= what the buyer paid, incl. shipping THEY paid × 3.27% SG / 3.78% MY (SG: most buyers pay no
+                 shipping; Shopee's S$1.99 rebate isn't added) (instalment: MY 4.86%; SG 6.54% only
                  on 6- and 12-month orders in the Special SPayLater Programme)
 MY only        = RM0.54 platform support per order (shown INSIDE the "Service Fee" line); pre-order items 2.16%.
                  Ads Escrow Top-Up (opt-in, ~2.16%) is ad money, not a fee: count it once, in ad spend
@@ -106,6 +107,29 @@ profit         = takeaway − product cost (incl. getting it to you) − running
   every sale, net). MY: 8% SST is added on fees and warehouse bills, and nothing can be claimed back.
 - New sellers: SG pays 0% commission for 120 days. MY commission starts after 120 days or 200 completed orders.
 - Payout: SG when the buyer confirms receipt or the 15-day return window ends; MY 2–3 working days after.
+
+## 6b. Where Shopee's money numbers live (monthly P&L: `automations/monthly-pnl.md`)
+Three levels: **per order** (the fee chain above: exact fees, estimated costs) · **daily** (Business Insights +
+fee % + ad spend: an estimate) · **monthly** (Shopee's Income Statement + the shop's costs: **the truth**; when they
+disagree, trust the month).
+| Where (Seller Centre → Finance) | What's in it |
+|---|---|
+| My Income → **Income Statements** (monthly or weekly, 24 months) | Product price, refunds, seller vouchers, shipping lines, commission, service, transaction and campaign fees, AMS, total payout, order adjustments. **Download only** (PDF) |
+| My Income → Income Details → Released | Per-order payouts ("Adjustment" label on adjusted ones). No period totals |
+| My Balance → Recent Transactions | Tabs incl. **Adjustment** (refunds after payout, return QC fees, compensation) and payments from the balance |
+| My Income → **My Tax Invoices** (1st–14th and 15th–end) | Shopee fees, SPX shipping, SVS (ads credit, seller coins), affiliate, credit notes |
+- **Finance asks for the login password every time.** The owner types it; Claude never does.
+- Tax invoices for the 1st–14th arrive around the 15th–18th; for the 15th–end, around the 1st–4th of next month.
+- **Business Insights "Sales" is already after the shop's own vouchers.** Don't take vouchers off again.
+- **The statement includes** vouchers, refunds, Shopee rebates and AMS. **It leaves out** ads, product cost,
+  packing/warehouse and running costs. Cancelled orders are never paid out, so they need nothing.
+- **Order adjustments sit outside the statement's payout total:** subtract them once. Return QC fees in My Balance
+  are usually the same money as the statement's adjustment line.
+- **The statement goes by payout release date**, not order date: late orders from last month land in this one.
+- **The ads tax invoice (SVS) is ad credit bought, not spent.** For a month's profit use Shopee Ads' spend for that
+  month; bought and spent only match over several months.
+- **Ads are usually the swing factor** after product cost: at high spend, +0.5 ROAS is worth more than any fee change.
+- SG withdrawals: free once a week, then S$0.20 each.
 
 ## 7. Campaigns, promotions and vouchers (Module 9)
 - **Calendar:** double dates (1.1 … 12.12), mid-month (15th; SG "15MMS"), payday (25th; SG "25SSS"). MY big sales run

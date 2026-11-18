@@ -7,7 +7,7 @@ The recipe `automations/profit-check.md` and the fee table `tools/shopee-fees.js
 **Gate at the end:** `module9`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
-**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §6 (read only that). Worth saying when it fits: campaign days raise Shopee's programme fee on every order, nominated or not; Shopee-funded vouchers don't cost the shop, and a shop's own RM5 voucher costs about RM4; at low order numbers, running costs per order are often the biggest lever.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §6 and §6b (read only those). Worth saying when it fits: campaign days raise Shopee's programme fee on every order, nominated or not; Shopee-funded vouchers don't cost the shop, and a shop's own RM5 voucher costs about RM4; at low order numbers, running costs per order are often the biggest lever.
 **Never present an estimate as exact.** Say "about" for estimates, and say where each number came from.
 
 ---
@@ -34,7 +34,8 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
    orders in Step 3 will show the true fees anyway).
 2. "Are you on Shopee's **Cashback programme**? (In Singapore it's called **Promo Xtra**.) It's the one where
    Shopee adds cashback vouchers for your buyers and charges you a service fee on **every** order."
-   A) Yes ★ B) No C) Not sure. Save `on_programme` (Not sure → true; Step 3 will show it).
+   A) Yes ★ B) No C) Not sure. Save `on_programme`. Not sure → "No problem, your orders will tell us," and Step 3
+   decides it from the real orders (keep `null` until then).
 3. **Singapore only:** "Is your company **registered for GST**? Most shops aren't: it's only a must above S$1m a
    year." A) No ★ B) Yes C) Not sure. Save `gst_registered` (Not sure → false, and say "ask your accountant; it
    changes your profit by about 6% of every sale, so it's worth knowing").
@@ -64,10 +65,18 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
      that's their ads being paid from their sales, and the ads check already counts ad spend. If you see it, say so
      in one line: "That RM<x> isn't a Shopee fee, it's your ads paid from the sale; I count ads separately."
    - **Fixed fee** = Malaysia: RM0.54. Singapore: the seller's shipping (courier charge − what the buyer paid −
-     Shopee's shipping rebate) + S$0.07 (the transaction fee on the buyer's S$1.99 shipping).
+     Shopee's shipping rebate). Most SG buyers pay no shipping (Shopee rebates the S$1.99), and Shopee doesn't add
+     that rebate to the transaction fee, so the transaction fee is just 3.27% of the price after the voucher.
    - **Leave out of the average** an order that was: on a campaign day, paid by instalment (its transaction fee
      is higher: MY 4.86% instead of 3.78%), a pre-order (MY adds 2.16%), or partly refunded. Say which and why.
      If all 3 are like that, open the next ones.
+   - **Are they on the programme? The orders decide.** A service fee on the orders (Singapore: a "Service Fee" line
+     of about 5.45% or 3.27% of the price after the voucher; Malaysia: the "Service Fee" line is more than RM0.54)
+     means they're on Promo Xtra / Cashback; no service fee (or only the RM0.54) means they're not. Save
+     `on_programme` from this. If it differs from what they said, say it kindly: "Your orders show a Promo Xtra fee,
+     so you are on it. Good to know: it's charged on every order."
+   - **Check each fee against the price after the voucher first.** Commission of 14.2% of RM40 is really 16.2% of
+     RM35 after a RM5 voucher. A fee that looks "off" is nearly always this.
    Average the orders that are left, then save:
    - `fee_percent_normal`, `fixed_fee_per_order`, `fees_from` "real orders", `fees_checked_on` today.
    - `fee_percent_campaign` = `fee_percent_normal` + the programme's campaign-day increase (Malaysia +2.16,
@@ -85,10 +94,11 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
    `tools/shopee-fees.json` for their market, using their `covers` words, last option "None of these").
    - Fee % = commission (Mall / programme column) + programme service fee (if on it; Singapore: the category's
      `service_band`) + transaction fee. GST-registered SG: as above.
-   - Fixed = Malaysia: RM0.54. Singapore: seller shipping by parcel weight + S$0.07. Ask: "How heavy is a typical
+   - Fixed = Malaysia: RM0.54. Singapore: seller shipping by parcel weight. Ask: "How heavy is a typical
      parcel, box included?" A) Under 1 kg ★ (S$2.30) B) 1–5 kg (S$3.21) C) 5–10 kg (S$3.79) D) Heavier: tell me.
      A big light box counts by size (L × W × H in cm ÷ 6000). Save `parcel_size`. Fulfilled by Shopee shops use
      the cheaper `fulfilled_by_shopee` card.
+   - Still "Not sure" about the programme and no orders to check: count it as on it (most shops are) and say so.
    - Save `fees_from` "fee table". "None of these" → "Shopee doesn't publish a rate I trust for that, so let's use
      your real orders after the workshop. For today I'll use 25% so we can carry on," and mark it clearly.
    Never type their password; if Shopee asks for it, they type it themselves or we use the fee table.
@@ -140,6 +150,9 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
    **margin** = left ÷ price × 100; **break-even ROAS** = price ÷ left (one decimal; none if left ≤ 0);
    **break-even ad cost** = left (the most ads may cost per order before the sale loses money).
    Save `left_before_ads`, `margin_percent`, `break_even_roas`, `break_even_ad_cost` on each product.
+   **Realistic break-even:** if `voucher_percent` or `affiliate_percent` are set (from the monthly P&L), or they
+   say most orders use a shop voucher or come from affiliates, also work out left − price × (voucher% +
+   affiliate%) and its ROAS, and save it as `realistic_break_even_roas`. That's the one to hold ads to.
 2. Show it (EXAMPLE, worked out with fee 24.3% + RM0.54, packaging RM0.50, running costs RM2.50 an order):
    ```
    WHAT YOU KEEP PER SALE (before ads)
@@ -190,6 +203,18 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
    Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
    together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
+
+## Step 6b · Your true month (optional, 5 minutes, or later)
+
+Say: "Daily profit is an estimate. Shopee's **monthly Income Statement** is what it really paid you, so once a
+month I can turn it into your true profit: Shopee's own lines plus your costs. When the two disagree, we trust the
+month."
+```
+A) Later ★ (just say "do my monthly P&L" after the 5th of any month)
+B) Now, with last month's statement
+```
+B → follow `<HQ>/automations/monthly-pnl.md`. Shopee asks for the password every time Finance is opened: they type
+it, never Claude. If it isn't quick, stop and leave it for later.
 
 ## Optional extras (2 minutes, skip if short on time)
 

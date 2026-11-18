@@ -117,7 +117,8 @@ Allowance: **tiny** = reads no new pages · **small** = one page · **medium** =
 ### month-report · Month-end report
 - **Rides on:** `profit-check` · **Days:** the 1st of each month · **Reads:** nothing new · **Allowance:** small
 - **Works out:** last month from the day files kept (sales, profit, ad spend and sales per RM1, best and worst
-  products, stock-outs, chats answered). Saves `data/reports/<YYYY-MM-01>.json` (`summary` + `note`).
+  products, stock-outs, chats answered). Profit from day files is an estimate: say so, and suggest "do my monthly
+  P&L" for the exact number from Shopee's statement. Saves `data/reports/<YYYY-MM-01>.json` (`summary` + `note`).
 - **Tells the owner:** `info`: "Your <month> report is ready: RM<sales> sales, about RM<profit> profit." If
   `morning_email` is on, also a Gmail **draft** "Shopee · <month> report". Never sent.
 
