@@ -18,21 +18,27 @@ In a scheduled run you are already on Sonnet: read the pages yourself, following
 The job:
 > **A. Chats.** Open `<seller_centre>/webchat/conversations`. Wait 4 seconds. Never touch **Serving Mode**, never
 > type in the message box, never close or end a chat. Click the **All** filter at the top of the list and choose
-> **To Manually Reply**. Only chats labelled with the shop `<shop_name>` count (the list mixes shops).
-> For up to 10 chats, newest first: open the chat and read its last 10 messages with `get_page_text`
-> (`max_chars` 4000). Collect `buyer` (the full username, used only to find the chat again),
+> **To Manually Reply**, and in the shop filter (it says **All Shops**) pick `<shop_name>`. Only chats labelled
+> with the shop `<shop_name>` count (the list mixes every shop on this login).
+> For up to 10 chats, newest first: open the chat (wait 3 seconds) and read it with `get_page_text` (`max_chars`
+> 12000: the chat list comes first, the open chat at the end; messages have no sender names, so the buyer's lines
+> are the ones the shop hasn't answered yet). If a puzzle or slider check pops up, stop and reply `VERIFY`. Collect `buyer` (the full username, used only to find the chat again),
 > `buyer_short` (first 3 letters + `***`), `waiting_since` (time of the oldest unanswered buyer message),
 > `last_buyer_message` (exact words, but replace any phone number, email or address with `[removed]`),
 > `about` (one short line: what they want), `order_id` and `product` if they're mentioned.
 > **B. Reviews.** Open `<seller_centre>/portal/settings/shop/rating`. Wait 4 seconds. From the top collect
-> `shop_rating`, `unreplied_bad` ("Unreplied Bad Ratings"). Open the **To Reply** tab. For up to 20 reviews,
-> newest first, collect `order_id`, `product` (first 50 characters), `stars` (1–5), `review` (the buyer's words,
+> `shop_rating`, `unreplied_bad` ("Unreplied Bad Ratings"). Open the **To Reply** tab. The stars of each review
+> aren't in the page text, so use the **star filter**: 1 star, then 2, 3, 4 and 5, and take `stars` from the filter
+> you're on. For up to 20 reviews, newest first, collect `order_id`, `product` (first 50 characters), `stars`, `review` (the buyer's words,
 > up to 300 characters, phone numbers/emails/addresses replaced with `[removed]`), `buyer_short`, `date`.
 > Never click Reply, Review Prize or anything else that changes the shop.
 > Save chats to `<HQ>/data/chats/<today>.json` as `{"read_at", "source_pages", "summary": {"waiting"},
 > "found": [...]}` and reviews to `<HQ>/data/reviews/<today>.json` as `{"read_at", "source_pages",
 > "summary": {"to_reply", "shop_rating", "unreplied_bad"}, "found": [...]}`. Reply with the two counts.
 
+`VERIFY` (Shopee's puzzle check): live chat → show the browser, ask the owner to do the puzzle themselves, then
+read again; scheduled run → urgent alert "Shopee wants a quick check that you're a person. Please do it in Claude's
+browser.", log "skipped: Shopee check", refresh, stop.
 `SIGNED_OUT`: live chat → ask the owner to sign in; scheduled run → urgent alert "Seller Centre is signed out.
 Please sign in in Claude's browser.", log the run as "skipped: signed out", refresh, stop.
 

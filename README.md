@@ -98,7 +98,7 @@ Desktop/Shopee HQ/
   celebrates each new badge with confetti; the chat shows a progress card at every gate. Bonus badges: Shop
   Scanner, First YES, Power User.
 - **Shop Scan (Module 2).** With the owner's OK, three background helper trips read sales, orders, the top
-  products in detail, stock, ads, reviews, chat settings and up to 25 past (already read) chats, then write
+  products in detail, stock, ads, reviews, chat settings and up to 10 past (already read) chats of their own shop, then write
   `rules/shop-profile.md`. The interview still runs; the scan lets Claude confirm instead of ask, and use real
   buyer questions and the shop's own answers for the FAQ.
 - **Optional extras.** `automations/extras.md` has 20 ready-made extras (slow movers, order-by dates, FAQ learner,

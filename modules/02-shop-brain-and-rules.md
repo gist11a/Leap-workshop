@@ -36,27 +36,27 @@ Say, short:
   orders, ads, products in detail, stock, reviews, and your past chats with buyers."
 - "Then I know your shop from the real numbers, not only from what you tell me. It only **reads**: nothing in your
   shop changes, and I only open chats you've already read, so nothing new gets marked as read."
-- "It takes about 20 to 30 minutes while we keep talking, and it uses some of your Claude allowance, about as much
-  as one module."
+- "It takes about 10 to 20 minutes while we keep talking, and it uses a fair share of your Claude allowance, about
+  two modules' worth." (If they said their Usage bar is past half, make B the ★ choice.)
 ```
 A) Yes, do the full shop scan ★
-B) Just the basics for now (your chat numbers and couriers, 1 minute)
+B) Just the basics for now (your chat numbers, 1 minute)
 C) Not now
 ```
 - **A** → "Starting it. You'll see me mention it when each part finishes." Start **Shop Scan part 1** in the
   background exactly as the recipe says, and go straight on to Step 3. Start part 2 when part 1 finishes, part 3
   when part 2 finishes. The questions still all happen: "The scan shows me what your shop does. Your answers tell me
   what you want."
-- **B** → start ONE helper in the background with the text of `<HQ>/helpers/reader.md` + **Shop Scan part 2, steps
-  3 and 4 only** (chat numbers and couriers, saved to `data/shop/<today>.json`). Go on to Step 3.
+- **B** → start ONE helper in the background with the text of `<HQ>/helpers/reader.md` + **Shop Scan part 2, step
+  3 only** (the chat numbers, saved under `"summary"` in `data/shop/<today>.json`). Go on to Step 3.
 - **C** → go on to Step 3. Note in `<HQ>/CLAUDE.md` under "The shop": "Shop scan not done yet (say 'scan my shop')."
 - Any part replies `SIGNED_OUT`: finish the question you're on, then handle it as in Module 1 Step 6 and restart
-  that part.
+  that part. `VERIFY` (a Shopee puzzle check): as the recipe says, the owner does the puzzle; don't restart.
 
 **Using what the scan finds (as each part comes back, mid-interview):**
 - Mention it in one line, then use it: "My helper finished reading your sales: 214 orders in 30 days, best seller
   Kopi O Drip Bag. I'll use that."
-- **Confirm instead of asking** when the scan already knows: couriers (part 2), whether they ship fast (part 1's
+- **Confirm instead of asking** when the scan already knows: couriers (part 1), whether they ship fast (part 1's
   orders), their usual tone and greeting (part 3). E.g. "In your chats you write warm replies in Malay and English,
   with a little emoji, starting 'Hi dear!'. Keep that?" (A) Yes ★ B) Change it).
 - **Real buyer questions beat guesses:** in Round C, if part 3 is back, show the buyers' top questions from
@@ -128,8 +128,8 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
    D) Longer — tell me
    ```
    Save `ship_within_days` (1, 2, 3 or their number).
-2. Couriers: if the scan's part 2 (or the basics helper) is back, "Your shop ships with **<couriers_on>**. Right?"
-   (YES or fix). If it isn't back yet, ask this later. Save `couriers`.
+2. Couriers: if the scan's part 1 is back, "Your orders go out with **<couriers seen in the orders>**. Right?"
+   (YES or fix). Otherwise ask: "Which couriers do you use?" (free text). Save `couriers`.
 3. **Policies.** Say first (don't ask): "Shopee's own policies always apply to your shop: its return and refund
    rules, the Shopee Guarantee, and its chat and review rules. I'll always follow those. They're already in your
    rules and can't be switched off." (They're in `store.json` → `shopee_policy`.)
@@ -257,7 +257,7 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
    Ships within 2 days · SPX, J&T
    Policies: Shopee's (always) + 1-year warranty · 100% original
    Replies: warm and friendly · English and Malay
-   Chat now: 96% answered · about 1h 47m to reply (last 30 days)
+   Chat now: 92% answered · about 2h 10m to reply (last 30 days)
    ```
    (Last line from the scan's part 2 or the basics helper. If it isn't back yet, leave that line out.)
    "Reply YES if that's right, or tell me what to fix."

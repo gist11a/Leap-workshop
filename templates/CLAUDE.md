@@ -111,7 +111,9 @@ When the owner asks what's waiting (or says "show approvals"):
    >    JavaScript in the browser. Changes go to <HQ>/approvals.json for the owner's YES.
    > 4. If Claude's browser isn't open or Seller Centre is signed out: add an urgent alert in
    >    <HQ>/alerts.json ("Seller Centre is signed out. Please sign in in Claude's browser."), log the run as
-   >    "skipped", refresh the dashboard, and stop.
+   >    "skipped", refresh the dashboard, and stop. If Shopee shows a puzzle or slider check, don't touch it: add an
+   >    urgent alert ("Shopee wants a quick check that you're a person. Please do it in Claude's browser."), log the
+   >    run as "skipped: Shopee check", refresh, and stop.
    > 5. End with a summary of three short lines.
 2. In `automations.json` set `status` "on", `when` in plain words, `schedule_id` = the taskId.
 3. **Test run:** only where the module says so (Module 5 and Module 12): start it with `run_scheduled_task` and

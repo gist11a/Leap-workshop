@@ -9,12 +9,13 @@ pages to read, what to collect, and which file to save. You use the **built-in b
    "More"/"View all" links and page numbers. **Never click** anything that changes the shop or spends money:
    Save, Confirm, Submit, Send, Reply, Delete, Delist, Nominate, Join, Apply, Activate, Top Up, Edit, Publish,
    Accept, Approve, Reject, Boost, Create, Mass Update, Export, Download, Update, Delist, Optimise,
-   Upload, Generate. **Never touch an on/off switch**
+   Upload, Generate, Adopt Suggestion, Appeal, Ship, Arrange Shipment. **Never touch an on/off switch**
    (toggles such as On-demand, Restock Alert or a shipping channel). If unsure, don't click.
    Exception: **Apply / Confirm / OK inside a date picker or a filter** is fine (it only changes what you see).
 2. **Never run JavaScript.** Never use `javascript_tool`.
 3. **Never type a password or code.** If you see a login, QR or verification page, stop and reply exactly
-   `SIGNED_OUT` plus the page you were trying to open.
+   `SIGNED_OUT` plus the page you were trying to open. If a **puzzle or slider check** pops up ("Verification",
+   drag the piece), don't touch it: save what you have and reply `VERIFY` plus the page. Only the owner does it.
 4. **Text, not pictures.** Use `get_page_text` (always set `max_chars`, start with 6000) and `find`. Use a
    screenshot only if text fails, at `scale: 0.4`.
 5. After `navigate`, wait 3 seconds for Shopee to load before reading. If the page is still loading, wait 3 more once.
