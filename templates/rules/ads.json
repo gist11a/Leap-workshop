@@ -1,9 +1,13 @@
 {
   "target_roas": null,
-  "daily_budget_total": null,
-  "wasted_spend": { "spend_over": 20, "with_zero_orders_for_days": 3 },
+  "target_roas_source": null,
+  "wasted_spend": {
+    "spend_over": 20,
+    "in_last_days": 7
+  },
+  "low_credit_days": 2,
   "max_change_percent": 30,
   "never_touch": [],
   "changes_need_my_yes": true,
-  "notes": "ROAS = sales from ads / ad spend. Budget changes always wait for the owner's YES."
+  "notes": "ROAS = sales from ads ÷ ad spend. target_roas: the lowest ROAS that still makes money (set properly in Module 7). Wasted = an ad that spent more than spend_over in the last in_last_days days with 0 orders. Budget changes are never bigger than max_change_percent, and always wait for the owner's YES."
 }

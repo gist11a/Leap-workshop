@@ -82,15 +82,15 @@ How to handle each pick:
   D) Products out of stock      (Module 3)
   E) Chats waiting for a reply  (Module 5)
   F) Bad reviews to reply to    (Module 5)
-  G) Ad spend today             (Module 6)
-  H) Ad sales per RM1 spent     (Module 6)
-  I) Ad money spent with no orders (Module 6)
+  G) Ad spend yesterday         (Module 6)
+  H) Ad sales per RM1, yesterday (Module 6)
+  I) Ad money spent with no orders, 7 days (Module 6)
   J) Profit yesterday           (Module 7)
   K) Campaign deadlines this week (Module 8)
   ```
   Topic and field for each: A home/`to_process` (neutral), B home/`return_refund_cancel` (bad), C stock/`low_stock`
-  (bad), D stock/`out_of_stock` (bad), E chats/`waiting` (bad), F reviews/`bad_to_reply` (bad), G ads/`spend_today`
-  (neutral, money), H ads/`roas` (good), I ads/`wasted_spend` (bad, money), J profit/`profit` (good, money),
+  (bad), D stock/`out_of_stock` (bad), E chats/`waiting` (bad), F reviews/`bad_to_reply` (bad), G ads/`spend_yesterday`
+  (neutral, money), H ads/`roas_yesterday` (good), I ads/`wasted_spend_7d` (bad, money), J profit/`profit` (good, money),
   K campaigns/`deadlines_this_week` (neutral). Keep their order. Tell them: "Boxes for later modules show
   'Not set up yet' until we get there."
   Fewer than three? "Three to six reads best. Want to add one more?"

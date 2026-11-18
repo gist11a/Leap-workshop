@@ -20,16 +20,16 @@
       "up_is": "bad"
     },
     {
-      "label": "Ad spend today",
+      "label": "Ad spend yesterday",
       "topic": "ads",
-      "field": "spend_today",
+      "field": "spend_yesterday",
       "money": true,
       "up_is": "neutral"
     },
     {
-      "label": "Ad sales per RM1 spent",
+      "label": "Ad sales per RM1 (yesterday)",
       "topic": "ads",
-      "field": "roas",
+      "field": "roas_yesterday",
       "up_is": "good"
     },
     {
@@ -118,13 +118,23 @@
       "title": "Ads",
       "module": 6,
       "show": true,
-      "about": "ROAS = sales from ads ÷ ad spend. 5 means RM5 of sales for every RM1.",
+      "about": "ROAS = sales from ads ÷ ad spend. 5 means RM5 of sales for every RM1. Last 7 days in the table.",
       "columns": [
         "ad",
         "spend",
         "sales",
+        "orders",
         "roas",
         "flag"
+      ],
+      "fields": [
+        "spend_yesterday",
+        "roas_yesterday",
+        "spend_7d",
+        "roas_7d",
+        "wasted_spend_7d",
+        "ads_credit",
+        "credit_days_left"
       ]
     },
     {
@@ -186,9 +196,6 @@
     "return_refund_cancel": "Returns and cancels",
     "banned_or_deboosted": "Products with problems",
     "roas": "ROAS",
-    "spend_today": "Ad spend today",
-    "sales_from_ads_today": "Sales from ads today",
-    "wasted_spend": "Spend with no orders",
     "sold_per_day": "Sold a day",
     "reorder_qty": "Order this many",
     "margin_percent": "Margin %",
@@ -206,23 +213,37 @@
     "to_reply": "Reviews to reply",
     "bad_to_reply": "Bad reviews to reply",
     "shop_rating": "Shop rating",
-    "unreplied_bad": "Unreplied bad (Shopee)"
+    "unreplied_bad": "Unreplied bad (Shopee)",
+    "spend_yesterday": "Spend yesterday",
+    "roas_yesterday": "ROAS yesterday",
+    "sales_yesterday": "Ad sales yesterday",
+    "spend_7d": "Spend, 7 days",
+    "sales_7d": "Ad sales, 7 days",
+    "roas_7d": "ROAS, 7 days",
+    "wasted_spend_7d": "Spent with no orders, 7 days",
+    "ads_credit": "Ads credit left",
+    "credit_days_left": "Days of credit left"
   },
   "money_fields": [
-    "spend_today",
-    "sales_from_ads_today",
-    "wasted_spend",
-    "ads_credit",
-    "spend",
-    "sales",
-    "price",
-    "takeaway",
-    "profit",
-    "fees",
     "ad_spend",
-    "cost_of_goods",
+    "ads_credit",
+    "affiliate_sales",
     "commission",
-    "affiliate_sales"
+    "cost_of_goods",
+    "fees",
+    "price",
+    "profit",
+    "sales",
+    "sales_7d",
+    "sales_from_ads_today",
+    "sales_yesterday",
+    "spend",
+    "spend_7d",
+    "spend_today",
+    "spend_yesterday",
+    "takeaway",
+    "wasted_spend",
+    "wasted_spend_7d"
   ],
   "notes": []
 }

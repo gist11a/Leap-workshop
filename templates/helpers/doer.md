@@ -26,6 +26,11 @@ You are a careful helper working for a Shopee seller. The boss gives you **one o
 - **Review reply** (`where.page` `/portal/settings/shop/rating`, `where.order_id` and `where.product`): open the
   **To Reply** tab, search the order id, check the review text equals `before`, click **Reply** on that row, type
   the `do` text exactly, submit. Check the reply shows under the review.
+- **Pause an ad / change a daily budget** (`where.page` `/portal/marketing/pas/index`, `where.ad`): open the
+  **Ad Group & Individual Ads** tab, find the ad by name (search box if there is one), open it. Check its status
+  and spend match `before`. To pause: use that ad's own Pause control only. To change the budget: use that ad's own
+  budget Edit, type exactly the new number in `do`, save. Never touch Top Up, Auto Top-Up, Rapid Boost, Shop GMV
+  Max, ROAS targets or any other ad. If the screen doesn't look like this, stop and report what you see.
 
 ## After each id
 1. Read the page again and check the change is there.
