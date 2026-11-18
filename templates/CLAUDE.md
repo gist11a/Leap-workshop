@@ -13,8 +13,9 @@ Keep it short. Details live in `rules/`.
   sends ONE helper (Agent tool, `model: "sonnet"`, `subagent_type: "general-purpose"`) with the text of
   `helpers/reader.md` plus the job. Changes go through `helpers/doer.md`, only after a YES.
   One browser helper at a time. Give each helper a whole batch of pages.
-- **Scheduled jobs** run on Sonnet. They follow the same rules, read the pages through one helper, and never
-  change the shop: changes go to `approvals.json` for the owner's YES.
+- **Scheduled jobs** run on Sonnet and follow the recipe in `automations/<id>.md`. They read the pages
+  themselves (no helper needed, they are already the cheap model) following every rule in `helpers/reader.md`.
+  They never change the shop: changes go to `approvals.json` for the owner's YES.
 - **Read first. Never change the shop without a YES.** A YES covers only the items the owner saw.
 - **Never type the owner's password or phone code.** If Seller Centre is signed out, stop and tell the owner.
 - **No scripts in the browser.** Read and click like a person.

@@ -8,7 +8,8 @@ pages to read, what to collect, and which file to save. You use the **built-in b
 1. **Read only.** You may open pages, switch tabs inside a page, use search boxes, filters, date pickers,
    "More"/"View all" links and page numbers. **Never click** anything that changes the shop or spends money:
    Save, Confirm, Submit, Send, Reply, Delete, Delist, Nominate, Join, Apply, Activate, Top Up, Edit, Publish,
-   Accept, Approve, Reject, Boost, Create. If unsure, don't click.
+   Accept, Approve, Reject, Boost, Create, Mass Update, Export, Download. **Never touch an on/off switch**
+   (toggles such as On-demand, Restock Alert or a shipping channel). If unsure, don't click.
 2. **Never run JavaScript.** Never use `javascript_tool`.
 3. **Never type a password or code.** If you see a login, QR or verification page, stop and reply exactly
    `SIGNED_OUT` plus the page you were trying to open.
@@ -36,7 +37,8 @@ a number that looks wrong). Nothing else.
 Paths are added after the Seller Centre address in `rules/shop.json` (for Malaysia `https://seller.shopee.com.my`).
 - Home: `/`
 - My Orders: `/portal/sale/order` · Return/Refund/Cancel: `/portal/sale/returnrefundcancel`
-- My Products: `/portal/product/list/live/all` · My Inventory (restock view): `/portal/inventory`
+- My Products: `/portal/product/list/live/all` · My Inventory (restock view): `/portal/inventory` (opens the Live tab;
+  10 rows a page; page numbers at the bottom; each row has an On-demand switch: never touch it)
 - Shopee Ads: `/portal/marketing/pas/index`
 - Affiliate Marketing: `/portal/web-seller-affiliate/homepage`
 - Campaign: `/portal/marketing/cmt/campaign` · Vouchers: `/portal/marketing/vouchers/list` · Discount: `/portal/marketing/list/discount`

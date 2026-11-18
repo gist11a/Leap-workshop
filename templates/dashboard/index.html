@@ -349,12 +349,21 @@ tr:hover td{background:#FBFAF6}
     if (age === 1) return '<span class="chip chip-g">' + ico("clock") + "Read yesterday</span>";
     return '<span class="chip chip-p">' + ico("clock") + "Read " + esc(dShort(date)) + (age > 1 ? " · " + age + " days old" : "") + "</span>";
   }
+  function statusChip(t){
+    var l = t.toLowerCase();
+    var c = /out of stock|order now|urgent|no orders|wasted|bad|overdue|failed|ends today/.test(l) ? ["chip-r", "alert"]
+      : /soon|watch|waiting|check|low|due|deadline/.test(l) ? ["chip-y", "clock"]
+      : /fine|good|ok|done|sent|replied|joined|nominated/.test(l) ? ["chip-m", "check"] : ["chip-g", "info"];
+    return chip([c[0], c[1], t]);
+  }
   function table(items, cols){
     if (!items || !items.length) return "";
     cols = (cols && cols.length) ? cols : Object.keys(items[0]).slice(0, 6);
     var numCol = {}; cols.forEach(function(c){ numCol[c] = items.every(function(it){ return it[c] == null || isNum(it[c]); }); });
     var rows = items.slice(0, 8).map(function(it){
-      return "<tr>" + cols.map(function(c){ return '<td class="' + (numCol[c] ? "n" : "") + '">' + esc(fmt(it[c], c)) + "</td>"; }).join("") + "</tr>";
+      return "<tr>" + cols.map(function(c){
+        if ((c === "status" || c === "flag") && it[c]) return "<td>" + statusChip(String(it[c])) + "</td>";
+        return '<td class="' + (numCol[c] ? "n" : "") + '">' + esc(fmt(it[c], c)) + "</td>"; }).join("") + "</tr>";
     }).join("");
     return '<div class="tbl"><table><thead><tr>' + cols.map(function(c){ return '<th class="' + (numCol[c] ? "n" : "") + '">' + esc(human(c)) + "</th>"; }).join("") +
       "</tr></thead><tbody>" + rows + "</tbody></table>" + (items.length > 8 ? '<div class="more">+ ' + (items.length - 8) + " more. Ask Claude for the full list.</div>" : "") + "</div>";

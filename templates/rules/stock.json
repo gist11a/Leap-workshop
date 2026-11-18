@@ -4,5 +4,6 @@
   "supplier_lead_days": 7,
   "hero_products": [],
   "ignore_products": [],
-  "notes": "Days left = stock / average daily sales (last 7 or 30 days)."
+  "suppliers": [],
+  "notes": "Days left = stock ÷ sold per day (7-day average, or 30-day if the 7-day is 0). Order this many = sold per day × (cover days + lead days) − stock. suppliers: {\"name\", \"products\", \"lead_days\", \"how_to_order\"}; a supplier's lead_days beats the general one."
 }

@@ -67,7 +67,14 @@
         "stock",
         "sold_per_day",
         "days_left",
-        "reorder_qty"
+        "reorder_qty",
+        "status"
+      ],
+      "fields": [
+        "order_now",
+        "low_stock",
+        "out_of_stock",
+        "products_checked"
       ]
     },
     {
@@ -174,7 +181,11 @@
     "margin_percent": "Margin %",
     "chat_enquiries_30d": "Chats, last 30 days",
     "chat_response_rate": "Chats answered %",
-    "response_time": "Time to reply"
+    "response_time": "Time to reply",
+    "order_now": "Order today",
+    "low_stock": "Order this week or sooner",
+    "out_of_stock": "Out of stock (selling)",
+    "products_checked": "Products checked"
   },
   "money_fields": [
     "spend_today",
