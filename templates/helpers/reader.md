@@ -8,7 +8,8 @@ pages to read, what to collect, and which file to save. You use the **built-in b
 1. **Read only.** You may open pages, switch tabs inside a page, use search boxes, filters, date pickers,
    "More"/"View all" links and page numbers. **Never click** anything that changes the shop or spends money:
    Save, Confirm, Submit, Send, Reply, Delete, Delist, Nominate, Join, Apply, Activate, Top Up, Edit, Publish,
-   Accept, Approve, Reject, Boost, Create, Mass Update, Export, Download. **Never touch an on/off switch**
+   Accept, Approve, Reject, Boost, Create, Mass Update, Export, Download, Update, Delist, Optimise,
+   Upload, Generate. **Never touch an on/off switch**
    (toggles such as On-demand, Restock Alert or a shipping channel). If unsure, don't click.
 2. **Never run JavaScript.** Never use `javascript_tool`.
 3. **Never type a password or code.** If you see a login, QR or verification page, stop and reply exactly
@@ -37,6 +38,9 @@ a number that looks wrong). Nothing else.
 Paths are added after the Seller Centre address in `rules/shop.json` (for Malaysia `https://seller.shopee.com.my`).
 - Home: `/`
 - My Orders: `/portal/sale/order` · Return/Refund/Cancel: `/portal/sale/returnrefundcancel`
+- Product AI Optimiser (products sorted by sales, with Item IDs; "Upload Selling Points" tasks):
+  `/portal/product-ai-optimiser-v2` · One product's edit page: `/portal/product/<item id>` (has Update and Delist
+  buttons at the bottom: never press them)
 - My Products: `/portal/product/list/live/all` · My Inventory (restock view): `/portal/inventory` (opens the Live tab;
   10 rows a page; page numbers at the bottom; each row has an On-demand switch: never touch it)
 - Shopee Ads: `/portal/marketing/pas/index`

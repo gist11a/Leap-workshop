@@ -207,9 +207,17 @@
       "show": true,
       "columns": [
         "product",
+        "score",
         "issue",
         "fix"
-      ]
+      ],
+      "fields": [
+        "products_checked",
+        "need_fixing",
+        "missing_selling_points",
+        "to_be_optimised"
+      ],
+      "about": "Your best sellers' photos, checked by Claude. Selling points let Shopee's own AI make poster images."
     },
     {
       "id": "rules",
@@ -269,7 +277,11 @@
     "affiliate_orders_yesterday": "Orders",
     "commission_yesterday": "Commission paid",
     "roi_yesterday": "ROI",
-    "samples_to_approve": "Sample requests waiting"
+    "samples_to_approve": "Sample requests waiting",
+    "need_fixing": "Need better photos",
+    "missing_selling_points": "No selling points yet",
+    "to_be_optimised": "Shopee: to be optimised",
+    "score": "Score /5"
   },
   "money_fields": [
     "ad_spend",
