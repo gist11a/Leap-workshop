@@ -27,8 +27,9 @@ Login (merchant account) ── can manage several shops, often SG + MY together
   Shopee's own week or month figure.
 - **Three order bases:** placed (order made) → paid → confirmed (after the cancel window). Never compare one basis
   with another. Business Insights shows paid by default.
-- **When a day is final:** Shopee processes yesterday's shop and product numbers **between midnight and 10am**
-  (Business Insights says "Data is under processing" or "No Data" until then). After 10am they're final. Ads keep adding sales to past days for a few days. Affiliate days are final on day +2.
+- **When a day is final:** yesterday's shop and product numbers are **usually ready by 5–6am**. Shopee's own note
+  says processing can run until 10am, so on a slow day Business Insights still says "Data is under processing" or
+  "No Data" after 6am. If it does, use the last good numbers and try again later; by 10am they're always final. Ads keep adding sales to past days for a few days. Affiliate days are final on day +2.
   Orders keep changing for weeks (shipping, returns).
 - **My Inventory's sales averages are rounded up to whole numbers.** Anything that sold at all shows as at least
   1 a day, and "Days of Supply" is worked out from that. Real speed = units sold in Business Insights ÷ days.

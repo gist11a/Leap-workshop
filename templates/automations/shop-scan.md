@@ -37,7 +37,7 @@ start the next part straight away, then carry on.
 > 1. **Business Insights** `/datacenter/overview`. Open the **Data Period** picker (top of the page; scroll to it, it
 >    may need a click on its words) and pick **Past 30 Days** (no OK button). Collect `sales_30d`, `orders_30d`,
 >    `visitors_30d`, `conversion_30d` (percent as a number), `buyers_30d`, `sales_per_order_30d`.
->    It says **No Data** before Shopee loads the day (often until about 10am): then pick **Past 7 Days** and save
+>    It says **No Data** before Shopee loads the day (usually ready by 5–6am, at the latest 10am): then pick **Past 7 Days** and save
 >    those as `sales_7d`, `orders_7d`, `visitors_7d`, `conversion_7d` instead. Still nothing: save `null`s and say so.
 >    Never press Enable Now, Auto Top-up or anything else on this page.
 > 2. **Home page** `/`: collect `to_ship`, `return_refund_cancel` (the "to do" numbers).

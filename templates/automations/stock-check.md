@@ -41,7 +41,7 @@ The job:
 >    Impressions, Product Clicks, CTR, Order Conversion Rate, Orders, **Units**, … For each row save `product` (the
 >    first 60 characters of the title), `item_id` (shown under the title), `units_30d` (Units), `sales_30d` (Sales).
 >    Products not in the table sold nothing (Shopee leaves them out). If it says **"Data is under processing"** or
->    **No Data** (Shopee processes data between midnight and 10am) → save nothing and say `NO_SPEED_DATA`.
+>    **No Data** (usually ready by 5–6am; Shopee says it can take until 10am) → save nothing and say `NO_SPEED_DATA`.
 >    Save `<HQ>/data/sales-speed/<today>.json` as `{"read_at", "source_pages", "summary": {"units_30d_total"},
 >    "items": [{"product", "item_id", "units_30d", "sales_30d"}], "note": "Real units sold, last 30 days"}`.
 > Reply with the row count only (and `NO_SPEED_DATA` if it applies).
@@ -52,7 +52,7 @@ an urgent alert "Seller Centre is signed out. Please sign in in Claude's browser
 
 Before sending the helper, look in `data/sales-speed/`: if the newest file is under 7 days old, tell the helper to
 **skip job 4**. The real speed changes slowly, so reading it once a week keeps the daily run cheap. If job 4 says
-`NO_SPEED_DATA` (a run before 10am) and a sales-speed file under 14 days old exists, just keep using it.
+`NO_SPEED_DATA` (Shopee hasn't finished yesterday's data yet) and a sales-speed file under 14 days old exists, just keep using it.
 
 ## 3. Work it out (you do this, not the helper)
 
@@ -68,7 +68,7 @@ Use `rules/stock.json`. Skip anything in `ignore_products`. For each row:
   "Kopi O Drip Bag x10…" vs "Kopi O Drip Bag x30…", so never match on a shorter start). Two sales rows with the same 60 characters →
   `speed_from` "unmatched", no reorder amount. A product with no matching row sold 0. One product with several variations: share its speed across them
   in proportion to their `l30d` (all equal → split evenly). Two decimal places. Write `speed_from`: "sales".
-  No sales-speed file under 14 days old (first run before 10am, or `NO_SPEED_DATA` for two weeks): use `l30d`, write `speed_from`: "shopee rounded",
+  No sales-speed file under 14 days old (a first run while Shopee's data isn't ready, or `NO_SPEED_DATA` for two weeks): use `l30d`, write `speed_from`: "shopee rounded",
   and **don't give reorder amounts** (show the status only; see the check below).
 - **days_left** = `stock ÷ sold_per_day` (one decimal). Never use Shopee's "Days of Supply".
   If sold_per_day is 0, the product isn't selling: skip it (unless it's a hero product).

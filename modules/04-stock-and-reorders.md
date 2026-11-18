@@ -83,7 +83,7 @@ Say: "I've written your first automation: the morning stock check. Let's run it 
      from Business Insights, and divide by 30. Your reorder amounts come from that."
    - "And I double-check: if all the speeds added up are much more than your shop really sells in a day, I hold the
      reorder amounts back instead of giving you wrong ones."
-   - If the helper says `NO_SPEED_DATA` (Shopee hasn't loaded the day yet, usually before about 10am): show the
+   - If the helper says `NO_SPEED_DATA` (Shopee hasn't finished yesterday's data yet: usually ready by 5–6am, at the latest 10am): show the
      statuses only ("these are low") without amounts, and say "Amounts come at the next run, when Shopee's sales
      data is ready." The recipe already holds the amounts back.
 
