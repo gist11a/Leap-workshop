@@ -59,7 +59,8 @@ hand-over.
 - Add to `approvals.json`: `{"id": "R<n>", "created", "topic": "reviews", "what": "<stars>★ <product short>:
   \"<first 60 characters of the reply>…\"", "where": {"page": "/portal/settings/shop/rating",
   "order_id": "<order_id>", "product": "<product>"}, "before": "<review>", "do": "<the full reply>",
-  "kind": "thank-you" or "bad", "status": "waiting"}`.
+  "kind": "thank-you" or "bad", "status": "waiting"}`. Ids keep counting up from the highest `R` number already in
+  the file.
 
 Then write the day files again with:
 - chats `summary`: `waiting`, `replies_drafted`, `handed_to_me`, `oldest_wait_hours`; `items`: one per chat,

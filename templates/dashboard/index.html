@@ -134,7 +134,7 @@ tr:hover td{background:#FBFAF6}
 .rows{margin-top:14px;display:flex;flex-direction:column;gap:8px}
 .row{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--cream)}
 .row .main{flex:1;min-width:0}
-.row .main b{display:block;font-size:15px;line-height:1.35}
+.row .main b{display:block;font-size:15px;line-height:1.35;white-space:pre-line}
 .row .meta{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
 .row .side{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
 .sub{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin:20px 0 0;display:flex;align-items:center;gap:12px}
@@ -197,12 +197,32 @@ tr:hover td{background:#FBFAF6}
 <script src="data.js"></script>
 <script>
 (function(){
-  var HQ = window.SHOP_HQ || null;
+  /* data.js holds every file as text; read each on its own so one broken file only affects its own card */
+  var BROKEN = [];
+  function readFile(txt, name){
+    if (txt == null) return null;
+    if (typeof txt !== "string") return txt;
+    try { return JSON.parse(txt); } catch (e) { BROKEN.push(name); return {__broken: true}; }
+  }
+  function asList(x){ return Array.isArray(x) ? x : []; }
+  var HQ = null, RAW = window.SHOP_HQ_RAW;
+  if (RAW) {
+    HQ = {generated: RAW.generated, keep_days: RAW.keep_days, rules: {}, data: {}};
+    Object.keys(RAW.rules || {}).forEach(function(k){ var r = readFile(RAW.rules[k], "rules/" + k + ".json"); if (r && !r.__broken) HQ.rules[k] = r; });
+    ["automations", "approvals", "alerts"].forEach(function(k){ HQ[k] = asList(readFile(RAW[k], k + ".json")); });
+    var lay = readFile(RAW.layout, "dashboard/layout.json"); HQ.layout = (lay && !lay.__broken) ? lay : null;
+    Object.keys(RAW.data || {}).forEach(function(t){ HQ.data[t] = {};
+      Object.keys(RAW.data[t] || {}).forEach(function(d){ HQ.data[t][d] = readFile(RAW.data[t][d], "data/" + t + "/" + d + ".json"); }); });
+  } else if (window.SHOP_HQ) { HQ = window.SHOP_HQ; ["automations", "approvals", "alerts"].forEach(function(k){ HQ[k] = asList(HQ[k]); }); }
   var D = HQ && HQ.data || {};
   var R = HQ && HQ.rules || {};
   var shop = R.shop || {};
   var L = (HQ && HQ.layout) || {};
   var CUR = shop.currency || "RM";
+  if (CUR !== "RM") { var swap = function(t){ return typeof t === "string" ? t.replace(/RM(?=\d)/g, CUR) : t; };
+    (L.today || []).forEach(function(t){ t.label = swap(t.label); });
+    (L.sections || []).forEach(function(x){ x.about = swap(x.about); x.title = swap(x.title); });
+    Object.keys(L.labels || {}).forEach(function(k){ L.labels[k] = swap(L.labels[k]); }); }
   var LABELS = L.labels || {};
   var MONEY = {}; (L.money_fields || []).forEach(function(f){ MONEY[f] = 1; });
   var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
@@ -307,8 +327,8 @@ tr:hover td{background:#FBFAF6}
     document.getElementById("eyebrow").textContent = mk + (shop.shop_type ? " · " + shop.shop_type : "");
     document.getElementById("shopname").innerHTML = esc(shop.shop_name || "Your shop") + '<span class="dot">.</span>';
     var h = new Date().getHours(), greet = h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening";
-    var waiting = (HQ.approvals || []).filter(function(a){ return a.status === "waiting"; }).length;
-    var urgent = (HQ.alerts || []).filter(function(a){ return a.level === "urgent" && (daysBetween(a.date, todayStr()) || 0) <= 1; }).length;
+    var waiting = HQ.approvals.filter(function(a){ return a.status === "waiting"; }).length;
+    var urgent = HQ.alerts.filter(function(a){ return a.level === "urgent" && (daysBetween(a.date, todayStr()) || 0) <= 1; }).length;
     var line = greet + (shop.owner_name ? ", " + esc(shop.owner_name) : "") + ". ";
     if (urgent || waiting) line += "<b>" + [urgent ? urgent + (urgent === 1 ? " urgent alert" : " urgent alerts") : "", waiting ? waiting + (waiting === 1 ? " change waits" : " changes wait") + " for your YES" : ""].filter(Boolean).join(" and ") + "</b>.";
     else line += "Nothing urgent right now.";
@@ -320,7 +340,8 @@ tr:hover td{background:#FBFAF6}
     var pts = series(t.topic, t.field), last = pts.length ? pts[pts.length-1] : null;
     var lt = latest(t.topic), sv = lt && lt.file && lt.file.summary ? lt.file.summary[t.field] : undefined;
     var valHtml = (sv != null && !isNum(sv)) ? '<div class="val">' + esc(fmt(sv, t.field, t.money)) + "</div>"
-      : last ? '<div class="val num-t">' + esc(fmt(last.v, t.field, t.money)) + (t.suffix ? esc(t.suffix) : "") + "</div>"
+      : last ? '<div class="val num-t">' + esc(fmt(last.v, t.field, t.money)) + (t.suffix ? esc(t.suffix) : "") + "</div>" +
+        (daysBetween(last.d, todayStr()) > 0 ? '<div class="delta" style="color:var(--peach-ink)">From ' + esc(dShort(last.d)) + "</div>" : "")
       : '<div class="val none">Not set up yet</div>';
     return '<div class="stat" style="--n:' + n + '"><div class="lb">' + esc(t.label || human(t.field)) + "</div>" + valHtml +
       (last ? delta(pts, t.up_is, t.field, t.money) : '<div class="delta"></div>') + spark(pts.slice(-14), t.field, t.money) + "</div>";
@@ -385,14 +406,19 @@ tr:hover td{background:#FBFAF6}
     if (!lt) return head(sec, sec.module ? "Module " + sec.module : "Your data", '<span class="chip chip-g">Not set up yet</span>') +
       emptyBox("Nothing here yet", sec.module ? "This fills in when we do Module " + sec.module + "." : "Ask Claude to set this up.");
     var f = lt.file || {};
+    if (f.__broken) return head(sec, "Couldn't read this", '<span class="chip chip-p">' + ico("info") + "File needs fixing</span>") +
+      emptyBox("Today's " + sec.title.toLowerCase() + " file is broken", "Ask Claude: \u201cfix my " + (sec.topic) + " file\u201d. The other cards are fine.", "info");
     return head(sec, "Last 30 days", freshChip(lt.date, f.read_at)) + minis(sec.topic, f, sec.fields) + table(f.items, sec.columns) +
       (f.note ? '<p class="note-line">' + esc(f.note) + "</p>" : "");
   }
   function attention(sec){
-    var al = (HQ && HQ.alerts || []).slice(0, 8), ap = (HQ && HQ.approvals || []);
+    var al = (HQ ? HQ.alerts : []).slice(0, 8), ap = HQ ? HQ.approvals : [];
     var wait = ap.filter(function(a){ return a.status === "waiting"; });
     var recent = ap.filter(function(a){ return a.status !== "waiting"; }).slice(-4).reverse();
     var out = head(sec, "Alerts and approvals", wait.length ? '<span class="chip chip-y">' + ico("clock") + wait.length + " waiting</span>" : "");
+    if (BROKEN.length) out += '<div class="rows" style="margin-top:14px">' + '<div class="row"><div class="main"><b>' + BROKEN.length +
+      (BROKEN.length === 1 ? " file in your Shopee HQ can't be read" : " files in your Shopee HQ can't be read") + '</b><div class="meta">' + esc(BROKEN.slice(0, 4).join(" · ")) +
+      '</div><div class="about" style="margin-top:4px">Ask Claude: \u201cfix my broken Shopee HQ files\u201d.</div></div><div class="side">' + chip(["chip-p", "info", "Needs fixing"]) + "</div></div></div>";
     out += '<div class="sub">Waiting for your YES</div>';
     out += wait.length ? '<div class="rows">' + wait.map(function(a){
       return '<div class="row"><div class="main"><b>' + esc(a.what || a.do || "A change") + '</b><div class="meta">' + esc([a.topic, a.created && dShort(a.created), a.id].filter(Boolean).join(" · ")) +
@@ -410,7 +436,7 @@ tr:hover td{background:#FBFAF6}
     return out;
   }
   function automations(sec){
-    var au = (HQ && HQ.automations) || [];
+    var au = HQ ? HQ.automations : [];
     var on = au.filter(function(a){ return a.status === "on"; }).length;
     var out = head(sec, "Running by itself", au.length ? '<span class="chip chip-d"><i></i>' + on + " of " + au.length + " on</span>" : "");
     if (!au.length) return out + emptyBox("No automations yet", "Your first one starts in Module 4.", "clock");

@@ -91,11 +91,14 @@ Desktop/Shopee HQ/
 - **Scheduled runs use Sonnet**, so the daily jobs cost little. Claude creates the schedule itself (the app's
   scheduled-tasks tool, local time) and starts a first "Run now" so the attendee can click **Always allow** once.
   A scheduled run that starts on Opus hands the whole job to a Sonnet helper (the app has no model setting per task).
-- **Schedules on the day:** each module adds its own morning job (9:00 stock, 9:10 ads, 9:15 affiliates, 9:20 profit,
-  9:30 campaigns, 10:00 + 15:00 chats, Mon 9:45 images). Module 11 merges the morning ones into one routine so they
-  never share the browser at once. If an attendee stops before Module 11, their separate jobs can overlap.
+- **Schedules on the day:** Modules 5–10 create their jobs (offsets from the owner's morning time: stock +0, ads +15,
+  affiliates +25, profit +35, campaigns +45, chats +60, images Mondays +55) **without** a test run. Module 11 replaces
+  them all with ONE task, "Shopee · Daily routine" (morning: every check in order, each in a fresh Sonnet helper,
+  plus a summary; 15:xx: chats only), which gets the only "Always allow" besides Module 4's stock check. Attendees
+  who leave before Module 11 should run Module 11 Steps 3–5 at home (or approve each job's first run).
 - **A scheduled run needs the laptop on and Claude's browser open** (Seller Centre signed in). That is a stated
-  requirement, not a bug: if the laptop is closed, that run is skipped. Attendees hear this in Modules 4 and 11.
+  requirement, not a bug: if the laptop is closed, that run waits and happens
+  when Claude next opens. Attendees hear this in Modules 4 and 11.
 
 ### Staying inside the Claude Pro limits
 

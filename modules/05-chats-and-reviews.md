@@ -117,23 +117,25 @@ drafts tomorrow morning.
    Never reply to a bad review without its own YES (unless they said "YES all, including bad ones").
 3. Send ONE doer helper for all approved review replies. Report: "Replied to 6 reviews ✓".
 
-## Step 6 · Make it run twice a day
+## Step 6 · Make it run by itself
 
 1. "Want me to do this by myself? I'll read your chats and reviews and have the replies **ready** for your YES."
    ```
-   A) Twice a day, 10am and 3pm ★
-   B) Once, at 10am
-   C) Not now
+   A) Every morning ★ (an hour after your stock check; a 3pm check is added in Module 11)
+   B) Not now
    ```
-2. A or B → follow "How to schedule an automation" in `<HQ>/CLAUDE.md` for `chat-review-check`:
+2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md` for `chat-review-check`:
    `taskId` `shopee-chat-review-check`, `title` "Shopee · Chat and review check", description "Reads waiting
-   chats and reviews and drafts replies for the owner's YES", cron `0 10,15 * * *` (A) or `0 10 * * *` (B).
-   (10am, not earlier, so it doesn't share the browser with the stock check.)
-   In `automations.json`: `{"id": "chat-review-check", "name": "Chat and review check", "when": "Every day at 10am
-   and 3pm", "status": "on", "schedule_id": "shopee-chat-review-check", "recipe":
+   chats and reviews and drafts replies for the owner's YES", time **60 minutes** after `morning_check_at` (9:00 → `0 10 * * *`), so it never shares the browser
+   with the stock check.
+   In `automations.json`: `{"id": "chat-review-check", "name": "Chat and review check", "when": "Every day at
+   10am", "status": "on", "schedule_id": "shopee-chat-review-check", "recipe":
    "automations/chat-review-check.md", "last_run": "<now>", "last_result": "<this module's result>"}`.
-3. Run it once now with `run_scheduled_task` so they can click **Always allow** (same as Module 4). It will find
-   little or nothing new, which is fine: "This run is just to give it permission."
+   Say: "Remember: each time it reads a chat, Shopee marks it as read. Your list of what's waiting is on the
+   dashboard and in **what needs my YES?**."
+3. Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 4. Teach the one phrase (make them type it once now, it's the habit that matters):
    "Each day, open Claude in your Shopee HQ and type **what needs my YES?** I'll show you every reply waiting.
    Try it now."

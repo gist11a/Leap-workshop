@@ -15,7 +15,10 @@ In a scheduled run you are already on Sonnet: read the page yourself and follow 
 `<HQ>/helpers/reader.md`.
 
 The job:
-> Open `<seller_centre>/portal/inventory` (it opens the **Live** tab). Wait 3 seconds. Check "Current Shop" is
+> First open `<seller_centre>/` (the home page). Wait 3 seconds. Collect `to_process`, `processed`,
+> `return_refund_cancel`, `banned_or_deboosted` (the four "to do" numbers) and save them as
+> `{"read_at", "source_pages", "summary": {…}}` in `<HQ>/data/home/<today>.json`.
+> Then open `<seller_centre>/portal/inventory` (it opens the **Live** tab). Wait 3 seconds. Check "Current Shop" is
 > `<shop_name>`; if not, stop and say `WRONG_SHOP`.
 > 1. From the dashboard at the top, collect `live_skus` ("Live SKUs"), `shopee_out_of_stock` ("SKUs Out of
 >    Stock") and `shopee_low_stock` ("SKUs with Low Stock").

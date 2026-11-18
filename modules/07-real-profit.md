@@ -67,7 +67,8 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
 
 ## Step 4 · Your product costs
 
-1. Pick their **8 best sellers**: from `data/stock/<latest>.json` → `all_products` (highest `sold_per_day`).
+1. Pick their **8 best sellers**: from `data/stock/<latest>.json` → `all_products` (highest `l7d`, the 7-day sales average;
+   `l30d` if that's 0).
    If `rules/my-shop-info.md` has costs, use them and only ask about missing ones.
 2. "What does one of each cost you, delivered to you? Rough is fine. Reply with the numbers in this order, or
    paste your cost list." List the products numbered, with their price if you know it (ask for the price too if not).
@@ -94,9 +95,9 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
    ```
    WHAT YOU KEEP PER SALE (before ads)
    ──────────────────────────────────
-   Kopi O Drip Bag x10   RM29.90 → Shopee RM6.97 → cost RM9.50 → you keep RM12.93 (43%)
-   Robusta Beans 500g    RM38.00 → Shopee RM8.71 → cost RM17.00 → you keep RM11.79 (31%)
-   Hazelnut Blend 250g   RM24.90 → Shopee RM5.89 → cost RM13.80 → you keep RM4.71 (19%)
+   Kopi O Drip Bag x10   RM29.90 → Shopee RM6.97 → cost RM9.50 → packing RM0.50 → you keep RM12.93 (43%)
+   Robusta Beans 500g    RM38.00 → Shopee RM8.71 → cost RM17.00 → packing RM0.50 → you keep RM11.79 (31%)
+   Hazelnut Blend 250g   RM24.90 → Shopee RM5.89 → cost RM13.80 → packing RM0.50 → you keep RM4.71 (19%)
    ```
 3. Then the ads link, in plain words, one line per product:
    "**Break-even ROAS** is the ROAS where an ad makes no money and loses none. Below it, the ad loses money."
@@ -109,7 +110,7 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
    money." That's usually the moment it lands. Don't make changes here; say "Your ads check now uses these
    numbers, so tomorrow's suggestions take this into account."
 4. Update `rules/ads.json`: `target_roas` = total price ÷ total left-before-ads across these products, weighted by
-   `sold_per_day`, rounded **up** to the next 0.5. `target_roas_source` "profit". Say: "Your shop-wide ads target is
+   how much each sells (`l7d`), rounded **up** to the next 0.5. `target_roas_source` "profit". Say: "Your shop-wide ads target is
    now <n> (it was 4 as a starting point)."
 5. Products with less than 10% margin: "This one barely makes money even without ads. Worth a price check, or no
    ads on it." Don't change prices.
@@ -135,8 +136,10 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
    ```
    A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-profit-check`, `title`
    "Shopee · Profit check", description "Works out yesterday's profit after Shopee fees, product costs and ads",
-   time 20 minutes after `morning_check_at` (9:00 → `20 9 * * *`). Run it once now with `run_scheduled_task`
-   for **Always allow**.
+   time 35 minutes after `morning_check_at` (9:00 → `35 9 * * *`).
+   Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 
 ## Step 7 · Close the module
 

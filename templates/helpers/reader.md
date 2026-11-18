@@ -11,6 +11,7 @@ pages to read, what to collect, and which file to save. You use the **built-in b
    Accept, Approve, Reject, Boost, Create, Mass Update, Export, Download, Update, Delist, Optimise,
    Upload, Generate. **Never touch an on/off switch**
    (toggles such as On-demand, Restock Alert or a shipping channel). If unsure, don't click.
+   Exception: **Apply / Confirm / OK inside a date picker or a filter** is fine (it only changes what you see).
 2. **Never run JavaScript.** Never use `javascript_tool`.
 3. **Never type a password or code.** If you see a login, QR or verification page, stop and reply exactly
    `SIGNED_OUT` plus the page you were trying to open.

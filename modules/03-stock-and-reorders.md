@@ -103,8 +103,8 @@ Say: "I've written your first automation: the morning stock check. Let's run it 
    - D → add to `ignore_products`.
    Fix the rule, re-work the numbers from the saved day file (**don't send the helper again**), show the updated card.
 3. Hero products: "Which products must **never** run out? Pick up to five." Menu of their 8 best sellers by
-   sold_per_day (from `all_products`), several letters allowed, last option "None for now".
-   Save to `hero_products`. "These always show on your dashboard, and I warn you earlier about them."
+   7-day sales average (`l7d` in `all_products`; `l30d` if that's 0), several letters allowed, last option "None for now".
+   Save to `hero_products`. "These always show on your dashboard, and I flag them as urgent."
 
 ## Step 6 · A message for your supplier (the payoff)
 
@@ -118,7 +118,7 @@ C) Not now
   (product name, variation, quantity), and "Please confirm the delivery date." In a code block so it's easy to copy.
   Group by supplier if `suppliers` has more than one.
 - B → ask the supplier's email (or use `how_to_order`), then create a **draft** in Gmail with the Gmail connector.
-  Never send. "It's in your Gmail drafts. Check it and press send yourself."
+  Never send. Gmail not connected? "Gmail isn't connected, so here it is to copy instead" and do A. "It's in your Gmail drafts. Check it and press send yourself."
 - Say: "From tomorrow this list is ready every morning. You just forward it."
 
 ## Step 7 · See it on the dashboard

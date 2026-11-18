@@ -92,8 +92,8 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
 - **Never overwrite a file they already have.** Templates are copied only if the file doesn't exist yet.
 - Files are plain JSON (their "database"). Keep them valid, small, with dates as `YYYY-MM-DD` and money as numbers.
 - **Day data goes in `<HQ>/data/<topic>/<YYYY-MM-DD>.json`.** Running the same job twice in a day replaces that day's file.
-- **Keep 30 days.** Whenever you save day data, delete files in `<HQ>/data/` older than 30 days and keep only the
-  last 30 days of `runs.json`. Never delete anything else.
+- **Keep 30 days.** The refresh step deletes day files in `<HQ>/data/` older than 30 days. Never delete anything
+  else.
 - After any data change, **refresh the dashboard** with the steps in `<HQ>/CLAUDE.md` ("Refresh the dashboard").
 - Anything they'd want a future chat to know goes into `<HQ>/CLAUDE.md` or `<HQ>/rules/`. Update the
   "Where we are" line at every gate.
@@ -111,7 +111,7 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
   How to set one up is in `<HQ>/CLAUDE.md` ("How to schedule an automation").
 - **Scheduled jobs need two things:** the laptop is on (awake, Claude open) and **Claude's browser is open with
   Seller Centre signed in**. Say it plainly whenever you set one up: "Leave the laptop on with Claude open and my
-  browser showing Seller Centre. If it's closed, that morning's check is skipped and runs next time."
+  browser showing Seller Centre. If it's closed, the check waits and runs when you next open Claude."
 
 ## 6. Safety — say these out loud in Module 0, then live by them
 
@@ -149,7 +149,8 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
    real Desktop (on Windows check `OneDrive\Desktop` first). If it doesn't exist, create it on the Desktop they see.
 3. Download the course into `<HQ>/course` with one shell command (works on Mac and on Windows' Git Bash):
    `mkdir -p "<HQ>/course" && curl -fsSL https://codeload.github.com/gist11a/Leap-workshop/tar.gz/refs/heads/main | tar -xz -C "<HQ>/course" --strip-components=1`
-   If that fails, say "one moment" and download just the module you need with
+   If that fails (no internet, a blocked download), say "one moment, let's get a trainer" and wave one over:
+   the course needs the whole folder, not single files. Only to read ahead while waiting, a single module can be fetched with
    `curl -fsSL https://raw.githubusercontent.com/gist11a/Leap-workshop/main/modules/<file> -o "<HQ>/course/modules/<file>"`.
    Use curl, not a web-page reader: you need the files word for word.
 4. Read `<HQ>/course/modules/00-get-set-up.md` and run it.

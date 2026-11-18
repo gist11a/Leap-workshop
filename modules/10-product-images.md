@@ -97,8 +97,10 @@ Say, short:
    ```
 2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-image-check`, `title`
    "Shopee · Image check (Mondays)", description "Weekly: products without selling points in Shopee's Product AI
-   Optimiser", cron `45 9 * * 1` (Mondays 9:45). In its prompt, say "do the **weekly check** only". Run it once
-   now with `run_scheduled_task` for **Always allow**.
+   Optimiser", Mondays 55 minutes after `morning_check_at` (9:00 → `55 9 * * 1`). In its prompt, say "do the **weekly
+   check** only". Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 
 ## Step 6 · Close the module
 

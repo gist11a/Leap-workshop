@@ -211,10 +211,10 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
 3. "Where should urgent alerts go?"
    ```
    A) Here in Claude, and the dashboard ★
-   B) Also a draft email to me (Gmail)
+   B) Also a morning summary in my Gmail drafts (we set it up in Module 11)
    ```
-   B → ask for the email address, save `alert_email`. "I'll only ever write it as a draft in your Gmail.
-   You press send, or just read it." (Drafts only today. Sending can come later, with their YES.)
+   B → ask for the email address, save `alert_email`. "In Module 11 I'll put a short morning summary in your Gmail
+   drafts. I never send it; you just read it." 
 
 Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
 
@@ -244,7 +244,7 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
      today."). "That's how I'll handle it every time."
    - If they don't like a reply's wording, fix the rule (tone, greeting, an FAQ answer), not just that reply, and
      say so: "Fixed in your rules, so every reply changes, not just this one."
-   - Two or three tests is enough. Watch the clock.
+   - One easy question and one hard one is enough. Watch the clock (this module is the tightest of the day).
 
 ## Step 6 · Close the module
 

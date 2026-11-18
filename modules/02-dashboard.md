@@ -126,6 +126,8 @@ How to handle each pick:
   Still old? Run the refresh step again and check it said "Dashboard refreshed".
 - **The page shows 'No data yet':** the refresh step didn't run or couldn't write. Run it again; if it fails, check
   the folder location in `<HQ>/CLAUDE.md` matches the real folder.
+- **"Needs you" says a file can't be read:** that file isn't valid. Open it, fix it (or delete a broken day file;
+  the next check writes it again), refresh. Only that card is affected meanwhile.
 - **A card says "Couldn't show this":** a data file for that card is broken. Look at the newest file in that topic's
   data folder, fix or delete it, refresh. Tell them: "One of my notes was messy. Fixed."
 - **Fonts look plain:** the laptop is offline. Everything still works; the nicer fonts come back with internet.

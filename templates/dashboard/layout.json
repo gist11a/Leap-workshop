@@ -157,7 +157,9 @@
         "margin_percent",
         "fees",
         "cost_of_goods",
+        "packaging",
         "ad_spend",
+        "affiliate_commission",
         "estimated_percent"
       ]
     },
@@ -281,11 +283,14 @@
     "need_fixing": "Need better photos",
     "missing_selling_points": "No selling points yet",
     "to_be_optimised": "Shopee: to be optimised",
-    "score": "Score /5"
+    "score": "Score /5",
+    "packaging": "Packing",
+    "affiliate_commission": "Affiliate commission"
   },
   "money_fields": [
     "ad_spend",
     "ads_credit",
+    "affiliate_commission",
     "affiliate_sales",
     "affiliate_sales_yesterday",
     "commission",

@@ -22,13 +22,19 @@ if [ -d "$HQ/data" ]; then
 fi
 
 # --- 2. Build data.js ---
-emit_file() {  # prints the file's JSON, or null if missing/empty
-  if [ -s "$1" ]; then cat "$1"; else printf 'null'; fi
+emit_file() {  # prints the file as a JS text string (the page reads each one on its own), or null if missing/blank
+  if [ -f "$1" ] && grep -q '[^[:space:]]' "$1"; then
+    printf '`'
+    sed -e 's/\\/\\\\/g' -e 's/`/\\`/g' -e 's/\$/\\$/g' "$1"
+    printf '`'
+  else
+    printf 'null'
+  fi
 }
 
 mkdir -p "$HQ/dashboard"
 {
-  printf 'window.SHOP_HQ = {\n'
+  printf 'window.SHOP_HQ_RAW = {\n'
   printf '"generated": "%s",\n' "$(date '+%Y-%m-%d %H:%M')"
   printf '"keep_days": %s,\n' "$KEEP_DAYS"
 

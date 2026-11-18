@@ -50,17 +50,17 @@ With `rules/ads.json` (if `target_roas` is empty, use 4 and say so). If an ad's 
 Write the day file again with `summary` (all the numbers from step 2 plus `wasted_spend_7d`, `credit_days_left`,
 `target_roas`), `items` (every row: `ad`, `spend`, `sales`, `orders`, `roas`, `flag` = "No orders" / "Below target"
 / "Great" / "OK", sorted No orders → Below target → Great → OK, then by spend), and a one-line `note`, e.g.
-"RM212 spent last week at ROAS 4.4. RM31 went to 2 ads with no orders."
+"RM212 spent last week at ROAS 4.4. RM51 went to 2 ads with no orders."
 
 ## 4. Suggestions (go to `approvals.json`, never done without a YES)
 Skip anything in `never_touch`, anything in the **Shop GMV Max** group (Shopee manages those products itself), and
 anything that already has a `waiting` ads suggestion. At most 3 suggestions per run:
 - Each **wasted** ad → `{"id": "A<n>", "created", "topic": "ads", "what": "Pause '<ad>' (RM<spend> spent in 7 days,
   no orders)", "where": {"page": "/portal/marketing/pas/index", "ad": "<ad>"}, "before": "Ongoing, RM<spend>
-  spent, 0 orders", "do": "Pause the ad '<ad>'", "kind": "pause", "status": "waiting"}`.
-- **Great** ads that ran out of budget (the page said "budget limit reached" for them) → raise the daily budget
-  by at most `max_change_percent`: `"do": "Change the daily budget of '<ad>' from RM<x> to RM<y>"`, `kind` "budget".
-  Only suggest this if `credit_days_left` is 3 or more.
+  spent, 0 orders", "do": "Pause the ad '<ad>'", "kind": "pause", "status": "waiting"}`. Ids keep counting up
+  from the highest `A` number already in the file.
+- **Great** ads: no suggestion today (budget changes need numbers this check doesn't read). Mention them in the
+  note ("Kopi O Drip Bag is your best ad") so the owner can decide.
 Never suggest Top Up, Auto Top-Up, Join, Boost or any new ad.
 
 ## 5. Alerts
@@ -77,4 +77,4 @@ First remove alerts with `topic` "ads" dated today. Then add:
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
 4. Live chat: show it as in Module 6. Scheduled run: end with three lines, e.g.
-   "Yesterday RM38 spent, ROAS 4.9 · 7 days ROAS 4.4 · 2 ads wasted RM31 (pause suggested)."
+   "Yesterday RM38 spent, ROAS 4.9 · 7 days ROAS 4.4 · 2 ads wasted RM51 (pause suggested)."

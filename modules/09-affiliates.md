@@ -94,8 +94,10 @@ Say, short:
    ```
 2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-affiliate-check`, `title`
    "Shopee · Affiliate check", description "Yesterday's affiliate sales, sample requests, and a Monday commission
-   check", time **15 minutes** after `morning_check_at` (9:00 → `15 9 * * *`) so it runs before the profit check.
-   Run it once now with `run_scheduled_task` for **Always allow**.
+   check", time **25 minutes** after `morning_check_at` (9:00 → `25 9 * * *`) so it runs before the profit check.
+   Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 3. Say: "Your profit check now takes affiliate commission off too, so the profit number is complete."
 
 ## Step 6 · Close the module

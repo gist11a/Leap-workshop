@@ -21,9 +21,9 @@ YOU GET: one morning routine, and a shop that checks itself
 ```
 
 Say, short:
-- "Today you built up to seven checks. Right now some run at their own times. Let's make it one tidy routine."
-- "Every morning one helper runs them one after another: stock, ads, affiliates, profit, campaigns, then
-  chats. Then it writes you a five-line summary."
+- "Today you built up to seven checks, each with its own time. Let's make it one tidy routine."
+- "Every morning I run them one after another: stock, ads, affiliates, profit, campaigns, then chats. Then I
+  write you a five-line summary. At 3pm I check chats again."
 - "One routine instead of several saves your Claude allowance, and the checks never get in each other's way."
 - "Reply YES when you're ready."
 
@@ -34,37 +34,37 @@ List every automation with a plain status, e.g. (EXAMPLE):
 YOUR AUTOMATIONS
 ──────────────────────────────────
 ✓ Morning stock check      every day 9:00
-✓ Ads check                every day 9:10
-✓ Affiliate check          every day 9:15
-✓ Profit check             every day 9:20
-✓ Campaign check           every day 9:30
-✓ Chat and review check    10am and 3pm
-✓ Image check              Mondays 9:45
+✓ Ads check                every day 9:15
+✓ Affiliate check          every day 9:25
+✓ Profit check             every day 9:35
+✓ Campaign check           every day 9:45
+✓ Chat and review check    every day 10:00
+✓ Image check              Mondays 9:55
 ○ (anything they skipped: "not set up, you can add it any time")
 ```
 
 ## Step 3 · Build the morning routine
 
 1. "What time should your summary be ready?" (default `morning_check_at`; A) keep <time> ★ B) earlier C) later).
-   Mention: "The routine takes about 10 to 20 minutes, so pick a time 20 minutes before you want to read it."
+   The routine takes about 10 to 20 minutes, so **schedule it to start 20 minutes before the time they give**
+   (ready at 9:00 → starts 8:40). Tell them: "I'll start at 8:40 so it's ready by 9:00."
 2. "Which days?" A) Every day ★ B) Monday to Friday.
 3. Follow "How to schedule an automation" in `<HQ>/CLAUDE.md` for `morning-routine`: `taskId`
-   `shopee-morning-routine`, `title` "Shopee · Morning routine", description "Runs the stock, ads, affiliate,
-   profit, campaign and chat checks in order and writes a morning summary". In the prompt, step 2 points to
-   `automations/morning-routine.md`.
-4. **Switch off the separate morning schedules** it replaces, so nothing runs twice: for each of
+   `shopee-morning-routine`, `title` "Shopee · Daily routine", description "Morning: stock, ads, affiliates,
+   profit, campaigns and chats in order, plus a summary. Afternoon: chats." The cron runs at the start time **and
+   at 15:<same minute>** (start 8:40 → `40 8,15 * * *`; weekdays → `40 8,15 * * 1-5`). The afternoon run does
+   chats only (the recipe knows).
+4. **Switch off every separate schedule** it replaces, so only this one task is left: for each of
    `shopee-stock-check`, `shopee-ads-check`, `shopee-affiliate-check`, `shopee-profit-check`,
-   `shopee-campaign-check` that exists, `update_scheduled_task` with `enabled: false`. In `automations.json` keep
-   their `status` "on" (the routine runs only those that are "on") and set `when` to "In the morning routine
-   (<time>)" and `schedule_id` to "shopee-morning-routine".
-   - The chat and review check keeps its own **3pm** run: `update_scheduled_task` its cron to `0 15 * * *`
-     (the morning part now happens inside the routine). Its `when`: "In the morning routine, and 3pm".
-   - The Monday image check stays as it is.
-5. Add `{"id": "morning-routine", "name": "Morning routine", "when": "<days> at <time>", "status": "on",
+   `shopee-campaign-check`, `shopee-chat-review-check`, `shopee-image-check` that exists,
+   `update_scheduled_task` with `enabled: false`. In `automations.json` keep their `status` "on" (the routine runs
+   only those that are "on"), set `schedule_id` to "shopee-morning-routine" and `when` to "In the daily routine"
+   (chats: "In the daily routine, morning and 3pm"; images: "In the daily routine, Mondays").
+5. Add `{"id": "morning-routine", "name": "Daily routine", "when": "<days> at <start time> and 3pm", "status": "on",
    "schedule_id": "shopee-morning-routine", "recipe": "automations/morning-routine.md", "last_run": null,
    "last_result": null}`.
-6. Say: "Done: one routine, every morning at <time>. You can still ask me for any single check any time, like
-   'check my stock now'."
+6. Say: "Done: one routine, every morning (ready by <time>) and a chat check at 3pm. You can still ask me for any
+   single check any time, like 'check my stock now'."
 
 ## Step 4 · The morning summary by email (optional)
 
@@ -81,8 +81,10 @@ YOUR AUTOMATIONS
 ## Step 5 · First run, together
 
 1. "Let's run the whole routine once now, so you can see it and give it permission."
-   Start it with `run_scheduled_task` (`taskId` "shopee-morning-routine").
-2. Same as Module 4: a new chat **Shopee · Morning routine** appears in the left sidebar; they click it and choose
+   Start it with `run_scheduled_task` (`taskId` "shopee-morning-routine"). (If it's after 12:00 the routine does
+   only chats: tell them "This afternoon it only checks chats. Tomorrow morning it does everything." If they want to
+   see the full morning run now, that's fine too: tell the routine in its chat "do the morning run now".)
+2. Same as Module 4: a new chat **Shopee · Daily routine** appears in the left sidebar; they click it and choose
    **Always allow** for anything that reads or saves in Shopee HQ, the browser, the refresh step, and (if they chose
    it) creating a Gmail draft. **Deny** anything that would send, delete or pay.
 3. While it runs (10–20 minutes), do Step 6 with them in this chat. Don't use the browser yourself meanwhile.

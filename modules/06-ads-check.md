@@ -49,8 +49,8 @@ Say, short:
    D) Another amount — tell me
    ```
    Save `wasted_spend.spend_over`.
-3. Say (don't ask): "Two safety rules are already set: I'll never suggest changing a budget by more than 30% at a
-   time, and every change waits for your YES."
+3. Say (don't ask): "Two safety rules are already set: the only change I'll suggest is pausing an ad that sold
+   nothing, and every change waits for your YES. Budgets stay your call."
 4. "Any ads I should never touch? For example, a brand ad your agency manages." (free text or "no").
    Save to `never_touch`.
 
@@ -71,20 +71,21 @@ Say, short:
    ──────────────────────────────────
    Spent RM212 → sales RM933 → ROAS 4.4 (your target: 4) ✓
    Yesterday: RM38 spent, ROAS 4.9
-   Wasted: RM31 on 2 ads with no orders this week
+   Wasted: RM51 on 2 ads with no orders this week
    Ad credit: RM51 left, about 2 days at this speed ⚠
    ```
 2. Then the ads list, at most 6 lines, worst first:
    ```
    ⚠ Hazelnut Search: RM24, 0 orders
-   ⚠ Gift Box Ad: RM7, 0 orders
+   ⚠ Gift Box Ad: RM27, 0 orders
    ↓ Robusta 1kg: ROAS 2.1 (below your 4)
    ★ Kopi O Drip Bag: ROAS 9.8, 12 orders
    ```
 3. Explain one line each, as plain as possible:
    - "The ⚠ ones cost money and sold nothing this week. Pausing them saves that money."
    - "The ↓ one sells, but each sale costs too much in ads."
-   - "The ★ one is your winner. If it keeps running out of budget, giving it a bit more usually pays."
+   - "The ★ one is your winner. If it keeps running out of budget, giving it a bit more usually pays. That's
+     your call, in Shopee Ads."
    - If credit is low: "When your ad credit hits zero, all your ads stop. Topping up is your call, in Shopee Ads.
      I'll never top up for you."
 4. "Anything surprise you?"
@@ -102,7 +103,7 @@ If step 3 made suggestions:
 1. Show them numbered, one line each, plus what it means:
    ```
    7  Pause "Hazelnut Search" (RM24 in 7 days, no orders) — saves about RM3 a day
-   8  Pause "Gift Box Ad" (RM7, no orders)
+   8  Pause "Gift Box Ad" (RM27 in 7 days, no orders)
    ```
    "Reply **YES 7**, **YES all**, or **NO** to keep them running. You can switch them back on any time."
 2. On YES: follow "What needs my YES?" in `<HQ>/CLAUDE.md` (one doer helper for all approved ad changes).
@@ -115,15 +116,17 @@ If step 3 made suggestions:
 
 1. "Want me to check your ads every morning and suggest changes for your YES?"
    ```
-   A) Yes, every morning ★ (10 minutes after your stock check)
+   A) Yes, every morning ★ (15 minutes after your stock check)
    B) Only on weekdays
    C) Not now
    ```
 2. A or B → follow "How to schedule an automation" in `<HQ>/CLAUDE.md` for `ads-check`: `taskId`
    `shopee-ads-check`, `title` "Shopee · Ads check", description "Reads Shopee Ads, flags wasted spend and low
-   credit, suggests changes for the owner's YES". Time: 10 minutes after `morning_check_at` (9:00 → `10 9 * * *`)
+   credit, suggests changes for the owner's YES". Time: 15 minutes after `morning_check_at` (9:00 → `15 9 * * *`)
    so the two checks don't share the browser. Update `ads-check` in `automations.json` to `on` with `when` in plain words.
-3. Run it once now with `run_scheduled_task` so they can click **Always allow** (as in Module 4).
+3. Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 
 ## Step 7 · Close the module
 

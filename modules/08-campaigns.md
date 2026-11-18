@@ -104,7 +104,7 @@ Follow "Checking prices for one campaign" at the bottom of `automations/campaign
    PRICE CHECK · DECEMBER CAMPAIGN PACING
    ──────────────────────────────────
    ✓ Kopi O Drip Bag x10  Shopee asks RM19.90 · your floor RM15.90 · you keep 23%
-   ✗ Robusta Beans 500g   Shopee asks RM26.60 · your floor RM27.20 · you'd keep 8%
+   ✗ Robusta Beans 500g   Shopee asks RM26.60 · your floor RM27.20 · you'd keep 9%
    ✗ Hazelnut 250g        Shopee asks RM19.90 · your floor RM22.40 · you'd keep 2%
    Requirements: at least 10% off · campaign stock at least 20
    ```
@@ -128,8 +128,10 @@ Follow "Checking prices for one campaign" at the bottom of `automations/campaign
    ```
 2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-campaign-check`, `title`
    "Shopee · Campaign check", description "Lists campaigns that fit, deadlines and price offers waiting for the
-   owner", time 30 minutes after `morning_check_at` (9:00 → `30 9 * * *`). Run it once now with
-   `run_scheduled_task` for **Always allow**.
+   owner", time 45 minutes after `morning_check_at` (9:00 → `45 9 * * *`).
+   Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 
 ## Step 7 · Close the module
 
