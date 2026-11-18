@@ -34,16 +34,16 @@ The job:
 > Never touch the On-demand switches, the Restock Alert switch, Edit, Mass Update, Restock Now or Export.
 > Save into `<HQ>/data/stock/<today>.json` as `{"read_at", "source_pages", "summary": {"live_skus",
 > "shopee_out_of_stock", "shopee_low_stock"}, "all_products": [...rows]}`.
-> 4. **Real sales speed** (only if the boss says it's needed: the newest file in `<HQ>/data/sales-speed/` is missing
->    or 7+ days old). Open `<seller_centre>/datacenter/overview`, then Business Insights' **Product** menu →
->    **Performance** (use `find` for "Product" and "Performance" in the left menu). In the **Data Period** picker
->    choose **Past 30 Days**. Read the product table, every page (at most 10 pages, `max_chars` 8000): for each row
->    `product` (first 60 characters), `units_30d` (units sold: the **paid** units column if there are several,
->    else "Units Sold"), and `sales_30d`. Also note the shop's total `orders_30d` from the top. Products not in the
->    table sold nothing (Shopee leaves them out). "No Data" (Shopee hasn't loaded the day yet, often before about
->    10am) → save nothing and say `NO_SPEED_DATA`.
->    Save `<HQ>/data/sales-speed/<today>.json` as `{"read_at", "source_pages", "summary": {"orders_30d",
->    "units_30d_total"}, "items": [{"product", "units_30d", "sales_30d"}], "note": "Real units sold, last 30 days"}`.
+> 4. **Real sales speed** (only if the boss says it's needed). Open `<seller_centre>/datacenter/product/performance`
+>    (Business Insights → Product → Product Performance; Order Type stays **Paid Order**). In the **Data Period**
+>    picker choose **Past 30 Days** (the picker can be slow to open: click its words, wait 2 seconds). Read the
+>    product table, every page (at most 10 pages, `max_chars` 8000). Columns: Product Information, Sales, Product
+>    Impressions, Product Clicks, CTR, Order Conversion Rate, Orders, **Units**, … For each row save `product` (the
+>    first 60 characters of the title), `item_id` (shown under the title), `units_30d` (Units), `sales_30d` (Sales).
+>    Products not in the table sold nothing (Shopee leaves them out). If it says **"Data is under processing"** or
+>    **No Data** (Shopee processes data between midnight and 10am) → save nothing and say `NO_SPEED_DATA`.
+>    Save `<HQ>/data/sales-speed/<today>.json` as `{"read_at", "source_pages", "summary": {"units_30d_total"},
+>    "items": [{"product", "item_id", "units_30d", "sales_30d"}], "note": "Real units sold, last 30 days"}`.
 > Reply with the row count only (and `NO_SPEED_DATA` if it applies).
 
 If the helper says `SIGNED_OUT`: in a live chat ask the owner to sign in (CLAUDE.md); in a scheduled run, write
@@ -51,7 +51,8 @@ an urgent alert "Seller Centre is signed out. Please sign in in Claude's browser
 "skipped: signed out", and stop.
 
 Before sending the helper, look in `data/sales-speed/`: if the newest file is under 7 days old, tell the helper to
-**skip job 4**. The real speed changes slowly, so reading it once a week keeps the daily run cheap.
+**skip job 4**. The real speed changes slowly, so reading it once a week keeps the daily run cheap. If job 4 says
+`NO_SPEED_DATA` (a run before 10am) and a sales-speed file under 14 days old exists, just keep using it.
 
 ## 3. Work it out (you do this, not the helper)
 
@@ -62,15 +63,17 @@ sells 30. "Days of Supply" is worked out from those same rounded numbers. So:
 - Shopee's averages are used only to split one product's speed across its variations, and as a last resort.
 
 Use `rules/stock.json`. Skip anything in `ignore_products`. For each row:
-- **sold_per_day** = that product's `units_30d ÷ 30` from the newest sales-speed file (match on the start of the
-  name; a product missing from that file sold 0). One product with several variations: share its speed across them
+- **sold_per_day** = that product's `units_30d ÷ 30` from the newest sales-speed file. Match when the first 60
+  characters of the two names are the same, ignoring capitals and extra spaces (titles often start alike, e.g.
+  "Kopi O Drip Bag x10…" vs "Kopi O Drip Bag x30…", so never match on a shorter start). Two sales rows with the same 60 characters →
+  `speed_from` "unmatched", no reorder amount. A product with no matching row sold 0. One product with several variations: share its speed across them
   in proportion to their `l30d` (all equal → split evenly). Two decimal places. Write `speed_from`: "sales".
-  No sales-speed file at all (first run, or `NO_SPEED_DATA`): use `l30d`, write `speed_from`: "shopee rounded",
+  No sales-speed file under 14 days old (first run before 10am, or `NO_SPEED_DATA` for two weeks): use `l30d`, write `speed_from`: "shopee rounded",
   and **don't give reorder amounts** (show the status only; see the check below).
 - **days_left** = `stock ÷ sold_per_day` (one decimal). Never use Shopee's "Days of Supply".
   If sold_per_day is 0, the product isn't selling: skip it (unless it's a hero product).
 - **Sanity check (always):** add up sold_per_day for all products. If that's more than **2 × the shop's real units
-  a day** (`units_30d_total ÷ 30`, or `orders_30d ÷ 30` if units are missing), the speeds are wrong: write no stock
+  a day** (`units_30d_total ÷ 30` from the sales-speed file), the speeds are wrong: write no stock
   alerts, set `note` to "Sales speeds look too high, so no reorder amounts today", and add one `watch` alert:
   "Stock check: sales speeds didn't add up, so I held back reorder amounts. Ask me to read your real sales."
 - **lead_days** = that product's supplier `lead_days` from `suppliers`, else `supplier_lead_days`.

@@ -5,7 +5,7 @@
 **Gate at the end:** `module4`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
-**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §2 (read only that). Worth saying when it fits: yesterday's numbers are final from about 5–6am; visitors and buyers are unique, so days never add up; "-" means no value, not zero.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §2 (read only that). Worth saying when it fits: Shopee finishes yesterday's numbers by 10am; visitors and buyers are unique, so days never add up; "-" means no value, not zero.
 The dashboard page is ready-made. **Never edit `dashboard/index.html`.** Everything they change goes in
 `dashboard/layout.json` (the rules for that are in `<HQ>/CLAUDE.md`, "When the owner wants the dashboard changed").
 

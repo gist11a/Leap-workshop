@@ -6,7 +6,7 @@
 **Gate at the end:** lunch, then `module6`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
-**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §2 (read only that). Worth saying when it fits: shop numbers for yesterday are ready from about 5–6am, so morning checks after that read final numbers; ads keep adding sales to past days for a few days.
+**Shopee know-how for this module:** `<HQ>/knowledge/shopee-basics.md` §2 (read only that). Worth saying when it fits: Shopee finishes yesterday's shop numbers by 10am (stock and orders are live, so a 9am stock check is fine; sales totals settle by 10am); ads keep adding sales to past days for a few days.
 The steps for scheduling are in `<HQ>/CLAUDE.md` → "How to schedule an automation". Follow them exactly.
 
 ---
