@@ -56,11 +56,13 @@ First remove alerts with `topic` "campaigns" dated today. Then add:
 Keep at most 5 campaign alerts.
 
 ## 5. Finish
+First: if this automation's entry in `automations.json` has `"extras"`, run the ones whose days match today
+(`automations/extras.md` → "How it works"). Then:
 1. Add to `data/runs/<today>.json`: `{"time", "automation": "Campaign check", "result": "<note>", "alerts": <n>,
    "approvals": 0}`.
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
-4. Live chat: show it as in Module 8. Scheduled run: end with three lines, e.g.
+4. Live chat: show it as in Module 9. Scheduled run: end with three lines, e.g.
    "2 price offers to confirm · 20 Nov BTO Sale closes today 14:20 · 6 campaigns open for you."
 
 ## Checking prices for one campaign (live chat only, when the owner asks)
@@ -73,6 +75,6 @@ Keep at most 5 campaign alerts.
    Click nothing on this page except tabs or page numbers. Save to `<HQ>/data/campaign-check-<campaign short>.json`."
 3. Compare each product with `rules/campaigns.json` → `price_floor`: the floor is the higher of `lowest_prices`
    and `owner_lowest_prices` for that product. Products with no floor: work it out from `rules/costs.json`
-   (as in Module 8) or say "no cost yet".
+   (as in Module 9) or say "no cost yet".
 4. Show ✓ (at or above the floor, with the margin it leaves) / ✗ (below: "lowest you can go RM<floor>") /
    ? (no cost). Then guide the owner, one step at a time, while they nominate or confirm the ✓ ones themselves.

@@ -1,10 +1,10 @@
-# Module 10 · Product images (about 20 minutes)
+# Module 11 · Product images (about 20 minutes)
 
 **They get:** an honest score for their best sellers' photos with the one fix that matters most, a photo brief they
 can hand to anyone, and selling points so Shopee's own AI can make poster images for them.
 **Files touched:** `data/images/`, `rules/my-shop-info.md` (selling points), `alerts.json`, `automations.json`.
 The recipe `automations/image-check.md` is already in their folder. Read it now.
-**Gate at the end:** `module11`.
+**Gate at the end:** `module12`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 Be kind about photos: owners often took them themselves. Lead with what works, then the one fix.
@@ -17,7 +17,7 @@ better photos come from the owner (or their photographer) using Claude's brief.
 
 Card:
 ```
-MODULE 10 OF 11 · PRODUCT IMAGES
+MODULE 11 OF 12 · PRODUCT IMAGES
 ──────────────────────────────────
 YOU GET: photos and selling points that make people click
 ```
@@ -36,7 +36,7 @@ Say, short:
    "recipe": "automations/image-check.md", "last_run": null, "last_result": null}` to `automations.json`.
 2. Say: "Sending my helper to look at your best sellers' photos. It only looks, it doesn't change anything.
    About 3 minutes."
-3. Follow `automations/image-check.md`, **full check** (steps 2 to 5). If Module 3 or 7 saved best sellers, give the
+3. Follow `automations/image-check.md`, **full check** (steps 2 to 5). If Module 4 or 8 saved best sellers, give the
    helper those 5 names so it checks the right products.
 
 ## Step 3 · Scores and the one fix
@@ -98,21 +98,36 @@ Say, short:
 2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-image-check`, `title`
    "Shopee · Image check (Mondays)", description "Weekly: products without selling points in Shopee's Product AI
    Optimiser", Mondays 55 minutes after `morning_check_at` (9:00 → `55 9 * * 1`). In its prompt, say "do the **weekly
-   check** only". Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
-   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   check** only". Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
+
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the image check, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your image check. Pick any, e.g. **A C**, or none."
+   ```
+   A) Listing health check  the 1st of each month: listings with too few photos, no video or short titles
+   B) New product check     Mondays: new products that still need photos or selling points
+   C) None for now ★
+   D) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `listing-health`, B = `new-product-check`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
 
 ## Step 6 · Close the module
 
 1. "Press **Cmd+R** / **Ctrl+R** on your dashboard: the Product images card shows your scores and fixes."
-2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 10 done · next: module11". One line under "The shop", e.g.
+2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 11 done · next: module12". One line under "The shop", e.g.
    "Photos: Hazelnut cover to retake · selling points written for top 3 (in my-shop-info)."
 3. Say:
    - "Done: you know which photos to fix first, and Shopee's AI can now make posters for your best sellers."
    - Value line: "A better cover photo is free and can lift clicks for every ad and campaign you run."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 10 of 11 done. Last one: we put it all into one daily routine, and you leave with it running.
-     Type **module11** when you're ready."
+   - Gate: "That's 11 of 12 done. Last one: we put it all into one daily routine, and you leave with it running.
+     Type **module12** when you're ready."
 
 ## If things go wrong
 

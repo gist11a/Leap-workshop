@@ -1,10 +1,10 @@
-# Module 5 · Chats and reviews (about 45 minutes)
+# Module 6 · Chats and reviews (about 45 minutes)
 
 **They get:** waiting chats and reviews answered in their own voice, sent only after their YES, and a check
 that drafts the replies twice a day.
 **Files touched:** `approvals.json`, `data/chats/`, `data/reviews/`, `alerts.json`, `automations.json`.
 The recipe `automations/chat-review-check.md` is already in their folder. Read it now; you follow it in Step 3.
-**Gate at the end:** `module6`.
+**Gate at the end:** `module7`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 This is the first module where Claude **changes** something in their shop (sending replies). Go slowly here,
@@ -16,7 +16,7 @@ and make the YES feel safe and normal.
 
 Card:
 ```
-MODULE 5 OF 11 · CHATS AND REVIEWS
+MODULE 6 OF 12 · CHATS AND REVIEWS
 ──────────────────────────────────
 YOU GET: replies written in your voice, sent when you say YES
 ```
@@ -24,14 +24,14 @@ YOU GET: replies written in your voice, sent when you say YES
 Say, short:
 - "Welcome back! Buyers who wait for an answer often buy somewhere else. Shopee also shows your chat response
   rate on your shop page."
-- "<If Module 1 got their numbers:> Right now you answer <rate>% of chats, in about <time>."
+- "<If Module 2 got their numbers:> Right now you answer <rate>% of chats, in about <time>."
 - "I'll read the chats and reviews waiting for you, write the replies in your voice, and send them when you say
   YES. Nothing goes out without your YES."
 - "Reply YES when you're ready."
 
 ## Step 2 · Your reply rules, in 20 seconds
 
-Show what Module 1 saved, three lines, then one question:
+Show what Module 2 saved, three lines, then one question:
 ```
 YOUR REPLIES
 ──────────────────────────────────
@@ -121,7 +121,7 @@ drafts tomorrow morning.
 
 1. "Want me to do this by myself? I'll read your chats and reviews and have the replies **ready** for your YES."
    ```
-   A) Every morning ★ (an hour after your stock check; a 3pm check is added in Module 11)
+   A) Every morning ★ (an hour after your stock check; a 3pm check is added in Module 12)
    B) Not now
    ```
 2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md` for `chat-review-check`:
@@ -133,8 +133,8 @@ drafts tomorrow morning.
    "automations/chat-review-check.md", "last_run": "<now>", "last_result": "<this module's result>"}`.
    Say: "Remember: each time it reads a chat, Shopee marks it as read. Your list of what's waiting is on the
    dashboard and in **what needs my YES?**."
-3. Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
-   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+3. Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
 4. Teach the one phrase (make them type it once now, it's the habit that matters):
    "Each day, open Claude in your Shopee HQ and type **what needs my YES?** I'll show you every reply waiting.
@@ -142,18 +142,37 @@ drafts tomorrow morning.
    Run "What needs my YES?" from `<HQ>/CLAUDE.md`. Most likely nothing is waiting: "Nothing waiting. That's what a
    good day looks like."
 
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the chat and review check, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your chat and review check. Pick any, e.g. **A C**, or none."
+   ```
+   A) New FAQ answers          Fridays: questions buyers asked twice this week, with answers for your YES
+   B) What reviews are saying  Mondays: what buyers love and complain about, per product
+   C) Response rate guard      every morning: tells you if your chat response rate drops
+   D) None for now ★
+   E) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `faq-learner`, B = `review-themes`, C = `response-rate-guard`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
+
 ## Step 7 · See it on the dashboard and close
 
 1. "Press **Cmd+R** / **Ctrl+R** on your dashboard: Chats and Reviews are live, and anything waiting for your
    YES is at the top."
-2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 5 done · next: module6", and one line under "The shop", e.g.
+   Then: "Click **See and check the draft** under any reply. You see what the buyer wrote, my draft, and a check
+   against your rules (outside apps, delivery dates, your never-say words, length). The **Copy** buttons give you
+   'YES to C4' or 'change C4: …' to paste here. The page itself never sends anything."
+2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 6 done · next: module7", and one line under "The shop", e.g.
    "Chat and review check at 10am and 3pm, replies sent only after YES."
 3. Say:
    - "Done: your chats and reviews get answered in your voice, and nothing goes out without your YES."
    - Value line: "Answering chats and reviews is often an hour a day. Now it's two minutes and a YES."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 5 of 11 done. Next, your ads: where the money goes, and where it's wasted.
-     Type **module6** when you're ready."
+   - Gate: "That's 6 of 12 done. Next, your ads: where the money goes, and where it's wasted.
+     Type **module7** when you're ready."
 
 ## If things go wrong
 

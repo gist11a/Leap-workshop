@@ -9,5 +9,5 @@
   "max_change_percent": 30,
   "never_touch": [],
   "changes_need_my_yes": true,
-  "notes": "ROAS = sales from ads ÷ ad spend. target_roas: the lowest ROAS that still makes money (set properly in Module 7). Wasted = an ad that spent more than spend_over in the last in_last_days days with 0 orders. Budget changes are never bigger than max_change_percent, and always wait for the owner's YES."
+  "notes": "ROAS = sales from ads ÷ ad spend. target_roas: the lowest ROAS that still makes money (set properly in Module 8). Wasted = an ad that spent more than spend_over in the last in_last_days days with 0 orders. Budget changes are never bigger than max_change_percent, and always wait for the owner's YES."
 }

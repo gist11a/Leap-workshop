@@ -1,10 +1,10 @@
-# Module 7 · Real profit (about 30 minutes)
+# Module 8 · Real profit (about 30 minutes)
 
 **They get:** what they really keep from each sale after Shopee's fees and their costs, the ad ROAS each product
 needs to make money, and "profit yesterday" every morning.
 **Files touched:** `rules/costs.json`, `rules/ads.json` (`target_roas`), `data/profit/`, `automations.json`.
 The recipe `automations/profit-check.md` and the fee table `tools/shopee-fees.json` are already in their folder.
-**Gate at the end:** `module8`.
+**Gate at the end:** `module9`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 **Never present an estimate as exact.** Say "about" for estimates, and say where each number came from.
@@ -15,7 +15,7 @@ Follow START.md's rules: short messages, lettered menus, one question at a time,
 
 Card:
 ```
-MODULE 7 OF 11 · REAL PROFIT
+MODULE 8 OF 12 · REAL PROFIT
 ──────────────────────────────────
 YOU GET: what you really keep from every sale
 ```
@@ -106,7 +106,7 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
    Robusta 500g: at least RM3.20 per RM1
    Hazelnut 250g: at least RM5.30 per RM1
    ```
-   If Module 6 has ad data, connect it: "Your Robusta ad ran at 2.1 last week, below 3.2, so each sale from it lost
+   If Module 7 has ad data, connect it: "Your Robusta ad ran at 2.1 last week, below 3.2, so each sale from it lost
    money." That's usually the moment it lands. Don't make changes here; say "Your ads check now uses these
    numbers, so tomorrow's suggestions take this into account."
 4. Update `rules/ads.json`: `target_roas` = total price ÷ total left-before-ads across these products, weighted by
@@ -137,22 +137,38 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer.
    A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-profit-check`, `title`
    "Shopee · Profit check", description "Works out yesterday's profit after Shopee fees, product costs and ads",
    time 35 minutes after `morning_check_at` (9:00 → `35 9 * * *`).
-   Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
-   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
+
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the profit check, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your profit check. Pick any, e.g. **A C**, or none."
+   ```
+   A) Products losing money  Mondays: which products lost money last week, and why
+   B) Month-end report       the 1st of each month: last month on one page (and a Gmail draft if you like)
+   C) Shopee fee check       the 1st of each month: tells you if Shopee changed its fees
+   D) None for now ★
+   E) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `loss-makers`, B = `month-report`, C = `fee-watch`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
 
 ## Step 7 · Close the module
 
 1. "Press **Cmd+R** / **Ctrl+R** on your dashboard: **Profit yesterday** is live at the top, and Real profit shows
    which products make or lose money."
-2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 7 done · next: module8". One line under "The shop", e.g.
+2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 8 done · next: module9". One line under "The shop", e.g.
    "Shopee fees about 21.5% + RM0.54 (from real orders, 19 Nov) · ads target ROAS 3 from profit."
 3. Say:
    - "Done: you know what you really keep, product by product, and every morning you'll see yesterday's profit."
    - Value line: "Most sellers only find out at month end, from the bank. You'll know every morning."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 7 of 11 done. Next, campaigns: Shopee's big sale days, and how to join them without
-     selling at a loss. Type **module8** when you're ready."
+   - Gate: "That's 8 of 12 done. Next, campaigns: Shopee's big sale days, and how to join them without
+     selling at a loss. Type **module9** when you're ready."
 
 ## If things go wrong
 

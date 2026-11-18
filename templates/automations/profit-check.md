@@ -62,9 +62,11 @@ First remove alerts with `topic` "profit" dated today. Then add:
   it exact."
 
 ## 5. Finish
+First: if this automation's entry in `automations.json` has `"extras"`, run the ones whose days match today
+(`automations/extras.md` → "How it works"). Then:
 1. Add to `data/runs/<today>.json`: `{"time", "automation": "Profit check", "result": "<note>", "alerts": <n>,
    "approvals": 0}`.
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
-4. Live chat: show it as in Module 7. Scheduled run: end with three lines, e.g.
+4. Live chat: show it as in Module 8. Scheduled run: end with three lines, e.g.
    "Yesterday RM1,284 sales · about RM221 profit (17%) · Hazelnut 250g sold at a loss."

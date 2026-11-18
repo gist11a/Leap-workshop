@@ -1,7 +1,7 @@
-# Module 0 · Get set up (about 30 minutes)
+# Module 1 · Get set up (about 30 minutes)
 
 **They get:** their Shopee HQ folder installed, and proof that Claude can read their Seller Centre.
-**Gate at the end:** `module1`.
+**Gate at the end:** `module2`.
 
 Follow START.md's rules all the way through: short messages, menus, one question at a time, no tech words.
 
@@ -11,7 +11,7 @@ Follow START.md's rules all the way through: short messages, menus, one question
 
 Card:
 ```
-MODULE 0 OF 11 · GET SET UP
+MODULE 1 OF 12 · GET SET UP
 ──────────────────────────────────
 YOU GET: your Shopee HQ, ready to work
 ```
@@ -40,10 +40,20 @@ Silently:
 1. Copy the starter files without overwriting anything they already have:
    `cp -Rn "<HQ>/course/templates/." "<HQ>/"`
 2. In `<HQ>/CLAUDE.md`, replace every `<HQ>` with the real full folder location.
-3. Check these exist: `CLAUDE.md`, `rules/`, `helpers/`, `tools/`, `dashboard/`, `automations.json`.
+3. Check these exist: `CLAUDE.md`, `rules/`, `helpers/`, `tools/`, `dashboard/`, `automations.json`, `progress.json`.
 
 Say: "Your Shopee HQ is set up. Think of it as a filing cabinet for your shop: your rules, a page of notes for
 each day, and a dashboard. It all stays on this laptop."
+
+Then the progress page:
+1. In `<HQ>/progress.json` set `name` (their name) and `current` 1. Run the refresh step quietly
+   (`bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`).
+2. Open it in their normal web browser (not mine):
+   - Mac: `open "<HQ>/dashboard/progress.html"`
+   - Windows: `explorer.exe "<HQ in Windows form>\dashboard\progress.html"`
+3. Say: "A page just opened in your web browser: your workshop map. Twelve modules, twelve badges. Keep that tab
+   open; it lights up by itself every time we finish a module." If nothing opened: "Open your Shopee HQ folder on
+   the Desktop, then **dashboard**, then double-click **progress**."
 
 ## Step 4 · How we'll work, and three promises (two short messages)
 
@@ -98,20 +108,23 @@ Write `rules/shop.json`: `owner_name`, `market`, `seller_centre`, `currency`, `t
 6. Tell them what came back, in two or three plain lines, e.g.:
    "Your shop is **Kopi & Co**. You have 12 orders to process and 2 return requests. Shop performance: Good."
    (Order numbers and counts only. No buyer names.)
-7. Save `shop_name` in `rules/shop.json`.
+7. Save `shop_name` in `rules/shop.json`, and as `shop` in `progress.json`.
 
 ## Step 7 · Close the module
 
-1. Run the refresh step: `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"` (quietly; it just tidies up).
+1. In `progress.json` add `"1": "<now>"` to `done`, then run the refresh step:
+   `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"` (quietly).
 2. Update `<HQ>/CLAUDE.md`:
-   - "Where we are: Module 0 done · next: module1".
+   - "Where we are: Module 1 done · next: module2".
    - Under "The shop": one line, e.g. "Kopi & Co · Shopee Malaysia · owner: Aisha".
 3. Say:
    - "Done: your Shopee HQ is ready and I can read your shop."
    - Value line: "Checking these numbers each morning is a 10-minute job for someone. Soon it'll be done before you sit down."
+   - The progress card (START.md section 2): `■□□□□□□□□□□□ 1 of 12 · BADGE UNLOCKED: OPEN FOR BUSINESS`, then
+     "🏅 **Open for Business** unlocked. Look at your progress page: it just lit up."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
    - Gate: "That's setup done. Next we teach me your shop's rules, so everything I do sounds like you.
-     Type **module1** when you're ready."
+     Type **module2** when you're ready."
 
 ## If things go wrong
 

@@ -72,9 +72,11 @@ First remove alerts with `topic` "ads" dated today. Then add:
 - `info` if there are suggestions: "<n> ad changes ready for your YES."
 
 ## 6. Finish
+First: if this automation's entry in `automations.json` has `"extras"`, run the ones whose days match today
+(`automations/extras.md` → "How it works"). Then:
 1. Add to `data/runs/<today>.json`: `{"time", "automation": "Ads check", "result": "<note>", "alerts": <n>,
    "approvals": <suggestions added>}`.
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
-4. Live chat: show it as in Module 6. Scheduled run: end with three lines, e.g.
+4. Live chat: show it as in Module 7. Scheduled run: end with three lines, e.g.
    "Yesterday RM38 spent, ROAS 4.9 · 7 days ROAS 4.4 · 2 ads wasted RM51 (pause suggested)."

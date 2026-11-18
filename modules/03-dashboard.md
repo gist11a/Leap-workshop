@@ -1,8 +1,8 @@
-# Module 2 · Your dashboard (about 25 minutes)
+# Module 3 · Your dashboard (about 25 minutes)
 
 **They get:** one page with their whole shop on it, on their own laptop, arranged the way they like.
 **Files touched:** `dashboard/layout.json` (their changes), `dashboard/data.js` (rebuilt by the refresh step).
-**Gate at the end:** `module3`.
+**Gate at the end:** `module4`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 The dashboard page is ready-made. **Never edit `dashboard/index.html`.** Everything they change goes in
@@ -14,7 +14,7 @@ The dashboard page is ready-made. **Never edit `dashboard/index.html`.** Everyth
 
 Card:
 ```
-MODULE 2 OF 11 · YOUR DASHBOARD
+MODULE 3 OF 12 · YOUR DASHBOARD
 ──────────────────────────────────
 YOU GET: your whole shop on one page
 ```
@@ -51,7 +51,7 @@ Say it like a walk around the room, each line one part of the page, top to botto
 - "**Needs you:** anything I want to change in your shop waits here for your YES, plus alerts like low stock."
 - "**Automations:** the checks that run by themselves. Your first one arrives before lunch."
 - "**One card per job** (stock, chats, ads, profit, campaigns…), then **My shop today** and **My rules**,
-  which already has what you told me in Module 1."
+  which already has what you told me in Module 2."
 - "The dark bar at the bottom jumps between cards."
 - "To update it any time: ask me **refresh my dashboard**, then press **Cmd+R** / **Ctrl+R** on the page."
 "Reply YES and we'll make it yours."
@@ -78,15 +78,15 @@ How to handle each pick:
   ```
   A) Orders to process          (from your Seller Centre home page)
   B) Returns and cancels        (home page)
-  C) Products low on stock      (Module 3)
-  D) Products out of stock      (Module 3)
-  E) Chats waiting for a reply  (Module 5)
-  F) Bad reviews to reply to    (Module 5)
-  G) Ad spend yesterday         (Module 6)
-  H) Ad sales per RM1, yesterday (Module 6)
-  I) Ad money spent with no orders, 7 days (Module 6)
-  J) Profit yesterday           (Module 7)
-  K) Campaign deadlines this week (Module 8)
+  C) Products low on stock      (Module 4)
+  D) Products out of stock      (Module 4)
+  E) Chats waiting for a reply  (Module 6)
+  F) Bad reviews to reply to    (Module 6)
+  G) Ad spend yesterday         (Module 7)
+  H) Ad sales per RM1, yesterday (Module 7)
+  I) Ad money spent with no orders, 7 days (Module 7)
+  J) Profit yesterday           (Module 8)
+  K) Campaign deadlines this week (Module 9)
   ```
   Topic and field for each: A home/`to_process` (neutral), B home/`return_refund_cancel` (bad), C stock/`low_stock`
   (bad), D stock/`out_of_stock` (bad), E chats/`waiting` (bad), F reviews/`bad_to_reply` (bad), G ads/`spend_yesterday`
@@ -110,15 +110,15 @@ How to handle each pick:
 
 ## Step 5 · Close the module
 
-1. Update `<HQ>/CLAUDE.md`: "Where we are: Module 2 done · next: module3". Under "How the owner likes things",
+1. Update `<HQ>/CLAUDE.md`: "Where we are: Module 3 done · next: module4". Under "How the owner likes things",
    one line on what they put first (e.g. "Wants Ads and Stock at the top").
 2. Say:
    - "Done: you have a dashboard, and it's arranged your way."
    - "Remember: **refresh my dashboard**, then Cmd+R / Ctrl+R. After lunch your automations refresh it for you."
    - Value line: "Shops pay for dashboard tools every month. Yours is free, private, and shows exactly what you want."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 2 of 11 done. Next, stock: I'll find what's about to run out and how much to reorder.
-     Type **module3** when you're ready."
+   - Gate: "That's 3 of 12 done. Next, stock: I'll find what's about to run out and how much to reorder.
+     Type **module4** when you're ready."
 
 ## If things go wrong
 

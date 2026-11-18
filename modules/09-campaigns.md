@@ -1,10 +1,10 @@
-# Module 8 · Campaigns (about 35 minutes)
+# Module 9 · Campaigns (about 35 minutes)
 
 **They get:** a price floor for every best seller (the lowest campaign price that still makes money), a list of
 the campaigns that fit them with deadlines, and a price check before they nominate or confirm anything.
 **Files touched:** `rules/campaigns.json`, `data/campaigns/`, `alerts.json`, `automations.json`.
 The recipe `automations/campaign-check.md` is already in their folder. Read it now.
-**Gate at the end:** `module9`.
+**Gate at the end:** `module10`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 **The owner presses Nominate and Confirm, never Claude.** Joining a campaign is a promise to Shopee about price
@@ -16,7 +16,7 @@ and stock. Claude prepares the list and checks the prices; the owner clicks.
 
 Card:
 ```
-MODULE 8 OF 11 · CAMPAIGNS
+MODULE 9 OF 12 · CAMPAIGNS
 ──────────────────────────────────
 YOU GET: join the right sales, at prices that still make money
 ```
@@ -57,7 +57,7 @@ Say, short:
 
 ## Step 3 · Your price floors (the key moment)
 
-1. For each product in `rules/costs.json` → `products` (their best sellers from Module 7), with the
+1. For each product in `rules/costs.json` → `products` (their best sellers from Module 8), with the
    **campaign-day** fee (`fee_percent_campaign`):
    **floor** = (`fixed_fee_per_order` + cost + `packaging_per_order` + `other_cost_per_order`) ÷
    (1 − campaign fee% − min margin%), rounded **up** to the next 10 sen.
@@ -74,8 +74,8 @@ Say, short:
    ```
 3. Say: "So the drip bags can take a big discount. The hazelnut blend can't: more than 10% off and you lose
    money on each sale. That's worth knowing before 12.12."
-   No costs from Module 7? "We need your product costs for this. Let's add three now," and ask for the 3 best
-   sellers' costs (as in Module 7 Step 4).
+   No costs from Module 8? "We need your product costs for this. Let's add three now," and ask for the 3 best
+   sellers' costs (as in Module 8 Step 4).
 
 ## Step 4 · What's open for you right now
 
@@ -129,22 +129,37 @@ Follow "Checking prices for one campaign" at the bottom of `automations/campaign
 2. A → follow "How to schedule an automation" in `<HQ>/CLAUDE.md`: `taskId` `shopee-campaign-check`, `title`
    "Shopee · Campaign check", description "Lists campaigns that fit, deadlines and price offers waiting for the
    owner", time 45 minutes after `morning_check_at` (9:00 → `45 9 * * *`).
-   Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
-   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+   Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
+
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the campaign check, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your campaign check. Pick any, e.g. **A C**, or none."
+   ```
+   A) Enough stock for the campaign?  before a campaign you join: will your stock last?
+   B) How did the campaign do?        the day after: sales vs a normal day, and one lesson for next time
+   C) None for now ★
+   D) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `campaign-stock-cover`, B = `campaign-results`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
 
 ## Step 7 · Close the module
 
 1. "Press **Cmd+R** / **Ctrl+R** on your dashboard: the Campaigns card shows what's open and what's closing."
-2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 8 done · next: module9". One line under "The shop", e.g.
+2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 9 done · next: module10". One line under "The shop", e.g.
    "Campaigns: Big + Voucher · keep at least 10% on sale days · price floors in rules/campaigns.json."
 3. Say:
    - "Done: you know your price floor for every best seller, and you'll hear about deadlines before they pass."
    - Value line: "One campaign joined at the wrong price can wipe out a month's profit on that product. Now
      every price gets checked first."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 8 of 11 done. Next, affiliates: people who sell your products for a commission.
-     Type **module9** when you're ready."
+   - Gate: "That's 9 of 12 done. Next, affiliates: people who sell your products for a commission.
+     Type **module10** when you're ready."
 
 ## If things go wrong
 

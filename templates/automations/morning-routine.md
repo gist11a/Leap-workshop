@@ -1,7 +1,7 @@
 # Automation recipe: Daily routine (morning: everything in order · afternoon: chats)
 
 - **id:** `morning-routine` · **changes the shop:** never. Every change still waits in `approvals.json`.
-- **The only scheduled task after Module 11.** It runs twice a day: in the morning it runs every check in order and
+- **The only scheduled task after Module 12.** It runs twice a day: in the morning it runs every check in order and
   writes a summary; in the afternoon (any run that starts after 12:00) it runs only the chat and review check.
   On Mondays the morning run also does the weekly image check.
 - One task means one browser user at a time and one "Always allow". Each check runs in its **own fresh helper**,
@@ -48,6 +48,9 @@ Shopee wants a price confirm for December Campaign Pacing (about 23 Nov).
 - If `rules/shop.json` has `morning_email: true` and an `alert_email`: create a **draft** email in Gmail to that
   address, subject "Shopee morning · <date>", body = the summary + "Open your dashboard for details." Never send it.
   (Gmail not connected: skip silently.)
+
+Then run the routine's own switched-on extras (`automations/extras.md`, e.g. the Friday weekly review), which may
+add a line to the summary.
 
 ## 4. Finish (every run)
 1. Add `{"time", "automation": "Daily routine", "result": "<first summary line, or 'afternoon: <chat note>'>",

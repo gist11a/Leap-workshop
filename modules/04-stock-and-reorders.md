@@ -1,11 +1,11 @@
-# Module 3 · Stock and reorders (about 35 minutes)
+# Module 4 · Stock and reorders (about 35 minutes)
 
 **They get:** a list of what to reorder and how many, worked out from their real sales, plus a supplier message
 ready to send.
 **Files touched:** `rules/stock.json`, `automations.json`, `data/stock/<today>.json`, `alerts.json`.
-The recipe `automations/stock-check.md` is already in their folder (copied in Module 0). Read it now: you follow
-it in Step 4, and in Module 4 it runs by itself every morning.
-**Gate at the end:** `module4`.
+The recipe `automations/stock-check.md` is already in their folder (copied in Module 1). Read it now: you follow
+it in Step 4, and in Module 5 it runs by itself every morning.
+**Gate at the end:** `module5`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 
@@ -15,7 +15,7 @@ Follow START.md's rules: short messages, lettered menus, one question at a time,
 
 Card:
 ```
-MODULE 3 OF 11 · STOCK AND REORDERS
+MODULE 4 OF 12 · STOCK AND REORDERS
 ──────────────────────────────────
 YOU GET: what to reorder, and how many
 ```
@@ -61,13 +61,15 @@ If `rules/my-shop-info.md` has restock times or suppliers, use them and skip tho
 ## Step 3 · Add it to your automations list
 
 Add to `automations.json` (if it isn't there yet):
-`{"id": "stock-check", "name": "Morning stock check", "when": "By hand for now, runs by itself after Module 4",
+`{"id": "stock-check", "name": "Morning stock check", "when": "By hand for now, runs by itself after Module 5",
 "status": "paused", "recipe": "automations/stock-check.md", "last_run": null, "last_result": null}`
 
 Say: "I've written your first automation: the morning stock check. Let's run it once by hand."
 
 ## Step 4 · Run it now
 
+0. If the Shop Scan from Module 2 is still running, wait for it first ("My helper is finishing your shop scan. One
+   minute."), then show its "What I learned" card (Module 2 Step 5).
 1. Say: "Sending my helper to read your **My Inventory** page. If you have lots of products this takes 2 or 3
    minutes. It only reads, it doesn't change anything."
 2. Follow `automations/stock-check.md` steps 2 to 5 exactly (you're in a live chat, so use a helper for step 2).
@@ -126,16 +128,32 @@ C) Not now
 "Press **Cmd+R** / **Ctrl+R** on your dashboard. Your stock card and the **Low on stock** box are live now."
 If they look: "The red alerts at the top are the ones to act on today."
 
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the stock check, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your stock check. Pick any, e.g. **A C**, or none."
+   ```
+   A) Slow movers            Mondays: products that haven't sold in 30 days, and the cash stuck in them
+   B) Out of stock too long  every day: anything at zero for 7+ days
+   C) Order-by dates         every day: "order X by Friday", using your supplier's delivery time
+   D) None for now ★
+   E) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `slow-movers`, B = `stuck-out-of-stock`, C = `order-by-date`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
+
 ## Step 8 · Close the module
 
-1. Update `<HQ>/CLAUDE.md`: "Where we are: Module 3 done · next: module4". Under "The shop": one line, e.g.
+1. Update `<HQ>/CLAUDE.md`: "Where we are: Module 4 done · next: module5". Under "The shop": one line, e.g.
    "Supplier lead time 7 days · reorder for 30 days · heroes: Kopi O Drip Bag, Robusta 500g".
 2. Say:
    - "Done: you know what to reorder, and you have the message for your supplier."
    - Value line: "That's an hour of spreadsheet work, every week, and one less stock-out."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 3 of 11 done. Next is the big one: we make this check run **by itself** every morning,
-     before you sit down. Type **module4** when you're ready."
+   - Gate: "That's 4 of 12 done. Next is the big one: we make this check run **by itself** every morning,
+     before you sit down. Type **module5** when you're ready."
 
 ## If things go wrong
 

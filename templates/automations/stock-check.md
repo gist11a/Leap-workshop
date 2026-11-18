@@ -73,6 +73,8 @@ newest first:
 Keep the newest 50 alerts.
 
 ## 5. Finish (every job ends this way)
+First: if this automation's entry in `automations.json` has `"extras"`, run the ones whose days match today
+(`automations/extras.md` → "How it works"). Then:
 1. Add to `data/runs/<today>.json` (a list): `{"time": "<today> HH:MM", "automation": "Morning stock check",
    "result": "<the note>", "alerts": <number added>, "approvals": 0}`.
 2. In `automations.json`, set this automation's `last_run` and `last_result` (the note).

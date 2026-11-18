@@ -1,9 +1,9 @@
-# Module 4 · Make it run by itself (about 25 minutes)
+# Module 5 · Make it run by itself (about 25 minutes)
 
 **They get:** the morning stock check running every day on their laptop, without them asking.
 **This is the day's promise:** "at least one automation running on your own store". Make the moment land.
 **Files touched:** `automations.json`, `<HQ>/CLAUDE.md`. One scheduled task in their Claude app.
-**Gate at the end:** lunch, then `module5`.
+**Gate at the end:** lunch, then `module6`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 The steps for scheduling are in `<HQ>/CLAUDE.md` → "How to schedule an automation". Follow them exactly.
@@ -14,7 +14,7 @@ The steps for scheduling are in `<HQ>/CLAUDE.md` → "How to schedule an automat
 
 Card:
 ```
-MODULE 4 OF 11 · MAKE IT RUN BY ITSELF
+MODULE 5 OF 12 · MAKE IT RUN BY ITSELF
 ──────────────────────────────────
 YOU GET: your stock check, every morning, without you
 ```
@@ -22,7 +22,7 @@ YOU GET: your stock check, every morning, without you
 Say, short:
 - "Right now I only work when you ask. Let's change that."
 - "Claude has a built-in alarm clock. At the time you choose, it opens a fresh Claude, which reads the recipe we
-  wrote in Module 3 and does the stock check. Your dashboard is up to date before you sit down."
+  wrote in Module 4 and does the stock check. Your dashboard is up to date before you sit down."
 - "Reply YES when you're ready."
 
 ## Step 2 · The two things it needs (say them plainly, then pause)
@@ -102,13 +102,13 @@ After DONE:
 
 ## Step 8 · Close the module (and lunch)
 
-1. Update `<HQ>/CLAUDE.md`: "Where we are: Module 4 done · next: module5". Under "The shop": "Morning stock check
+1. Update `<HQ>/CLAUDE.md`: "Where we are: Module 5 done · next: module6". Under "The shop": "Morning stock check
    runs every day at <time>."
 2. Say:
    - "Done: your first automation runs by itself."
    - Value line: "Someone checking stock every single morning, including weekends, for free."
    - "Quick check: Settings → Usage. Your allowance refills over lunch, so don't worry if it's high."
-   - Gate: "That's 4 of 11 done. Enjoy lunch! After lunch: chats and reviews. Type **module5** when you're back."
+   - Gate: "That's 5 of 12 done. Enjoy lunch! After lunch: chats and reviews. Type **module6** when you're back."
 
 ## If things go wrong
 

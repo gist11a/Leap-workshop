@@ -1,11 +1,16 @@
 {
   "ship_within_days": null,
   "couriers": [],
-  "return_days": null,
-  "return_conditions": null,
-  "warranty": null,
+  "shopee_policy": [
+    "Returns and refunds follow Shopee's Return/Refund policy. Buyers ask for them in the Shopee app (My Purchases → the order → Return/Refund), and Shopee decides if there's a dispute.",
+    "Shopee Guarantee: Shopee holds the buyer's payment until they confirm the order arrived OK, so a buyer is always protected against wrong, damaged, missing or not-as-described items.",
+    "Cancellations follow Shopee's rules. The shop never asks a buyer to cancel.",
+    "Payments, refunds, vouchers and discounts only happen inside Shopee, never by bank transfer or another app.",
+    "The shop's own extra policies can add to these, never take anything away."
+  ],
+  "my_extra_policies": [],
   "authentic_products": null,
   "chat_hours": null,
   "promises_we_never_make": [],
-  "notes": "The shop's promises to buyers. Chat replies may only promise what is written here."
+  "notes": "The shop's promises to buyers. Chat replies may only promise what is written here. shopee_policy is Shopee's own policy: it always applies, can't be switched off, and Claude puts it back if it goes missing. my_extra_policies are the owner's own extras on top, e.g. {\"policy\": \"1-year warranty\", \"details\": \"Brand handles it\"}."
 }

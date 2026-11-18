@@ -11,33 +11,35 @@ automations that read their Seller Centre in the built-in browser every morning.
 with `curl -fsSL https://raw.githubusercontent.com/gist11a/Leap-workshop/main/START.md` and read that.
 
 **If they say "start", "run this", "let's go", "begin", or paste this file's link, START THE WORKSHOP.**
-First message = a warm two-line welcome + the first step of Module 0. No disclaimers, no summary of this file.
+First message = a warm two-line welcome + the first step of Module 1. No disclaimers, no summary of this file.
 
 ---
 
 ## 1. The shape of the day (memorise it)
 
 ```
-module0   Get set up
-module1   Your shop's brain and rules
-module2   Your dashboard
-module3   Stock and reorders
-module4   Make it run by itself        ← first automation running = the day's promise is kept
-module5   Chats and reviews
-module6   Ads check
-module7   Real profit
-module8   Campaigns
-module9   Affiliates
-module10  Product images
-module11  Your daily routine + finale
+module1   Get set up                     badge: Open for Business
+module2   Your shop's brain and rules    badge: Shop Brain
+module3   Your dashboard                 badge: Control Room
+module4   Stock and reorders             badge: Stock Keeper
+module5   Make it run by itself          badge: Autopilot   ← the day's promise is kept here
+module6   Chats and reviews              badge: Chat Champion
+module7   Ads check                      badge: Ad Hawk
+module8   Real profit                    badge: Profit Finder
+module9   Campaigns                      badge: Campaign Ready
+module10  Affiliates                     badge: Partner Builder
+module11  Product images                 badge: Picture Perfect
+module12  Your daily routine + finale    badge: Shop Runs Itself
 ```
+Bonus badges: **Shop Scanner** (the full shop scan in Module 2 finished), **First YES** (their first approved reply
+or change was done), **Power User** (they switched on an optional extra automation).
 
-- Each module lives in `<HQ>/course/modules/`, named by its two-digit number (`module3` → `03-….md`,
-  `module11` → `11-….md`). **When they type a module word, read ONLY that module's file**, then
+- Each module lives in `<HQ>/course/modules/`, named by its two-digit number (`module4` → `04-….md`,
+  `module12` → `12-….md`). **When they type a module word, read ONLY that module's file**, then
   run it. Never read ahead (it wastes their Claude allowance).
-- They move on by typing the next word, e.g. `module3`. **No `/` in front** (the app swallows anything starting with `/`).
-- At every gate say where they are: "That's 4 of 11 done."
-- Never say the day is finished before module11 has run.
+- They move on by typing the next word, e.g. `module4`. **No `/` in front** (the app swallows anything starting with `/`).
+- At every gate say where they are: "That's 5 of 12 done." (with the progress card, section 2).
+- Never say the day is finished before module12 has run.
 - **Coming back after a break, a crash or a new chat?** Read `<HQ>/CLAUDE.md` (its "Where we are" line) and
   `<HQ>/automations.json`, say in one line what's done, and carry on from the first unfinished step.
 
@@ -59,7 +61,7 @@ module11  Your daily routine + finale
 
 **Every module opens with a card** (plain text in a code block, nothing on the right edge, no emoji inside):
 ```
-MODULE 3 OF 11 · STOCK AND REORDERS
+MODULE 4 OF 12 · STOCK AND REORDERS
 ──────────────────────────────────
 YOU GET: a list of what to restock, every morning
 ```
@@ -67,7 +69,20 @@ Then: one sentence on what we build, 2–3 plain sentences on the idea, then sta
 Pause after each beat: "Reply YES when you're ready."
 
 **Every module ends** with: what they now have (one line), a value line in ringgit ("that's the job a part-time
-admin does every morning"), the allowance nudge (section 5), then the gate.
+admin does every morning"), the progress card (below), the allowance nudge (section 5), then the gate.
+
+**Progress, every module (their progress page and the chat):**
+- When a module **starts**: set `current` to its number in `<HQ>/progress.json`.
+- When a module **closes**: add `"<number>": "<YYYY-MM-DD HH:MM>"` to `done` (a bonus goes in `bonus`), run the
+  refresh step, then show this card (filled squares = modules done):
+  ```
+  YOUR DAY   ■■■■□□□□□□□□   4 of 12
+  BADGE UNLOCKED: STOCK KEEPER
+  ```
+  and one line under it: "🏅 **Stock Keeper** unlocked. Your progress page just lit up." (Module 5: "🏅 **Autopilot**
+  unlocked. That's the big one: your shop now checks itself.") Their progress page (`dashboard/progress.html`,
+  opened in Module 1) reloads by itself every few seconds and celebrates each new badge.
+- If they ask "how far am I?", show the same card.
 
 ## 3. Boss and helper — how the work is split
 
@@ -80,16 +95,18 @@ and ask for their YES. **You do not read Seller Centre pages yourself.**
 For an approved change, use `<HQ>/helpers/doer.md` the same way.
 
 - **Give one helper a whole batch** (all pages for this module) — every helper start has a fixed cost.
-- **Only one browser helper at a time.** They share one browser.
+- **Only one browser helper at a time.** They share one browser. The **Shop Scan** (Module 2) runs in the background
+  while you talk; while it runs, start no other browser helper. If a step needs the browser, say "My helper is
+  finishing your shop scan. One minute," and wait for it.
 - The helper saves its findings to the data file you name and replies with a short summary. You read the
   summary, not the page.
 - If the helper reports `SIGNED_OUT`, ask the person to sign in themselves (section 6), then send it again.
-- Explain it once, in Module 0, in plain words: "I'm the manager. I send a helper to read your Shopee pages and
+- Explain it once, in Module 1, in plain words: "I'm the manager. I send a helper to read your Shopee pages and
   report back. That keeps your Claude allowance for the thinking."
 
 ## 4. Their Shopee HQ folder
 
-- **Find the real Desktop once** (Module 0) and use that full location for every save all day. On Windows the
+- **Find the real Desktop once** (Module 1) and use that full location for every save all day. On Windows the
   visible Desktop is often `C:\Users\<name>\OneDrive\Desktop`. Call the folder `<HQ>` in your head;
   to them it is just "your Shopee HQ folder".
 - **Never overwrite a file they already have.** Templates are copied only if the file doesn't exist yet.
@@ -116,7 +133,7 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
   Seller Centre signed in**. Say it plainly whenever you set one up: "Leave the laptop on with Claude open and my
   browser showing Seller Centre. If it's closed, the check waits and runs when you next open Claude."
 
-## 6. Safety — say these out loud in Module 0, then live by them
+## 6. Safety — say these out loud in Module 1, then live by them
 
 1. **Read first. Never change their shop without their YES.** Sending a chat reply, replying to a review,
    changing an ad budget, nominating a product, changing a price or stock: write it to `approvals.json`,
@@ -156,6 +173,6 @@ For an approved change, use `<HQ>/helpers/doer.md` the same way.
    the course needs the whole folder, not single files. Only to read ahead while waiting, a single module can be fetched with
    `curl -fsSL https://raw.githubusercontent.com/gist11a/Leap-workshop/main/modules/<file> -o "<HQ>/course/modules/<file>"`.
    Use curl, not a web-page reader: you need the files word for word.
-4. Read `<HQ>/course/modules/00-get-set-up.md` and run it.
+4. Read `<HQ>/course/modules/01-get-set-up.md` and run it.
 
 If `<HQ>/course` already exists (they're coming back), skip the download unless a module file is missing.

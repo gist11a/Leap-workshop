@@ -1,0 +1,8 @@
+{
+  "name": null,
+  "shop": null,
+  "current": 1,
+  "done": {},
+  "bonus": [],
+  "notes": "Workshop progress for dashboard/progress.html. done = {\"<module number>\": \"<YYYY-MM-DD HH:MM>\"}. current = the module being worked on now. bonus can hold \"shop-scan\", \"first-yes\", \"extra\"."
+}

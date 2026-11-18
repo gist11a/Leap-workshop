@@ -3,7 +3,7 @@
 - **id:** `image-check` · **topic:** `images` · **changes the shop:** never. Claude scores photos and writes
   selling points; the owner uploads them in Shopee (Product AI Optimiser makes the poster images).
 - **Saves:** `data/images/<today>.json`, alerts, the run log.
-- Two depths: the **full check** (live, Module 10, or when the owner asks) looks at photos of the top 5 sellers.
+- Two depths: the **full check** (live, Module 11, or when the owner asks) looks at photos of the top 5 sellers.
   The **weekly check** (scheduled, Mondays) reads text only: how many products still lack selling points.
 - Replace `<HQ>` with the full Shopee HQ folder location (it's written in `<HQ>/CLAUDE.md`).
 
@@ -55,11 +55,13 @@ First remove alerts with `topic` "images" dated today. Then add:
   images for them. Ask me to write them."
 
 ## 5. Finish
+First: if this automation's entry in `automations.json` has `"extras"`, run the ones whose days match today
+(`automations/extras.md` → "How it works"). Then:
 1. Add to `data/runs/<today>.json`: `{"time", "automation": "Image check", "result": "<note>", "alerts": <n>,
    "approvals": 0}`.
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
-4. Live chat: show it as in Module 10. Scheduled run: end with three lines, e.g.
+4. Live chat: show it as in Module 11. Scheduled run: end with three lines, e.g.
    "44 products to optimise in Shopee · 12 best sellers without selling points · say 'write my selling points'."
 
 ## Writing selling points (when the owner asks)

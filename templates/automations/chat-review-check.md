@@ -39,6 +39,9 @@ Please sign in in Claude's browser.", log the run as "skipped: signed out", refr
 ## 3. Write the replies (you do this, not the helper)
 Use only `rules/chat.json` and `rules/store.json`. **Every reply follows `shopee_rules`**, uses their `tone`,
 `greeting` and `sign_off`, answers in the buyer's language, and promises nothing that isn't in `store.json`.
+If `rules/shop-profile.md` exists, its "Product facts" and "Answers the shop already gives" may be used as facts.
+Returns, refunds and cancellations always follow `store.json` → `shopee_policy`; mention one of `my_extra_policies`
+(warranty, exchange…) only when the buyer asks about it.
 Use the `faq` answers when the question matches. Don't invent facts: if you need one you don't have, it's a
 hand-over.
 
@@ -78,9 +81,11 @@ First remove alerts with `topic` "chats" or "reviews" dated today. Then add:
 - `info` for drafts ready: "<N> chat replies and <M> review replies ready for your YES."
 
 ## 5. Finish
+First: if this automation's entry in `automations.json` has `"extras"`, run the ones whose days match today
+(`automations/extras.md` → "How it works"). Then:
 1. Add to `data/runs/<today>.json`: `{"time", "automation": "Chat and review check", "result": "<short>",
    "alerts": <n>, "approvals": <drafts added>}`.
 2. Update this automation's `last_run` and `last_result` in `automations.json`.
 3. `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"`.
-4. Live chat: show the drafts as in Module 5. Scheduled run: end with three lines, e.g.
+4. Live chat: show the drafts as in Module 6. Scheduled run: end with three lines, e.g.
    "4 chats waiting (1 needs you) · 6 reviews to reply · 9 replies ready. Say 'what needs my YES?' in Claude."

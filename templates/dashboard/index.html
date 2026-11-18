@@ -39,7 +39,7 @@ svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-widt
 /* hero */
 .hero{background:radial-gradient(900px 480px at 78% 10%,rgba(15,69,75,.55),transparent 62%),radial-gradient(700px 460px at 5% 0%,rgba(15,69,75,.35),transparent 60%),var(--night);color:#fff;padding:0 0 92px}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0;border-bottom:1px solid rgba(249,198,0,.16)}
-.logo{font-weight:800;font-size:21px;letter-spacing:-.02em}
+.logo{font-weight:800;font-size:21px;letter-spacing:-.02em;white-space:nowrap}
 .upd{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.78);white-space:nowrap}
 .upd i{width:6px;height:6px;border-radius:50%;background:#30B566;box-shadow:0 0 0 4px rgba(48,181,102,.18)}
 .upd.old i{background:var(--yellow);box-shadow:0 0 0 4px rgba(249,198,0,.18)}
@@ -137,10 +137,49 @@ tr:hover td{background:#FBFAF6}
 .row .main b{display:block;font-size:15px;line-height:1.35;white-space:pre-line}
 .row .meta{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
 .row .side{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+@media (max-width:520px){.row{flex-wrap:wrap}.row .main{flex:1 1 100%}.row .side{order:-1;flex-direction:row;align-items:center}}
 .sub{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin:20px 0 0;display:flex;align-items:center;gap:12px}
 .sub::after{content:"";flex:1;height:1px;background:var(--line)}
 .hint{margin:10px 0 0;font-size:13.5px;color:var(--ink2)}
 .hint b{color:var(--ink)}
+
+/* draft replies: see and check before saying YES */
+.row.has-draft{flex-wrap:wrap}
+.seebtn{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);font:600 13px var(--sans);color:var(--ink);cursor:pointer;transition:border-color .15s}
+.seebtn:hover{border-color:var(--ink3)}
+.seebtn svg.i{width:14px;height:14px;transition:transform .2s var(--ease)}
+.seebtn[aria-expanded="true"] svg.i{transform:rotate(180deg)}
+.draft{flex-basis:100%;margin-top:2px;display:none}
+.draft.on{display:block;animation:rise .35s var(--ease)}
+.bub{border-radius:14px;padding:10px 13px;font-size:14.5px;line-height:1.5;white-space:pre-line;word-break:break-word;max-width:640px}
+.bub .who{display:block;font:500 10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin-bottom:3px}
+.bub.buyer{background:var(--card);border:1px solid var(--line);margin-right:48px}
+.bub.reply{background:var(--yellow-chip);margin:8px 0 0 48px}
+.bub.reply.hold{background:var(--peach)}
+@media (max-width:520px){.bub.buyer{margin-right:20px}.bub.reply{margin-left:20px}}
+.why{margin:8px 0 0;font-size:13.5px;color:var(--ink2)}
+.why b{color:var(--ink)}
+.checks{list-style:none;margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:grid;gap:6px;font-size:13.5px;line-height:1.4}
+.checks li{display:flex;gap:8px;align-items:flex-start}
+.checks .ck{flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center}
+.checks .ck svg.i{width:11px;height:11px;stroke-width:3}
+.checks .ok .ck{background:var(--mint-chip);color:var(--mint-ink)}
+.checks .warn .ck{background:var(--yellow-chip);color:var(--olive)}
+.checks .bad .ck{background:var(--red-chip);color:var(--red-ink)}
+.checks .bad{color:var(--red-ink);font-weight:600}
+.checks .ttl{font:500 10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.act{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);font:600 13px var(--sans);color:var(--ink);cursor:pointer;transition:background-color .15s,border-color .15s}
+.act svg.i{width:14px;height:14px}
+.act:hover{border-color:var(--ink3)}
+.act.yes{background:var(--night);border-color:var(--night);color:#fff}
+.act.yes:hover{background:var(--teal);border-color:var(--teal)}
+.act.done,.act.yes.done{background:var(--mint-chip);border-color:var(--mint-chip);color:var(--mint-ink)}
+.kvx{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px;margin-top:4px}
+.kvx .k{color:var(--ink2)}
+.kvx .v{font-weight:600;word-break:break-word}
+.openall{background:none;border:0;padding:0;font:600 12.5px var(--sans);letter-spacing:0;text-transform:none;color:var(--ink2);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.openall:hover{color:var(--ink)}
 
 .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-top:16px}
 @media (max-width:520px){.rgrid{grid-template-columns:1fr}}
@@ -170,6 +209,9 @@ tr:hover td{background:#FBFAF6}
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 17v5M9 10.8V5h6v5.8l2 3.2H7z"/></symbol>
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-bang" viewBox="0 0 24 24"><path d="M12 6v8M12 18h.01"/></symbol>
 </svg>
 
 <header class="hero">
@@ -411,6 +453,72 @@ tr:hover td{background:#FBFAF6}
     return head(sec, "Last 30 days", freshChip(lt.date, f.read_at)) + minis(sec.topic, f, sec.fields) + table(f.items, sec.columns) +
       (f.note ? '<p class="note-line">' + esc(f.note) + "</p>" : "");
   }
+  /* ---------- draft replies: show them and check them against the shop's rules ---------- */
+  function isText(a){ return a.topic === "chats" || a.topic === "reviews"; }
+  function maskPII(t){ return String(t == null ? "" : t)
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "•••@•••")
+    .replace(/(\+?\d[\d\s-]{7,}\d)/g, "•••••••"); }
+  function yesAuthentic(){ var v = (R.store || {}).authentic_products; return v === true || /^\s*(yes|a\b|100)/i.test(String(v || "")); }
+  function checkDraft(a){
+    var t = String(a.do || ""), low = t.toLowerCase(), out = [], chatR = R.chat || {};
+    function add(level, text){ out.push([level, text]); }
+    if (/whats\s?app|wasap|telegram|wechat|line id|instagram|facebook|tiktok|https?:|www\.|bank transfer|\bbank in\b|\.com\b|\.my\b/i.test(t) || /\d[\d\s-]{7,}\d/.test(t) || /@[a-z0-9-]+\./i.test(t))
+      add("bad", "Mentions an outside app, a link, a bank transfer or a phone number. Shopee doesn't allow that in chat.");
+    else add("ok", "Keeps the buyer inside Shopee (no outside apps, links or phone numbers)");
+    if (/(review|rating|star|★).{0,40}(free|gift|voucher|discount|refund|cashback|hadiah|percuma)|(free|gift|voucher|discount|cashback|hadiah|percuma).{0,40}(review|rating|star|★)/i.test(t))
+      add("bad", "Seems to offer something for a review. Shopee doesn't allow that.");
+    if (/(please|kindly|can you|could you|boleh|tolong).{0,25}(cancel|batal)/i.test(t)) add("bad", "Seems to ask the buyer to cancel. Shopee doesn't allow that.");
+    if (/(tomorrow|esok|lusa|by (mon|tues|wednes|thurs|fri|satur|sun)day|on (mon|tues|wednes|thurs|fri|satur|sun)day|guarantee)/i.test(t) && /(arriv|deliver|reach|sampai|receive|dapat)/i.test(t))
+      add("warn", "Might promise a delivery day. Your rules say couriers set that.");
+    var never = (chatR.never_say || []).filter(function(w){ return w && low.indexOf(String(w).toLowerCase()) >= 0; });
+    if (never.length) add("bad", "Uses words from your never-say list: " + never.join(", "));
+    else if ((chatR.never_say || []).length) add("ok", "None of your never-say words");
+    if (/\b(original|authentic|asli|ori)\b/i.test(t)) add(yesAuthentic() ? "ok" : "warn", yesAuthentic() ? "Says original, and your rules say all products are original" : "Says original, but your rules don't say all products are original");
+    var words = t.split(/\s+/).filter(Boolean).length;
+    if (words > (a.topic === "reviews" ? 60 : 90)) add("warn", "Quite long (" + words + " words). Short replies read better on a phone.");
+    else add("ok", "Short enough for a phone (" + words + " words)");
+    var g = String(chatR.greeting || "").replace(/[^\w\s]/g, "").trim().split(/\s+/).slice(0, 2).join(" ").toLowerCase();
+    if (a.topic === "chats" && g) add(low.replace(/[^\w\s]/g, "").indexOf(g) >= 0 ? "ok" : "warn", low.replace(/[^\w\s]/g, "").indexOf(g) >= 0 ? "Starts the way your shop greets buyers" : "Doesn't use your usual greeting");
+    return out;
+  }
+  function draftPanel(a){
+    var h = "";
+    if (isText(a)){
+      if (a.before) h += '<div class="bub buyer"><span class="who">' + (a.topic === "reviews" ? "The review" : "The buyer wrote") + "</span>" + esc(maskPII(a.before)) + "</div>";
+      if (a.do) h += '<div class="bub reply' + (a.kind === "hand-over" ? " hold" : "") + '"><span class="who">' + (a.kind === "hand-over" ? "Holding reply (then you take over)" : "Your reply · draft, not sent") + "</span>" + esc(a.do) + "</div>";
+      if (a.kind === "hand-over") h += '<p class="why"><b>Why it’s passed to you:</b> ' + esc(a.reason || "it needs a decision only you can make") + "</p>";
+      else if (a.kind === "bad") h += '<p class="why"><b>Public reply:</b> everyone can see it under the review, so approve it on its own.</p>';
+      var ck = a.do ? checkDraft(a) : [];
+      if (ck.length) h += '<ul class="checks"><li class="ttl">Checked against your rules</li>' + ck.map(function(c){
+        return '<li class="' + c[0] + '"><span class="ck">' + ico(c[0] === "ok" ? "check" : c[0] === "bad" ? "x" : "bang") + "</span><span>" + esc(c[1]) + "</span></li>"; }).join("") + "</ul>";
+    } else {
+      h += '<div class="kvx">' + (a.before != null ? '<div class="k">Now</div><div class="v">' + esc(typeof a.before === "object" ? JSON.stringify(a.before) : a.before) + "</div>" : "") +
+        (a.do != null ? '<div class="k">After your YES</div><div class="v">' + esc(typeof a.do === "object" ? JSON.stringify(a.do) : a.do) + "</div>" : "") + "</div>";
+    }
+    var id = a.id || "1";
+    h += '<div class="acts"><button class="act yes" type="button" data-copy="YES to ' + esc(id) + '">' + ico("copy") + "Copy “YES to " + esc(id) + "”</button>" +
+      '<button class="act" type="button" data-copy="change ' + esc(id) + ': ">' + ico("copy") + "Copy “change " + esc(id) + ": …”</button>" +
+      '<button class="act" type="button" data-copy="NO to ' + esc(id) + '">' + ico("copy") + "Copy “NO to " + esc(id) + "”</button></div>" +
+      '<p class="hint">Paste it in Claude. For a change, type what to change after the colon.</p>';
+    return h;
+  }
+  function copyText(t, btn){
+    function done(){ var old = btn.innerHTML; btn.classList.add("done"); btn.innerHTML = ico("check") + "Copied. Paste it in Claude"; setTimeout(function(){ btn.classList.remove("done"); btn.innerHTML = old; }, 1800); }
+    function fallback(){ var ta = document.createElement("textarea"); ta.value = t; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); } catch (e) {} document.body.removeChild(ta); done(); }
+    try { if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, fallback); else fallback(); } catch (e) { fallback(); }
+  }
+  document.addEventListener("click", function(e){
+    var see = e.target.closest && e.target.closest("[data-see]");
+    if (see){ var p = document.getElementById(see.dataset.see), on = !p.classList.contains("on"); p.classList.toggle("on", on); see.setAttribute("aria-expanded", on ? "true" : "false"); return; }
+    var all = e.target.closest && e.target.closest("[data-openall]");
+    if (all){ var btns = document.querySelectorAll("[data-see]"), open = all.dataset.state !== "open";
+      btns.forEach(function(b){ var p = document.getElementById(b.dataset.see); p.classList.toggle("on", open); b.setAttribute("aria-expanded", open ? "true" : "false"); });
+      all.dataset.state = open ? "open" : ""; all.textContent = open ? "Close all" : "Open all " + btns.length; return; }
+    var cp = e.target.closest && e.target.closest("[data-copy]");
+    if (cp) copyText(cp.dataset.copy, cp);
+  });
+
   function attention(sec){
     var al = (HQ ? HQ.alerts : []).slice(0, 8), ap = HQ ? HQ.approvals : [];
     var wait = ap.filter(function(a){ return a.status === "waiting"; });
@@ -419,11 +527,15 @@ tr:hover td{background:#FBFAF6}
     if (BROKEN.length) out += '<div class="rows" style="margin-top:14px">' + '<div class="row"><div class="main"><b>' + BROKEN.length +
       (BROKEN.length === 1 ? " file in your Shopee HQ can't be read" : " files in your Shopee HQ can't be read") + '</b><div class="meta">' + esc(BROKEN.slice(0, 4).join(" · ")) +
       '</div><div class="about" style="margin-top:4px">Ask Claude: \u201cfix my broken Shopee HQ files\u201d.</div></div><div class="side">' + chip(["chip-p", "info", "Needs fixing"]) + "</div></div></div>";
-    out += '<div class="sub">Waiting for your YES</div>';
-    out += wait.length ? '<div class="rows">' + wait.map(function(a){
-      return '<div class="row"><div class="main"><b>' + esc(a.what || a.do || "A change") + '</b><div class="meta">' + esc([a.topic, a.created && dShort(a.created), a.id].filter(Boolean).join(" · ")) +
-        '</div></div><div class="side">' + chip(a.kind === "hand-over" ? ["chip-r", "alert", "Needs you"] : ASTAT.waiting) + "</div></div>"; }).join("") + "</div>" +
-      '<p class="hint">To approve, tell Claude <b>YES</b> with the number, e.g. "YES to ' + esc(wait[0].id || "1") + '". Nothing changes in your shop until you do.</p>'
+    var nDraft = wait.filter(function(a){ return a.do || a.before; }).length;
+    out += '<div class="sub">Waiting for your YES' + (nDraft > 1 ? ' <button class="openall" type="button" data-openall>Open all ' + nDraft + '</button>' : "") + '</div>';
+    out += wait.length ? '<div class="rows">' + wait.map(function(a, i){
+      var has = a.do || a.before;
+      return '<div class="row' + (has ? " has-draft" : "") + '"><div class="main"><b>' + esc(a.what || a.do || "A change") + '</b><div class="meta">' + esc([a.topic, a.created && dShort(a.created), a.id].filter(Boolean).join(" · ")) +
+        "</div>" + (has ? '<button class="seebtn" type="button" aria-expanded="false" aria-controls="dr-' + i + '" data-see="dr-' + i + '">' + ico("down") + (isText(a) ? "See and check the draft" : "See the change") + "</button>" : "") +
+        '</div><div class="side">' + chip(a.kind === "hand-over" ? ["chip-r", "alert", "Needs you"] : ASTAT.waiting) + "</div>" +
+        (has ? '<div class="draft" id="dr-' + i + '">' + draftPanel(a) + "</div>" : "") + "</div>"; }).join("") + "</div>" +
+      '<p class="hint">To approve, tell Claude <b>YES</b> with the number, e.g. "YES to ' + esc(wait[0].id || "1") + '". Nothing changes in your shop until you do. This page never sends anything.</p>'
       : emptyBox("Nothing waiting", "When Claude wants to change something in your shop, it shows up here first.", "check");
     out += '<div class="sub">Alerts</div>';
     out += al.length ? '<div class="rows">' + al.map(function(a){
@@ -439,11 +551,13 @@ tr:hover td{background:#FBFAF6}
     var au = HQ ? HQ.automations : [];
     var on = au.filter(function(a){ return a.status === "on"; }).length;
     var out = head(sec, "Running by itself", au.length ? '<span class="chip chip-d"><i></i>' + on + " of " + au.length + " on</span>" : "");
-    if (!au.length) return out + emptyBox("No automations yet", "Your first one starts in Module 4.", "clock");
+    if (!au.length) return out + emptyBox("No automations yet", "Your first one starts in Module 5.", "clock");
     return out + '<div class="rows">' + au.map(function(a){
       var st = a.status === "on" ? '<span class="chip chip-d"><i></i>On</span>' : '<span class="chip chip-g">Paused</span>';
       return '<div class="row"><div class="main"><b>' + esc(a.name || a.id) + '</b><div class="meta">' + esc([a.when, a.last_run ? "last ran " + dShort(a.last_run) + " " + String(a.last_run).slice(11,16) : "not run yet"].filter(Boolean).join(" · ")) +
-        "</div>" + (a.last_result ? '<div class="about" style="margin-top:4px">' + esc(a.last_result) + "</div>" : "") + '</div><div class="side">' + st + "</div></div>";
+        "</div>" + (a.last_result ? '<div class="about" style="margin-top:4px">' + esc(a.last_result) + "</div>" : "") +
+        (asList(a.extras).length ? '<div class="meta" style="margin-top:6px">Extras: ' + esc(asList(a.extras).map(function(e){ return String(e).replace(/-/g, " "); }).join(" · ")) + "</div>" : "") +
+        '</div><div class="side">' + st + "</div></div>";
     }).join("") + '</div><p class="hint">To pause everything, tell Claude <b>pause my automations</b>.</p>';
   }
   function shopToday(sec){
@@ -452,7 +566,7 @@ tr:hover td{background:#FBFAF6}
       var lt = latest(p[0]); if (!lt) return "";
       return '<div class="sub">' + esc(p[1]) + " · " + esc(dShort(lt.date)) + "</div>" + minis(p[0], lt.file) + table(lt.file.items);
     }).join("");
-    return out + (parts || emptyBox("Nothing yet", "Claude reads your Seller Centre home page in Module 0.", "box"));
+    return out + (parts || emptyBox("Nothing yet", "Claude reads your Seller Centre home page in Module 1.", "box"));
   }
   var RTITLE = {shop: "About the shop", store: "Promises to buyers", chat: "How we talk", stock: "Stock", ads: "Ads", campaigns: "Campaigns", affiliates: "Affiliates", costs: "Costs"};
   function flat(obj, pre, out){
@@ -468,7 +582,7 @@ tr:hover td{background:#FBFAF6}
     var ORDER = ["shop","store","chat","stock","ads","costs","campaigns","affiliates"];
     var names = Object.keys(R).sort(function(a, b){ var x = ORDER.indexOf(a), y = ORDER.indexOf(b); return (x < 0 ? 99 : x) - (y < 0 ? 99 : y); });
     var out = head(sec, "What Claude follows", "");
-    if (!names.length) return out + emptyBox("No rules yet", "We write them together in Module 1.", "box");
+    if (!names.length) return out + emptyBox("No rules yet", "We write them together in Module 2.", "box");
     out += '<div class="rgrid">' + names.map(function(n){
       var kv = flat(R[n], "", []), set = kv.filter(function(p){ return p[1] != null && !(Array.isArray(p[1]) && !p[1].length) && p[1] !== ""; });
       var missing = kv.length - set.length;
@@ -507,6 +621,11 @@ tr:hover td{background:#FBFAF6}
   });
   if (!HQ) main.insertAdjacentHTML("afterbegin", '<section class="sec">' + emptyBox("No data yet", "Ask Claude: “refresh my dashboard”, then press " + (isMac ? "Cmd+R" : "Ctrl+R") + ".", "info") + "</section>");
 
+  /* workshop progress link (only while the workshop isn't finished) */
+  try { var pr = RAW && RAW.progress ? JSON.parse(RAW.progress) : null, nd = pr && pr.done ? Object.keys(pr.done).length : 0;
+    if (pr && nd < 12){ var lk = document.createElement("a"); lk.className = "upd"; lk.href = "progress.html"; lk.style.textDecoration = "none";
+      lk.innerHTML = "<span>Workshop " + nd + " of 12 \u2192</span>"; var nv = document.querySelector(".nav"), up = document.getElementById("upd");
+      var box = document.createElement("div"); box.style.cssText = "display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end"; nv.replaceChild(box, up); box.appendChild(lk); box.appendChild(up); } } catch (e) {}
   bindSparks();
   if (!document.hidden) document.body.classList.add("go");
 

@@ -1,8 +1,9 @@
-# Module 1 · Your shop's brain and rules (about 40 minutes)
+# Module 2 · Your shop's brain and rules (about 40 minutes)
 
 **They get:** Claude that knows their shop, keeps their promises to buyers, and sounds like them.
-**Files filled:** `rules/shop.json`, `rules/store.json`, `rules/chat.json`, `rules/my-shop-info.md`, `<HQ>/CLAUDE.md`.
-**Gate at the end:** `module2`.
+**Files filled:** `rules/shop.json`, `rules/store.json`, `rules/chat.json`, `rules/my-shop-info.md`, `<HQ>/CLAUDE.md`,
+and with the Shop Scan `rules/shop-profile.md` + `data/scan/<today>.json`.
+**Gate at the end:** `module3`.
 
 Follow START.md's rules all the way through: short messages, lettered menus, one question at a time, no tech words.
 Every later module reads these rules, so this is the module that makes everything else "theirs".
@@ -14,7 +15,7 @@ Write each answer to its file **as soon as they give it** (small edits), so noth
 
 Card:
 ```
-MODULE 1 OF 11 · YOUR SHOP'S BRAIN AND RULES
+MODULE 2 OF 12 · YOUR SHOP'S BRAIN AND RULES
 ──────────────────────────────────
 YOU GET: a Claude that knows your shop and sounds like you
 ```
@@ -26,27 +27,47 @@ Say, short:
 - "Four short rounds of questions. Most answers are one letter."
 - "Reply YES when you're ready."
 
-## Step 2 · Send the helper while you talk (start it, don't wait)
+## Step 2 · Offer a full Shop Scan (ask first, then run it in the background)
 
-Say: "While we talk, I'm sending my helper to read two pages: your chat numbers and your couriers."
+The recipe is `<HQ>/automations/shop-scan.md`. Read it now.
 
-Start ONE helper (Agent tool, `model: "sonnet"`, `subagent_type: "general-purpose"`). Its prompt = the full text of
-`<HQ>/helpers/reader.md`, then this job:
+Say, short:
+- "Before the questions, an offer. While we talk, my helper can **study your whole shop** in the background: your
+  orders, ads, products in detail, stock, reviews, and your past chats with buyers."
+- "Then I know your shop from the real numbers, not only from what you tell me. It only **reads**: nothing in your
+  shop changes, and I only open chats you've already read, so nothing new gets marked as read."
+- "It takes about 20 to 30 minutes while we keep talking, and it uses some of your Claude allowance, about as much
+  as one module."
+```
+A) Yes, do the full shop scan ★
+B) Just the basics for now (your chat numbers and couriers, 1 minute)
+C) Not now
+```
+- **A** → "Starting it. You'll see me mention it when each part finishes." Start **Shop Scan part 1** in the
+  background exactly as the recipe says, and go straight on to Step 3. Start part 2 when part 1 finishes, part 3
+  when part 2 finishes. The questions still all happen: "The scan shows me what your shop does. Your answers tell me
+  what you want."
+- **B** → start ONE helper in the background with the text of `<HQ>/helpers/reader.md` + **Shop Scan part 2, steps
+  3 and 4 only** (chat numbers and couriers, saved to `data/shop/<today>.json`). Go on to Step 3.
+- **C** → go on to Step 3. Note in `<HQ>/CLAUDE.md` under "The shop": "Shop scan not done yet (say 'scan my shop')."
+- Any part replies `SIGNED_OUT`: finish the question you're on, then handle it as in Module 1 Step 6 and restart
+  that part.
 
-> Seller Centre address: `<seller_centre>` (from `rules/shop.json`). Check "Current Shop" says `<shop_name>`.
-> 1. Open `/portal/chat-management`. Collect `chat_enquiries_30d`, `chat_response_rate` (a number, e.g. 96.08),
->    `response_time` (as shown, e.g. "01:47:21"), and whether **Agent Greetings**, **Shortcut** and **FAQ** look
->    switched on (true/false/null). Don't open Edit.
-> 2. Open `/portal/all-settings/shipping/shipping-channel`. Collect `couriers_on`: the names of the shipping
->    channels that are switched on. **Never touch a switch.**
-> Save both under `"summary"` in `<HQ>/data/shop/<today>.json`. Read only.
-
-Carry on with Step 3 straight away. When the helper finishes, use its numbers in Round B and in Step 5.
-If it reports `SIGNED_OUT`, finish the round you're in, then handle it as in Module 0 Step 6.
+**Using what the scan finds (as each part comes back, mid-interview):**
+- Mention it in one line, then use it: "My helper finished reading your sales: 214 orders in 30 days, best seller
+  Kopi O Drip Bag. I'll use that."
+- **Confirm instead of asking** when the scan already knows: couriers (part 2), whether they ship fast (part 1's
+  orders), their usual tone and greeting (part 3). E.g. "In your chats you write warm replies in Malay and English,
+  with a little emoji, starting 'Hi dear!'. Keep that?" (A) Yes ★ B) Change it).
+- **Real buyer questions beat guesses:** in Round C, if part 3 is back, show the buyers' top questions from
+  `rules/shop-profile.md` instead of the A–H list, and write the FAQ answers from "Answers the shop already gives"
+  (cleaned up, checked against their rules).
+- Never let the scan override what the owner says. If they differ ("you said 2 days, but most orders ship in 3"),
+  ask once, plainly, and save what the owner decides.
 
 ## Step 3 · What did you bring? (menu)
 
-"Did you bring any shop info today? Costs, return policy, the questions buyers always ask, lowest prices?"
+"Did you bring any shop info today? Costs, your own shop policies, the questions buyers always ask, lowest prices?"
 ```
 A) Yes, in a Google Sheet or Google Doc
 B) Yes, a file on this laptop
@@ -62,10 +83,10 @@ E) Something else — tell me
 
 For A, B or C:
 1. Save what they gave, in their own words, under clear headings to `rules/my-shop-info.md`
-   (`## Costs`, `## Lowest prices`, `## Return policy`, `## Buyer questions`, `## Ad goals`, `## Restock times`,
+   (`## Costs`, `## Lowest prices`, `## My extra policies`, `## Buyer questions`, `## Ad goals`, `## Restock times`,
    `## Other`). Skip headings with nothing. No buyer details.
-2. Fill any rule it answers (ship time, returns, warranty, FAQ answers…) so you **don't ask that question again**.
-3. Tell them in one or two lines what you took from it: "Got it: your return policy, 6 buyer questions and costs
+2. Fill any rule it answers (ship time, extra policies such as warranty, FAQ answers…) so you **don't ask that question again**.
+3. Tell them in one or two lines what you took from it: "Got it: your warranty policy, 6 buyer questions and costs
    for 14 products. Costs we use after lunch."
 
 ## Step 4 · Four rounds of questions
@@ -107,29 +128,34 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
    D) Longer — tell me
    ```
    Save `ship_within_days` (1, 2, 3 or their number).
-2. Couriers: if the helper is back, "Your shop ships with **<couriers_on>**. Right?" (YES or fix).
-   If it isn't back yet, ask this later. Save `couriers`.
-3. "What's your return policy?"
+2. Couriers: if the scan's part 2 (or the basics helper) is back, "Your shop ships with **<couriers_on>**. Right?"
+   (YES or fix). If it isn't back yet, ask this later. Save `couriers`.
+3. **Policies.** Say first (don't ask): "Shopee's own policies always apply to your shop: its return and refund
+   rules, the Shopee Guarantee, and its chat and review rules. I'll always follow those. They're already in your
+   rules and can't be switched off." (They're in `store.json` → `shopee_policy`.)
+   Then: "Do you have any **extra** policies of your own, on top of Shopee's?" Pick all that apply, e.g. **B C**.
    ```
-   A) Shopee's normal return and refund rules ★
-   B) Returns only if the item is damaged or wrong
-   C) Returns within a set number of days — tell me how many
-   D) Something else — tell me
+   A) No, just Shopee's ★
+   B) Warranty (tell me how long and who handles it)
+   C) Exchange for a wrong size or colour (tell me how many days)
+   D) Free gift or freebie rules (e.g. "free sample with every order above RM50")
+   E) Something else — tell me (or paste your policy)
    ```
-   Save `return_days` (null for A or B) and `return_conditions` in plain words.
-4. "Warranty?"
-   ```
-   A) No warranty ★
-   B) Yes — tell me how long and who handles it
-   ```
-5. "Are all your products original, from the brand or an official supplier?"
+   - A → `my_extra_policies` stays empty. Nothing else to ask.
+   - Each other letter → one short follow-up for the detail, then save it to `my_extra_policies` as
+     `{"policy": "1-year warranty", "details": "Brand handles it; buyer chats us with the order number"}`.
+   - If Step 3 gave you their policy, show what you saved instead of asking: "From your file: <policy>. Right?"
+   - **An extra policy can add to Shopee's, never take away.** "No returns", "no refunds" or "returns only by bank
+     transfer" can't override Shopee's rules: "Shopee's return rules still apply to every buyer, so I can't promise
+     that. I'll pass those chats to you instead." Add it to `always_hand_to_me` and save nothing in `my_extra_policies`.
+4. "Are all your products original, from the brand or an official supplier?"
    ```
    A) Yes, 100% original ★
    B) Some are — tell me which
    C) Not a brand product (handmade, own brand, generic)
    ```
    Save `authentic_products`. Only A lets a reply say "100% original".
-6. "When can buyers expect a chat reply from a real person?"
+5. "When can buyers expect a chat reply from a real person?"
    ```
    A) Every day, 9am to 6pm ★
    B) Weekdays only, office hours
@@ -137,7 +163,7 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
    D) Something else — tell me
    ```
    Save `chat_hours`.
-7. "Anything you **never** promise? For example an exact delivery date, or free gifts."
+6. "Anything you **never** promise? For example an exact delivery date, or free gifts."
    (free text, or "no"). Add to `promises_we_never_make`. Always add "an exact delivery date" unless they disagree:
    "Shopee's couriers set that, so we never promise a day."
 
@@ -180,7 +206,8 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
    H) Something else — tell me
    ```
 5. For each question, **write the answer yourself from Round B and Round C** (their tone, their promises, no
-   invented facts). If you need a fact you don't have (sizes, expiry), leave a blank: "[size chart]".
+   invented facts). Returns and exchanges: Shopee's policy first ("you can ask for a return in the Shopee app"),
+   then their extra policy if they have one. If you need a fact you don't have (sizes, expiry), leave a blank: "[size chart]".
    Show them all answers in one message, numbered, one or two lines each:
    "Here are your answers. Reply YES, or tell me the number to change." Save to `faq` as `{"q": "...", "a": "..."}`.
 6. Shopee's rules (say this, don't ask): "Shopee also has chat rules. I'll always follow them: no asking buyers to
@@ -207,13 +234,13 @@ Say first: "Now your promises. When I write a reply for you, I'll only promise w
    C) 10:00am
    D) Another time — tell me
    ```
-   Save `morning_check_at` (e.g. "09:00") in `shop.json`. We use it in Module 4.
+   Save `morning_check_at` (e.g. "09:00") in `shop.json`. We use it in Module 5.
 3. "Where should urgent alerts go?"
    ```
    A) Here in Claude, and the dashboard ★
-   B) Also a morning summary in my Gmail drafts (we set it up in Module 11)
+   B) Also a morning summary in my Gmail drafts (we set it up in Module 12)
    ```
-   B → ask for the email address, save `alert_email`. "In Module 11 I'll put a short morning summary in your Gmail
+   B → ask for the email address, save `alert_email`. "In Module 12 I'll put a short morning summary in your Gmail
    drafts. I never send it; you just read it." 
 
 Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
@@ -228,15 +255,28 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
    Sells: coffee beans and drip bags
    Goal this month: less time on admin
    Ships within 2 days · SPX, J&T
-   Returns: Shopee's normal rules · 100% original
+   Policies: Shopee's (always) + 1-year warranty · 100% original
    Replies: warm and friendly · English and Malay
    Chat now: 96% answered · about 1h 47m to reply (last 30 days)
    ```
-   (Last line from the helper. If it isn't back yet, leave that line out.)
+   (Last line from the scan's part 2 or the basics helper. If it isn't back yet, leave that line out.)
    "Reply YES if that's right, or tell me what to fix."
+   If the scan has finished (or as soon as it does, even in a later module), a second card from
+   `rules/shop-profile.md`, five lines at most, EXAMPLE:
+   ```
+   WHAT I LEARNED FROM YOUR SHOP
+   ──────────────────────────────────
+   Last 30 days: RM8,940 sales · 214 orders · 2.1% of visitors buy
+   Best sellers: Kopi O Drip Bag · Hazelnut 250g · Robusta 1kg
+   Ads last week: RM280 spent · RM4.10 back for every RM1
+   Buyers ask most: halal? (9) · when will it arrive? (7) · which grind? (5)
+   Watch: Hazelnut 250g runs out in about 6 days · 3 bad reviews have no reply
+   ```
+   "I'll keep this in mind for every check and every reply. Anything there that surprises you?"
 2. **Live test** (this is the fun bit, keep it moving):
    - "Let's test me. Type a question a buyer sent you this week, exactly how they wrote it."
-   - Write the reply you'd send, using `chat.json` and `store.json` only. Show it in a box. Under it, one line:
+   - Write the reply you'd send, using `chat.json`, `store.json` and (if the scan ran) the "Product facts" in
+     `rules/shop-profile.md`. Show it in a box. Under it, one line:
      "✓ only promises what's in your rules · ✓ follows Shopee's chat rules". **Nothing is sent.**
    - Then: "Now try a hard one, like a broken item or an angry buyer."
    - For anything in `always_hand_to_me`: don't draft a fix. Say "This one I'd **pass to you**:" + one line on why,
@@ -248,10 +288,16 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
 
 ## Step 6 · Close the module
 
-1. Run the refresh step: `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"` (quietly).
+**If the scan is still running:** don't wait for it. "My helper is still studying your past chats. That's fine:
+the next module doesn't need the browser. I'll tell you when it's done." When it finishes later, show the "What I
+learned" card then. (Module 4 needs the browser: wait for the scan before its helper starts.)
+
+1. In `progress.json` add `"2": "<now>"` to `done` (and `"shop-scan"` to `bonus` once the scan has finished), then run
+   the refresh step: `bash "<HQ>/tools/refresh-dashboard.sh" "<HQ>"` (quietly).
 2. Update `<HQ>/CLAUDE.md`:
-   - "Where we are: Module 1 done · next: module2".
-   - Under "The shop": 2–3 lines (shop, market, what they sell, goal, ship time, tone).
+   - "Where we are: Module 2 done · next: module3".
+   - Under "The shop": 2–3 lines (shop, market, what they sell, goal, ship time, tone), and "Shop scan: <date>,
+     see rules/shop-profile.md" (or "not done yet").
    - Under "How the owner likes things": Round D answers, plus anything they said about themselves along the way
      (e.g. "hates long messages", "packs orders herself in the evening").
 3. Say:
@@ -259,8 +305,8 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
    - "Want to change a rule later? Just tell me, like 'we now ship within 1 day'. I'll update it."
    - Value line: "That's the training you'd give a new admin, in 30 minutes, and I won't forget it."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 1 of 11 done. Next, your dashboard: one page with your whole shop on it.
-     Type **module2** when you're ready."
+   - Gate: "That's 2 of 12 done. Next, your dashboard: one page with your whole shop on it.
+     Type **module3** when you're ready."
 
 ## If things go wrong
 
@@ -269,6 +315,8 @@ Save Round D's answer 1 as `how_to_talk_to_me` in `shop.json`.
   the questions. Don't spend more than 3 minutes on it.
 - **They give a policy that breaks Shopee's rules** (e.g. "tell them to WhatsApp me"): "Shopee can warn shops for
   that, so I won't put it in a reply. I'll pass those chats to you instead." Add it to `always_hand_to_me`.
+- **The scan is slow or a part gets stuck:** keep going with the questions; the scan is a bonus, not a must. Skip
+  the stuck part (the recipe says how). If the allowance bar is past 70%, stop after the part that's running.
 - **The helper finds no couriers or chat numbers:** ask them for couriers; leave the chat line out of the card. Save `null`s.
 - **They ask whether replies will be sent automatically:** "Not today. Every reply waits for your YES. After a week,
   if you trust my replies for simple questions, you can tell me to send those by myself." (`auto_send` stays false.)

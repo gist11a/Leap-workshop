@@ -1,10 +1,10 @@
-# Module 6 · Ads check (about 35 minutes)
+# Module 7 · Ads check (about 35 minutes)
 
 **They get:** a plain-words picture of where their ad money goes, which ads waste it, a warning before ad credit
 runs out, and a daily check that suggests changes for their YES.
 **Files touched:** `rules/ads.json`, `data/ads/`, `approvals.json`, `alerts.json`, `automations.json`.
 The recipe `automations/ads-check.md` is already in their folder. Read it now; you follow it in Step 3.
-**Gate at the end:** `module7`.
+**Gate at the end:** `module8`.
 
 Follow START.md's rules: short messages, lettered menus, one question at a time, no tech words.
 **Money is involved here. Claude never tops up, never starts a new ad, never joins anything.** It reads, explains,
@@ -16,7 +16,7 @@ and suggests; the owner decides.
 
 Card:
 ```
-MODULE 6 OF 11 · ADS CHECK
+MODULE 7 OF 12 · ADS CHECK
 ──────────────────────────────────
 YOU GET: where your ad money goes, and where it's wasted
 ```
@@ -124,21 +124,37 @@ If step 3 made suggestions:
    `shopee-ads-check`, `title` "Shopee · Ads check", description "Reads Shopee Ads, flags wasted spend and low
    credit, suggests changes for the owner's YES". Time: 15 minutes after `morning_check_at` (9:00 → `15 9 * * *`)
    so the two checks don't share the browser. Update `ads-check` in `automations.json` to `on` with `when` in plain words.
-3. Don't run it now: it gets its permission in Module 11, where one morning routine runs every check once
-   together (and saves your allowance). Only if they must leave before Module 11: run it once now with
+3. Don't run it now: it gets its permission in Module 12, where one morning routine runs every check once
+   together (and saves your allowance). Only if they must leave before Module 12: run it once now with
    `run_scheduled_task` and wait until it finishes before any helper uses the browser.
+
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the ads check, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your ads check. Pick any, e.g. **A C**, or none."
+   ```
+   A) Don't advertise what you can't ship  every day: ads still running on out-of-stock products
+   B) Ads that deserve more                Mondays: your best ads, if you want to grow them
+   C) Spend spike alarm                    every day: ad spend jumped but sales didn't
+   D) None for now ★
+   E) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `ads-stock-guard`, B = `ads-winners`, C = `spend-spike`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
 
 ## Step 7 · Close the module
 
 1. "Press **Cmd+R** / **Ctrl+R** on your dashboard: the Ads card and the ad boxes at the top are live."
-2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 6 done · next: module7". One line under "The shop", e.g.
-   "Ads: target ROAS 4 (starting point, fix in Module 7) · wasted = RM20+ with no orders in a week."
+2. Update `<HQ>/CLAUDE.md`: "Where we are: Module 7 done · next: module8". One line under "The shop", e.g.
+   "Ads: target ROAS 4 (starting point, fix in Module 8) · wasted = RM20+ with no orders in a week."
 3. Say:
    - "Done: you can see where your ad money goes, and I'll flag waste every morning."
    - Value line: "Most shops waste 10–20% of their ad money on ads that don't sell. Now you'll see it within a day."
    - "Quick check: Settings → Usage. If the bar is past about 70%, tell me."
-   - Gate: "That's 6 of 11 done. Next, the big question: after Shopee's fees, ads and your costs, what do you
-     really keep? Type **module7** when you're ready."
+   - Gate: "That's 7 of 12 done. Next, the big question: after Shopee's fees, ads and your costs, what do you
+     really keep? Type **module8** when you're ready."
 
 ## If things go wrong
 

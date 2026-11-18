@@ -59,7 +59,7 @@
     {
       "topic": "stock",
       "title": "Stock and reorders",
-      "module": 3,
+      "module": 4,
       "show": true,
       "about": "Days left = stock ÷ what you sell in a day.",
       "columns": [
@@ -80,7 +80,7 @@
     {
       "topic": "chats",
       "title": "Chats",
-      "module": 5,
+      "module": 6,
       "show": true,
       "columns": [
         "buyer",
@@ -98,7 +98,7 @@
     {
       "topic": "reviews",
       "title": "Reviews",
-      "module": 5,
+      "module": 6,
       "show": true,
       "columns": [
         "product",
@@ -116,7 +116,7 @@
     {
       "topic": "ads",
       "title": "Ads",
-      "module": 6,
+      "module": 7,
       "show": true,
       "about": "ROAS = sales from ads ÷ ad spend. 5 means RM5 of sales for every RM1. Last 7 days in the table.",
       "columns": [
@@ -140,7 +140,7 @@
     {
       "topic": "profit",
       "title": "Real profit",
-      "module": 7,
+      "module": 8,
       "show": true,
       "about": "Yesterday, after Shopee fees, your product costs, packing and ads. Numbers marked estimated use your average margin.",
       "columns": [
@@ -166,7 +166,7 @@
     {
       "topic": "campaigns",
       "title": "Campaigns",
-      "module": 8,
+      "module": 9,
       "show": true,
       "columns": [
         "campaign",
@@ -185,7 +185,7 @@
     {
       "topic": "affiliates",
       "title": "Affiliates",
-      "module": 9,
+      "module": 10,
       "show": true,
       "fields": [
         "affiliate_sales_yesterday",
@@ -205,7 +205,7 @@
     {
       "topic": "images",
       "title": "Product images",
-      "module": 10,
+      "module": 11,
       "show": true,
       "columns": [
         "product",
@@ -220,6 +220,27 @@
         "to_be_optimised"
       ],
       "about": "Your best sellers' photos, checked by Claude. Selling points let Shopee's own AI make poster images."
+    },
+    {
+      "topic": "scan",
+      "title": "Shop scan",
+      "module": 2,
+      "show": true,
+      "about": "What Claude learned when it studied your shop. Say “scan my shop” to do it again.",
+      "columns": [
+        "product",
+        "price",
+        "sold",
+        "stock"
+      ],
+      "fields": [
+        "sales_30d",
+        "orders_30d",
+        "visitors_30d",
+        "conversion_30d",
+        "ad_roas_7d",
+        "shop_rating"
+      ]
     },
     {
       "id": "rules",
@@ -285,10 +306,18 @@
     "to_be_optimised": "Shopee: to be optimised",
     "score": "Score /5",
     "packaging": "Packing",
-    "affiliate_commission": "Affiliate commission"
+    "affiliate_commission": "Affiliate commission",
+    "sales_30d": "Sales, 30 days",
+    "orders_30d": "Orders, 30 days",
+    "visitors_30d": "Visitors, 30 days",
+    "conversion_30d": "Visitors who buy (%)",
+    "ad_roas_7d": "Ad sales per RM1, 7 days",
+    "sold": "Sold"
   },
   "money_fields": [
+    "ad_sales_7d",
     "ad_spend",
+    "ad_spend_7d",
     "ads_credit",
     "affiliate_commission",
     "affiliate_sales",
@@ -301,14 +330,17 @@
     "price",
     "profit",
     "sales",
+    "sales_30d",
     "sales_7d",
     "sales_from_ads_today",
+    "sales_per_order_30d",
     "sales_yesterday",
     "spend",
     "spend_7d",
     "spend_today",
     "spend_yesterday",
     "takeaway",
+    "total",
     "wasted_spend",
     "wasted_spend_7d"
   ],

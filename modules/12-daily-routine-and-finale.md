@@ -1,4 +1,4 @@
-# Module 11 · Your daily routine + finale (about 40 minutes)
+# Module 12 · Your daily routine + finale (about 40 minutes)
 
 **They get:** one morning routine that runs every check in order, a morning summary (on the dashboard, and as a
 Gmail draft if they want), a 5-minute daily checklist, and a clear picture of everything they built today.
@@ -15,7 +15,7 @@ Follow START.md's rules: short messages, lettered menus, one question at a time,
 
 Card:
 ```
-MODULE 11 OF 11 · YOUR DAILY ROUTINE
+MODULE 12 OF 12 · YOUR DAILY ROUTINE
 ──────────────────────────────────
 YOU GET: one morning routine, and a shop that checks itself
 ```
@@ -74,9 +74,24 @@ YOUR AUTOMATIONS
    A) Yes, as a Gmail draft ★
    B) No, the dashboard is enough
    ```
-2. A → use `alert_email` if Module 1 saved one, else ask for it. Set `morning_email: true` in `rules/shop.json`.
+2. A → use `alert_email` if Module 2 saved one, else ask for it. Set `morning_email: true` in `rules/shop.json`.
    If Gmail isn't connected in their Claude: "Gmail isn't connected, so I'll skip this. You can connect it later in
    Settings → Connectors and tell me 'turn on my morning email'." Leave it false.
+
+## Optional extras (2 minutes, skip if short on time)
+
+Ready-made extras from `<HQ>/automations/extras.md`. They ride along with the daily routine, so there's nothing new to
+schedule or approve, and most cost almost no allowance. Read only that file's "How it works" and this module's part.
+
+1. "Want any extras? They run with your daily routine. Pick any, e.g. **A C**, or none."
+   ```
+   A) Friday weekly review  Fridays: your week in six lines (and a Gmail draft if you like)
+   B) Monday top three      Mondays: the three things that matter most this week
+   C) None for now ★
+   D) Something else — tell me
+   ```
+2. Switch on each pick as "How it works" says (A = `weekly-review`, B = `monday-plan`). Ask only the setting a pick needs.
+3. "Switched on. You can add or remove extras any time: just say **show my extras**."
 
 ## Step 5 · First run, together
 
@@ -84,7 +99,7 @@ YOUR AUTOMATIONS
    Start it with `run_scheduled_task` (`taskId` "shopee-morning-routine"). (If it's after 12:00 the routine does
    only chats: tell them "This afternoon it only checks chats. Tomorrow morning it does everything." If they want to
    see the full morning run now, that's fine too: tell the routine in its chat "do the morning run now".)
-2. Same as Module 4: a new chat **Shopee · Daily routine** appears in the left sidebar; they click it and choose
+2. Same as Module 5: a new chat **Shopee · Daily routine** appears in the left sidebar; they click it and choose
    **Always allow** for anything that reads or saves in Shopee HQ, the browser, the refresh step, and (if they chose
    it) creating a Gmail draft. **Deny** anything that would send, delete or pay.
 3. While it runs (10–20 minutes), do Step 6 with them in this chat. Don't use the browser yourself meanwhile.
@@ -141,8 +156,8 @@ YOUR AUTOMATIONS
 3. Feedback (optional, quick): "One last thing: how was today, from 1 to 5, and one thing to improve? I'll write it
    as a draft email to the Leap team, and you choose whether to send it." Draft to scale@leapecommerce.com only if
    they want and Gmail is connected; otherwise "Tell your trainer. They'd love to hear it."
-4. Update `<HQ>/CLAUDE.md`: "Where we are: Workshop complete (11 of 11) · daily routine at <time>."
-5. Last line: "That's 11 of 11. Congratulations, <name>! 🎉 Close the laptop lid only after you've seen tomorrow's
+4. Update `<HQ>/CLAUDE.md`: "Where we are: Workshop complete (12 of 12) · daily routine at <time>."
+5. Last line: "That's 12 of 12. Congratulations, <name>! 🎉 Close the laptop lid only after you've seen tomorrow's
    summary run once; then you'll know it works."
 
 ## If things go wrong
@@ -151,7 +166,7 @@ YOUR AUTOMATIONS
   The routine logs that check as failed and carries on. If it stopped completely, check the browser is open and
   signed in, then `run_scheduled_task` again.
 - **They skipped some modules:** the routine only runs checks whose `status` is "on"; that's fine. Tell them which
-  ones they can add later ("module6 any time sets up the ads check").
+  ones they can add later ("module7 any time sets up the ads check").
 - **Allowance almost used up now:** skip the first run (Step 5); tell them it will run tomorrow at <time> and to check
   the dashboard after.
 - **They want the old separate schedules back:** re-enable them with `update_scheduled_task` (`enabled: true`) and

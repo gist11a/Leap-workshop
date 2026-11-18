@@ -30,7 +30,7 @@ Claude then downloads the course into their Shopee HQ folder and runs it module 
 curl" stops Claude from reading START.md through a summarising web reader, which could drop details.) The same line
 is on the get-ready page's "On the day" card with a Copy button. After a break or a new chat: open a session in the
 same Shopee HQ folder and type **continue the workshop**.
-They move on by typing the next module word (`module1`, `module2` …), never with a `/` in front.
+They move on by typing the next module word (`module2`, `module3` …), never with a `/` in front.
 
 ---
 
@@ -39,21 +39,21 @@ They move on by typing the next module word (`module1`, `module2` …), never wi
 | Time | Module | They leave with |
 |---|---|---|
 | 9:30 | Welcome (trainer, laptops closed) | Why this matters, what "Claude does it in the browser" means |
-| 9:50 | **0 · Get set up** | Shopee HQ folder ready, Claude can see their Seller Centre |
-| 10:20 | **1 · Your shop's brain and rules** | Shop profile, promises to buyers, chat voice + buyer FAQ, live reply test (stock, ads, cost and campaign rules are set in their own modules) |
+| 9:50 | **1 · Get set up** | Shopee HQ folder ready, Claude can see their Seller Centre |
+| 10:20 | **2 · Your shop's brain and rules** | Shop profile, promises to buyers, chat voice + buyer FAQ, live reply test (stock, ads, cost and campaign rules are set in their own modules) |
 | 11:00 | Break | |
-| 11:15 | **2 · Your dashboard** | Their own dashboard, opening in their browser (empty tiles that fill up as the day goes on) |
-| 11:40 | **3 · Stock and reorders** | Low-stock list + reorder amounts, saved and on the dashboard |
-| 12:15 | **4 · Make it run by itself** | Claude schedules the morning stock check, runs it once, attendee approves its tools. **The guarantee is met here.** |
+| 11:15 | **3 · Your dashboard** | Their own dashboard, opening in their browser (empty tiles that fill up as the day goes on) |
+| 11:40 | **4 · Stock and reorders** | Low-stock list + reorder amounts, saved and on the dashboard |
+| 12:15 | **5 · Make it run by itself** | Claude schedules the morning stock check, runs it once, attendee approves its tools. **The guarantee is met here.** |
 | 12:40 | Lunch | |
-| 1:30 | **5 · Chats and reviews** | Replies drafted in their shop's voice, sent only after their YES |
-| 2:15 | **6 · Ads check** | Morning ad check against their goals, wasted spend flagged |
+| 1:30 | **6 · Chats and reviews** | Replies drafted in their shop's voice, sent only after their YES |
+| 2:15 | **7 · Ads check** | Morning ad check against their goals, wasted spend flagged |
 | 2:50 | Break | |
-| 3:05 | **7 · Real profit** | Profit per product after Shopee fees and their costs |
-| 3:35 | **8 · Campaigns** | Products picked and priced from their rules, ready to nominate |
-| 4:10 | **9 · Affiliates** | Sample requests and creators checked against their rules |
-| 4:30 | **10 · Product images** | Image check per product + ready-to-use image briefs |
-| 4:50 | **11 · Your daily routine + finale** | One morning routine runs every check in order (replaces the separate morning schedules), morning summary + optional Gmail draft, a personal 5-minute checklist (`MY-ROUTINE.md`), finale card |
+| 3:05 | **8 · Real profit** | Profit per product after Shopee fees and their costs |
+| 3:35 | **9 · Campaigns** | Products picked and priced from their rules, ready to nominate |
+| 4:10 | **10 · Affiliates** | Sample requests and creators checked against their rules |
+| 4:30 | **11 · Product images** | Image check per product + ready-to-use image briefs |
+| 4:50 | **12 · Your daily routine + finale** | One morning routine runs every check in order (replaces the separate morning schedules), morning summary + optional Gmail draft, a personal 5-minute checklist (`MY-ROUTINE.md`), finale card |
 | 5:30 | Close | |
 
 Times are rough. A gate word keeps the room together; nobody is rushed.
@@ -70,16 +70,41 @@ Desktop/Shopee HQ/
   rules/               ← their rules, as simple JSON files they can change by asking
      shop.json  store.json  chat.json  stock.json  ads.json
      campaigns.json  affiliates.json  costs.json
+     shop-profile.md   ← what Claude learned from the Shop Scan (Module 2, optional, with their OK)
   data/                ← what Claude reads from Seller Centre, one file per day
      stock/  orders/  ads/  chats/  reviews/  campaigns/  affiliates/  profit/
-  automations.json     ← every automation: what it does, when, needs a YES or not, last run
+  automations/         ← one recipe per check, the Shop Scan, and extras.md (optional ready-made extras)
+  automations.json     ← every automation: what it does, when, extras switched on, last run
   approvals.json       ← things waiting for their YES (chat replies, budget changes, nominations)
   alerts.json          ← things to look at
   runs.json            ← a short log of every run
   dashboard/
      index.html        ← the dashboard template (they can change it by asking Claude)
      data.js           ← rebuilt after every run, so the dashboard opens straight from the folder
+     progress.html     ← the workshop map: 12 badges, lights up by itself after each module
+  progress.json        ← which modules are done (Claude updates it at every gate)
 ```
+
+**New in this version**
+- **Modules are numbered 1 to 12** (`module1` … `module12`).
+- **Shopee's policy is always in force.** `store.json` → `shopee_policy` (returns and refunds through Shopee, the
+  Shopee Guarantee, cancellations, payments inside Shopee) can't be removed; owners only add extras on top
+  (`my_extra_policies`: warranty, exchanges, freebies…). An "extra" that takes something away becomes a hand-over.
+- **Draft replies on the dashboard.** Each waiting chat or review reply opens to show the buyer's message (phone
+  numbers and emails masked), the draft, a check against their rules (outside apps and links, delivery-day promises,
+  never-say words, "original" claims, gifts for reviews, length, greeting) and Copy buttons for "YES to C4" /
+  "change C4: …" / "NO to C4". The page never sends anything.
+- **Progress with badges.** `dashboard/progress.html` (opened in Module 1) polls `data.js` every 4 seconds and
+  celebrates each new badge with confetti; the chat shows a progress card at every gate. Bonus badges: Shop
+  Scanner, First YES, Power User.
+- **Shop Scan (Module 2).** With the owner's OK, three background helper trips read sales, orders, the top
+  products in detail, stock, ads, reviews, chat settings and up to 25 past (already read) chats, then write
+  `rules/shop-profile.md`. The interview still runs; the scan lets Claude confirm instead of ask, and use real
+  buyer questions and the shop's own answers for the FAQ.
+- **Optional extras.** `automations/extras.md` has 20 ready-made extras (slow movers, order-by dates, FAQ learner,
+  review themes, ads stock guard, loss makers, month-end report, campaign stock cover, sample sorter, listing health,
+  Friday weekly review…). Modules 4 and 6–12 offer theirs as a menu. Each rides on an existing check, so no new
+  schedule or "Always allow".
 
 **Plain JSON files are the database.** No server, no accounts, no internet address.
 **Data is kept for 30 days.** Every run deletes day files older than 30 days and trims the logs.
@@ -94,14 +119,14 @@ Desktop/Shopee HQ/
 - **Scheduled runs use Sonnet**, so the daily jobs cost little. Claude creates the schedule itself (the app's
   scheduled-tasks tool, local time) and starts a first "Run now" so the attendee can click **Always allow** once.
   A scheduled run that starts on Opus hands the whole job to a Sonnet helper (the app has no model setting per task).
-- **Schedules on the day:** Modules 5–10 create their jobs (offsets from the owner's morning time: stock +0, ads +15,
-  affiliates +25, profit +35, campaigns +45, chats +60, images Mondays +55) **without** a test run. Module 11 replaces
+- **Schedules on the day:** Modules 6–11 create their jobs (offsets from the owner's morning time: stock +0, ads +15,
+  affiliates +25, profit +35, campaigns +45, chats +60, images Mondays +55) **without** a test run. Module 12 replaces
   them all with ONE task, "Shopee · Daily routine" (morning: every check in order, each in a fresh Sonnet helper,
-  plus a summary; 15:xx: chats only), which gets the only "Always allow" besides Module 4's stock check. Attendees
-  who leave before Module 11 should run Module 11 Steps 3–5 at home (or approve each job's first run).
+  plus a summary; 15:xx: chats only), which gets the only "Always allow" besides Module 5's stock check. Attendees
+  who leave before Module 12 should run Module 12 Steps 3–5 at home (or approve each job's first run).
 - **A scheduled run needs the laptop on and Claude's browser open** (Seller Centre signed in). That is a stated
   requirement, not a bug: if the laptop is closed, that run waits and happens
-  when Claude next opens. Attendees hear this in Modules 4 and 11.
+  when Claude next opens. Attendees hear this in Modules 5 and 12.
 
 ### Staying inside the Claude Pro limits
 
