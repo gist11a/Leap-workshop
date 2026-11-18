@@ -70,7 +70,9 @@ Keep it short. Details live in `rules/`.
 - **"fix my broken Shopee HQ files"** (the dashboard names them) → open each named file, repair it to valid
   JSON in the shape above (or delete a broken day file; the next run writes it again), refresh.
 - **"write my selling points"** → "Writing selling points" in `automations/image-check.md`.
-- A module word (`module6`…) → run that module from `course/modules/`, as on the workshop day.
+- A module word (`module6`…) → read `course/START.md` (how to run the day), then run that module from
+  `course/modules/`, as on the workshop day.
+- **"continue the workshop"** → read `course/START.md`, then carry on from the "Where we are" line above.
 
 ## "What needs my YES?" (approvals)
 When the owner asks what's waiting (or says "show approvals"):

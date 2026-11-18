@@ -176,6 +176,11 @@ body.os-mac .pickos,body.os-win .pickos{display:none}
 .ready.complete .miss,.ready.complete .stillopen{display:none}
 .ready .btn-line{background:rgba(255,255,255,.06);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
 .ready .btn-line:hover{background:rgba(255,255,255,.1)}
+.day{margin-top:16px;scroll-margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 26px;color:var(--ink2)}
+.day h3{font-size:clamp(24px,3.6vw,32px);letter-spacing:-.03em;font-weight:800;margin:10px 0 14px;line-height:1.1;color:var(--ink)}
+.day b{color:var(--ink)}
+.day .say{margin-top:4px}
+@media (max-width:600px){.day{padding:22px 18px}}
 .foot{text-align:center;color:var(--ink3);font-size:13px;margin-top:40px}
 .reset{background:none;border:0;color:var(--ink3);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-top:10px;padding:8px}
 .reset:hover{color:var(--ink)}
@@ -263,11 +268,24 @@ body.embedded .float{display:none}
       <div class="allset"><span class="tile"><svg class="i"><use href="#i-check"/></svg></span>All must-do steps are done. You're set for 9:30am.</div>
       <p class="stillopen">Still open before 9:30am on Thursday:</p>
       <ul class="miss" id="miss"></ul>
-      <p>On the day you open Claude in your <b style="color:#fff">Shopee HQ</b> folder and paste one line we give you. Claude takes it from there.</p>
+      <p>On the day you open Claude in your <b style="color:#fff">Shopee HQ</b> folder and paste one line. It's in the card below.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-y" type="button" id="copyStatus"><svg class="i"><use href="#i-copy"/></svg>Copy my checklist</button>
         <a class="btn btn-line" href="https://www.leapecommerce.com/leap-events" target="_blank" rel="noopener">Event details</a>
       </div>
+    </section>
+
+    <section class="day" id="day">
+      <p class="label">Thursday, 9:30am</p>
+      <h3>On the day<span class="dot">.</span></h3>
+      <ol class="how">
+        <li>Open the <b>Claude</b> app and click <b>Code</b>.</li>
+        <li>Start a <b>new session</b> and choose your <b>Shopee HQ</b> folder.</li>
+        <li>Check the name under the chat box says <b>Opus</b>.</li>
+        <li>Copy this line, paste it into Claude and press <b>Enter</b>. Claude takes it from there.</li>
+      </ol>
+      <div class="say"><div class="bar"><span>Paste this into Claude</span><button class="copy" type="button" data-copy="Please%20run%20today%27s%20Shopee%20workshop%20with%20me.%20First%20download%20this%20file%20word%20for%20word%20with%20curl%2C%20then%20follow%20it%20exactly%3A%20https%3A%2F%2Fraw.githubusercontent.com%2Fgist11a%2FLeap-workshop%2Fmain%2FSTART.md"><svg class="i"><use href="#i-copy"/></svg>Copy</button></div><code>Please run today&#39;s Shopee workshop with me. First download this file word for word with curl, then follow it exactly: https://raw.githubusercontent.com/gist11a/Leap-workshop/main/START.md</code></div>
+      <div class="note note-tip"><span class="nt"><svg class="i"><use href="#i-tip"/></svg></span><div>After a break, or if Claude closes: start a new session in the same <b>Shopee HQ</b> folder and type <b>continue the workshop</b>. Nothing is lost.</div></div>
     </section>
 
     <div class="foot">

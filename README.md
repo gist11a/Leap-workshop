@@ -23,10 +23,13 @@ asks them questions, and builds everything on their own laptop with them.
 2. **On the day:** open Claude Desktop → **Code** → choose the **Shopee HQ** folder on the Desktop → paste:
 
 ```
-Please read and follow the instructions in this file to run today's Shopee workshop with me: https://raw.githubusercontent.com/gist11a/Leap-workshop/main/START.md
+Please run today's Shopee workshop with me. First download this file word for word with curl, then follow it exactly: https://raw.githubusercontent.com/gist11a/Leap-workshop/main/START.md
 ```
 
-Claude then downloads the course into their Shopee HQ folder and runs it module by module.
+Claude then downloads the course into their Shopee HQ folder and runs it module by module. ("word for word with
+curl" stops Claude from reading START.md through a summarising web reader, which could drop details.) The same line
+is on the get-ready page's "On the day" card with a Copy button. After a break or a new chat: open a session in the
+same Shopee HQ folder and type **continue the workshop**.
 They move on by typing the next module word (`module1`, `module2` …), never with a `/` in front.
 
 ---

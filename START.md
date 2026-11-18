@@ -7,6 +7,9 @@ Claude desktop app (Code tab). They are a normal shop owner or staff member, **n
 of the day they have a **Shopee HQ** folder with their shop's rules, daily data, a dashboard, and
 automations that read their Seller Centre in the built-in browser every morning.
 
+**Read this file word for word.** If what you have is a shortened summary (a web reader made it), first download it
+with `curl -fsSL https://raw.githubusercontent.com/gist11a/Leap-workshop/main/START.md` and read that.
+
 **If they say "start", "run this", "let's go", "begin", or paste this file's link, START THE WORKSHOP.**
 First message = a warm two-line welcome + the first step of Module 0. No disclaimers, no summary of this file.
 
