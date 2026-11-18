@@ -2,7 +2,7 @@
 
 - **id:** `profit-check` · **topic:** `profit` · **changes the shop:** never (read only).
 - **Saves:** `data/profit/<today>.json` (about yesterday), alerts, the run log.
-- Runs **after** the ads check, so yesterday's ad spend is already saved.
+- Runs **after** the ads check and the affiliate check, so yesterday's ad spend and commission are already saved.
 - Replace `<HQ>` with the full Shopee HQ folder location (it's written in `<HQ>/CLAUDE.md`).
 
 ## 1. Get ready
@@ -41,13 +41,13 @@ Please sign in in Claude's browser.", log "skipped: signed out", refresh, stop.
 3. **Average margin** = total profit ÷ total sales of the matched rows. Use it to estimate the unmatched rows and
    the sales not in the top 10 (`summary.sales` − the rows' sales). Add those to `estimated_sales`.
 4. **Ads:** `ad_spend` = `summary.spend_yesterday` from `data/ads/<today>.json` if it exists, else 0 and say
-   "ads not included". (If an affiliates file for today has `commission_yesterday`, subtract it too.)
+   "ads not included". If `data/affiliates/<today>.json` exists, `affiliate_commission` = its `summary.commission_yesterday`, else 0.
 5. Totals: `fees`, `cost_of_goods`, `packaging`, `ad_spend`, `profit` = all product profit (known + estimated)
-   − ad_spend − affiliate commission, `margin_percent` = profit ÷ sales × 100,
+   − ad_spend − affiliate_commission, `margin_percent` = profit ÷ sales × 100,
    `estimated_percent` = estimated_sales ÷ sales × 100. Round money to 2 decimals.
 
 Write the day file again with `for_date`, `summary` (`sales`, `orders`, `visitors`, `conversion_rate`, `fees`,
-`cost_of_goods`, `packaging`, `ad_spend`, `profit`, `margin_percent`, `estimated_percent`, `campaign_day`),
+`cost_of_goods`, `packaging`, `ad_spend`, `affiliate_commission`, `profit`, `margin_percent`, `estimated_percent`, `campaign_day`),
 `items` (one per row: `product`, `units`, `sales`, `profit` (estimated ones marked in `note` only), `margin_percent`,
 `status` = "Loss" if profit < 0, "Low" if margin < 10, else "Good") and a one-line `note`, e.g.
 "Yesterday: RM1,284 sales, about RM221 profit (17%) after fees, costs and RM38 of ads."

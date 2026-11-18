@@ -184,7 +184,21 @@
       "topic": "affiliates",
       "title": "Affiliates",
       "module": 9,
-      "show": true
+      "show": true,
+      "fields": [
+        "affiliate_sales_yesterday",
+        "affiliate_orders_yesterday",
+        "commission_yesterday",
+        "roi_yesterday",
+        "samples_to_approve"
+      ],
+      "columns": [
+        "affiliate",
+        "sales",
+        "orders",
+        "commission"
+      ],
+      "about": "People who share your products and earn a commission only when it sells. Yesterday's numbers."
     },
     {
       "topic": "images",
@@ -250,13 +264,20 @@
     "open_to_join": "Open to join",
     "deadlines_this_week": "Deadlines in 7 days",
     "pending_confirmation": "Waiting for your confirm",
-    "nominated": "Nominated"
+    "nominated": "Nominated",
+    "affiliate_sales_yesterday": "Affiliate sales yesterday",
+    "affiliate_orders_yesterday": "Orders",
+    "commission_yesterday": "Commission paid",
+    "roi_yesterday": "ROI",
+    "samples_to_approve": "Sample requests waiting"
   },
   "money_fields": [
     "ad_spend",
     "ads_credit",
     "affiliate_sales",
+    "affiliate_sales_yesterday",
     "commission",
+    "commission_yesterday",
     "cost_of_goods",
     "fees",
     "packaging",

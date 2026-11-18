@@ -1,7 +1,15 @@
 {
-  "approve_samples_when": { "min_followers": null, "min_sales_last_30_days": null, "must_match_my_category": true },
-  "max_samples_per_week": null,
-  "commission": { "default_percent": null, "best_sellers_percent": null },
+  "approve_samples_when": {
+    "min_followers": 1000,
+    "must_match_my_category": true
+  },
+  "max_samples_per_week": 5,
+  "commission": {
+    "default_percent": null,
+    "by_product": {}
+  },
+  "keep_after_commission_percent": 5,
   "never": [],
-  "decisions_need_my_yes": true
+  "owner_decides": true,
+  "notes": "by_product: {\"<product>\": {\"commission_percent\", \"margin_percent\", \"flag\"}} worked out by Claude. A product's commission should leave at least keep_after_commission_percent of margin. Claude suggests; the owner changes commissions and approves samples in Shopee."
 }

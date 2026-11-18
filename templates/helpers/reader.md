@@ -40,9 +40,11 @@ Paths are added after the Seller Centre address in `rules/shop.json` (for Malays
 - My Products: `/portal/product/list/live/all` · My Inventory (restock view): `/portal/inventory` (opens the Live tab;
   10 rows a page; page numbers at the bottom; each row has an On-demand switch: never touch it)
 - Shopee Ads: `/portal/marketing/pas/index`
-- Affiliate Marketing: `/portal/web-seller-affiliate/homepage`
+- Affiliate Marketing: `/portal/web-seller-affiliate/homepage` · Key Analytics (yesterday): `/portal/web-seller-affiliate/dashboard`
+  · Commission rates: `/portal/web-seller-affiliate/open_campaign`
 - Campaign: `/portal/marketing/cmt/campaign` · Vouchers: `/portal/marketing/vouchers/list` · Discount: `/portal/marketing/list/discount`
 - Chat Management (chat numbers for the last 30 days): `/portal/chat-management` · Review Management: `/portal/settings/shop/rating`
 - Shipping Channel (which couriers are on): `/portal/all-settings/shipping/shipping-channel` — has on/off switches, **never touch them**
 - Shop Settings: `/portal/all-settings` (Shipping, Chat, Vacation Mode…) — read only
-- My Income: in the Finance menu · Business Insights: in the Data menu
+- Business Insights: `/datacenter/overview` · My Income asks for the password again: don't use it (order detail
+  pages show each order's fees under "See Income Details")
