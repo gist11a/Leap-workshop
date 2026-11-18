@@ -9,9 +9,10 @@ Read `<HQ>/CLAUDE.md`, `<HQ>/rules/shop.json` and `<HQ>/rules/stock.json`. "Toda
 timezone, written `YYYY-MM-DD`.
 
 ## 2. Read My Inventory
-**Who reads:** in a live chat (Opus), send ONE helper: Agent tool, `model: "sonnet"`, `subagent_type:
-"general-purpose"`, prompt = the text of `<HQ>/helpers/reader.md` + the job below. In a scheduled run (Sonnet),
-read the page yourself and follow every rule in `<HQ>/helpers/reader.md`.
+**Who reads:** in a live chat with the owner (Opus), send ONE helper: Agent tool, `model: "sonnet"`,
+`subagent_type: "general-purpose"`, prompt = the text of `<HQ>/helpers/reader.md` + the job below.
+In a scheduled run you are already on Sonnet: read the page yourself and follow every rule in
+`<HQ>/helpers/reader.md`.
 
 The job:
 > Open `<seller_centre>/portal/inventory` (it opens the **Live** tab). Wait 3 seconds. Check "Current Shop" is

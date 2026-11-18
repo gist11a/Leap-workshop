@@ -13,8 +13,8 @@ Keep it short. Details live in `rules/`.
   sends ONE helper (Agent tool, `model: "sonnet"`, `subagent_type: "general-purpose"`) with the text of
   `helpers/reader.md` plus the job. Changes go through `helpers/doer.md`, only after a YES.
   One browser helper at a time. Give each helper a whole batch of pages.
-- **Scheduled jobs** run on Sonnet and follow the recipe in `automations/<id>.md`. They read the pages
-  themselves (no helper needed, they are already the cheap model) following every rule in `helpers/reader.md`.
+- **Scheduled jobs** follow the recipe in `automations/<id>.md`. On Sonnet they read the pages themselves
+  following every rule in `helpers/reader.md`; on Opus they hand the whole job to one Sonnet helper.
   They never change the shop: changes go to `approvals.json` for the owner's YES.
 - **Read first. Never change the shop without a YES.** A YES covers only the items the owner saw.
 - **Never type the owner's password or phone code.** If Seller Centre is signed out, stop and tell the owner.
@@ -55,6 +55,27 @@ Keep it short. Details live in `rules/`.
 - Keep it valid, refresh, then tell them: "Press Cmd+R (Mac) or Ctrl+R (Windows) on the dashboard."
 - Never edit `dashboard/index.html` during the workshop. Afterwards, if they want a new kind of card or chart,
   first copy it to `dashboard/index-backup.html`, make the change, and check the page still opens.
+
+## How to schedule an automation
+1. Create it with the `create_scheduled_task` tool: `taskId` `shopee-<id>`, `title` "Shopee · <name>",
+   `cronExpression` in the laptop's local time (`0 9 * * *` = every day at 9:00), and this `prompt`, filled in:
+   > You are the "<name>" automation for the Shopee shop <shop_name>. Its Shopee HQ folder is <HQ>.
+   > 1. If you are running on Opus, don't do the work yourself: start ONE helper (Agent tool, model "sonnet",
+   >    subagent_type "general-purpose") with this whole message as its prompt, wait, and end with its summary.
+   > 2. Otherwise read <HQ>/CLAUDE.md, then follow <HQ>/automations/<id>.md from start to finish as a
+   >    scheduled run.
+   > 3. Read only. Never change anything in the Shopee shop, never type a password or code, never run
+   >    JavaScript in the browser. Changes go to <HQ>/approvals.json for the owner's YES.
+   > 4. If Claude's browser isn't open or Seller Centre is signed out: add an urgent alert in
+   >    <HQ>/alerts.json ("Seller Centre is signed out. Please sign in in Claude's browser."), log the run as
+   >    "skipped", refresh the dashboard, and stop.
+   > 5. End with a summary of three short lines.
+2. In `automations.json` set `status` "on", `when` in plain words, `schedule_id` = the taskId.
+3. Run it once now with `run_scheduled_task`, so the owner can approve its tools ("Always allow").
+4. **Pause** = `update_scheduled_task` with `enabled: false` and `status` "paused" in `automations.json`.
+   **Resume** = `enabled: true` and `status` "on".
+- It only runs while the laptop is on with Claude open and Claude's browser open on Seller Centre. A missed run
+  happens the next time Claude opens.
 
 ## Every job ends with these three steps
 1. Add a line to today's `data/runs/<YYYY-MM-DD>.json` (a list): `{"time","automation","result","alerts","approvals"}`.

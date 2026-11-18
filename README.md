@@ -41,7 +41,7 @@ They move on by typing the next module word (`module1`, `module2` …), never wi
 | 11:00 | Break | |
 | 11:15 | **2 · Your dashboard** | Their own dashboard, opening in their browser (empty tiles that fill up as the day goes on) |
 | 11:40 | **3 · Stock and reorders** | Low-stock list + reorder amounts, saved and on the dashboard |
-| 12:15 | **4 · Make it run by itself** | Their first scheduled job (morning stock check). **The guarantee is met here.** |
+| 12:15 | **4 · Make it run by itself** | Claude schedules the morning stock check, runs it once, attendee approves its tools. **The guarantee is met here.** |
 | 12:40 | Lunch | |
 | 1:30 | **5 · Chats and reviews** | Replies drafted in their shop's voice, sent only after their YES |
 | 2:15 | **6 · Ads check** | Morning ad check against their goals, wasted spend flagged |
@@ -88,7 +88,9 @@ Desktop/Shopee HQ/
 - **The helper is Sonnet** — sent by the boss to do the browser work: open a Seller Centre page, read it,
   bring back a short summary as JSON. A second helper job, "doer", carries out **one approved change** exactly
   as written (send this reply, set this budget) and reports back.
-- **Scheduled runs use Sonnet** from start to finish, so the daily jobs cost little.
+- **Scheduled runs use Sonnet**, so the daily jobs cost little. Claude creates the schedule itself (the app's
+  scheduled-tasks tool, local time) and starts a first "Run now" so the attendee can click **Always allow** once.
+  A scheduled run that starts on Opus hands the whole job to a Sonnet helper (the app has no model setting per task).
 - **A scheduled run needs the laptop on and Claude's browser open** (Seller Centre signed in). That is a stated
   requirement, not a bug: if the laptop is closed, that run is skipped. Attendees hear this in Modules 4 and 11.
 
