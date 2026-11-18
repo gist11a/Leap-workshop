@@ -351,8 +351,8 @@ tr:hover td{background:#FBFAF6}
   }
   function statusChip(t){
     var l = t.toLowerCase();
-    var c = /out of stock|order now|urgent|no orders|wasted|bad|overdue|failed|ends today/.test(l) ? ["chip-r", "alert"]
-      : /soon|watch|waiting|check|low|due|deadline/.test(l) ? ["chip-y", "clock"]
+    var c = /out of stock|order now|urgent|no orders|wasted|bad|overdue|failed|ends today|hand to you|needs you/.test(l) ? ["chip-r", "alert"]
+      : /soon|watch|waiting|ready|check|low|due|deadline/.test(l) ? ["chip-y", "clock"]
       : /fine|good|ok|done|sent|replied|joined|nominated/.test(l) ? ["chip-m", "check"] : ["chip-g", "info"];
     return chip([c[0], c[1], t]);
   }
@@ -363,6 +363,7 @@ tr:hover td{background:#FBFAF6}
     var rows = items.slice(0, 8).map(function(it){
       return "<tr>" + cols.map(function(c){
         if ((c === "status" || c === "flag") && it[c]) return "<td>" + statusChip(String(it[c])) + "</td>";
+        if (c === "stars" && isNum(it[c])) return '<td class="n" title="' + it[c] + ' stars" style="color:var(--olive);letter-spacing:1px">' + "★★★★★".slice(0, Math.round(it[c])) + '<span style="color:var(--line)">' + "★★★★★".slice(Math.round(it[c])) + "</span></td>";
         return '<td class="' + (numCol[c] ? "n" : "") + '">' + esc(fmt(it[c], c)) + "</td>"; }).join("") + "</tr>";
     }).join("");
     return '<div class="tbl"><table><thead><tr>' + cols.map(function(c){ return '<th class="' + (numCol[c] ? "n" : "") + '">' + esc(human(c)) + "</th>"; }).join("") +
@@ -395,7 +396,7 @@ tr:hover td{background:#FBFAF6}
     out += '<div class="sub">Waiting for your YES</div>';
     out += wait.length ? '<div class="rows">' + wait.map(function(a){
       return '<div class="row"><div class="main"><b>' + esc(a.what || a.do || "A change") + '</b><div class="meta">' + esc([a.topic, a.created && dShort(a.created), a.id].filter(Boolean).join(" · ")) +
-        '</div></div><div class="side">' + chip(ASTAT.waiting) + "</div></div>"; }).join("") + "</div>" +
+        '</div></div><div class="side">' + chip(a.kind === "hand-over" ? ["chip-r", "alert", "Needs you"] : ASTAT.waiting) + "</div></div>"; }).join("") + "</div>" +
       '<p class="hint">To approve, tell Claude <b>YES</b> with the number, e.g. "YES to ' + esc(wait[0].id || "1") + '". Nothing changes in your shop until you do.</p>'
       : emptyBox("Nothing waiting", "When Claude wants to change something in your shop, it shows up here first.", "check");
     out += '<div class="sub">Alerts</div>';

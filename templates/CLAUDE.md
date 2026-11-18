@@ -56,6 +56,19 @@ Keep it short. Details live in `rules/`.
 - Never edit `dashboard/index.html` during the workshop. Afterwards, if they want a new kind of card or chart,
   first copy it to `dashboard/index-backup.html`, make the change, and check the page still opens.
 
+## "What needs my YES?" (approvals)
+When the owner asks what's waiting (or says "show approvals"):
+1. List `waiting` items from `approvals.json`, grouped: **Needs you** (hand-overs), **Chats**, **Reviews**,
+   **Other**. Number them, one or two lines each: the buyer's question or review, then the reply in a box.
+2. They answer "YES 1 3", "YES all", "YES all thank-yous", "NO 2", or "change 2: …".
+   - YES → `status` "approved". NO → "declined". Change → update `do`, show it again, wait for YES.
+   - Bad-review replies are public: approve them one by one, never inside "YES all" unless they say so.
+3. Send ONE helper per kind of page (all approved chats together, all approved reviews together): Agent tool,
+   `model: "sonnet"`, prompt = the text of `helpers/doer.md` + "Approval ids: C4, C5, C7".
+4. Tell them what happened in one or two lines ("Sent 3 replies. 1 buyer wrote again, so I've redrafted it."),
+   redraft any `changed_since` items, refresh the dashboard.
+5. Keep the file small: delete done, declined and changed_since items older than 7 days.
+
 ## How to schedule an automation
 1. Create it with the `create_scheduled_task` tool: `taskId` `shopee-<id>`, `title` "Shopee · <name>",
    `cronExpression` in the laptop's local time (`0 9 * * *` = every day at 9:00), and this `prompt`, filled in:

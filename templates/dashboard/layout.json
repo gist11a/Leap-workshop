@@ -86,7 +86,14 @@
         "buyer",
         "asked",
         "status"
-      ]
+      ],
+      "fields": [
+        "waiting",
+        "replies_drafted",
+        "handed_to_me",
+        "oldest_wait_hours"
+      ],
+      "about": "Replies are drafted in your voice and sent only after your YES."
     },
     {
       "topic": "reviews",
@@ -98,6 +105,12 @@
         "stars",
         "review",
         "status"
+      ],
+      "fields": [
+        "to_reply",
+        "bad_to_reply",
+        "shop_rating",
+        "unreplied_bad"
       ]
     },
     {
@@ -185,7 +198,15 @@
     "order_now": "Order today",
     "low_stock": "Order this week or sooner",
     "out_of_stock": "Out of stock (selling)",
-    "products_checked": "Products checked"
+    "products_checked": "Products checked",
+    "waiting": "Chats waiting",
+    "replies_drafted": "Replies ready",
+    "handed_to_me": "Passed to you",
+    "oldest_wait_hours": "Longest wait (hours)",
+    "to_reply": "Reviews to reply",
+    "bad_to_reply": "Bad reviews to reply",
+    "shop_rating": "Shop rating",
+    "unreplied_bad": "Unreplied bad (Shopee)"
   },
   "money_fields": [
     "spend_today",
