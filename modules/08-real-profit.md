@@ -35,9 +35,7 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
 2. "Are you on Shopee's **Cashback programme**? (In Singapore it's called **Promo Xtra**.) It's the one where
    Shopee adds cashback vouchers for your buyers and charges you a service fee on **every** order."
    A) Yes ★ B) No C) Not sure. Save `on_programme` (Not sure → true; Step 3 will show it).
-3. **Malaysia only:** "Do your Shopee ads get paid straight out of your sales (**Ads Escrow Top-Up**)?"
-   A) Yes B) No ★ C) Not sure. Save `ads_escrow_topup` (Not sure → the real orders show it as its own line).
-4. **Singapore only:** "Is your company **registered for GST**? Most shops aren't: it's only a must above S$1m a
+3. **Singapore only:** "Is your company **registered for GST**? Most shops aren't: it's only a must above S$1m a
    year." A) No ★ B) Yes C) Not sure. Save `gst_registered` (Not sure → false, and say "ask your accountant; it
    changes your profit by about 6% of every sale, so it's worth knowing").
 
@@ -61,8 +59,10 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
      Shopee paid for don't count: Shopee adds them back, so they cost the shop nothing.
    - **Malaysia:** the one "Service Fee" line is two fees together: take **RM0.54** off it (the platform support
      fee) and keep that as a flat fee.
-   - **Fee %** = (commission + service fee + transaction fee, + Ads Escrow Top-Up if shown) ÷ price after your
-     voucher × 100. Leave the affiliate (AMS) commission out: the affiliate check counts it.
+   - **Fee %** = (commission + service fee + transaction fee) ÷ price after your voucher × 100. Leave out the
+     affiliate (AMS) commission (the affiliate check counts it) and, in Malaysia, any **Ads Escrow Top-Up** line:
+     that's their ads being paid from their sales, and the ads check already counts ad spend. If you see it, say so
+     in one line: "That RM<x> isn't a Shopee fee, it's your ads paid from the sale; I count ads separately."
    - **Fixed fee** = Malaysia: RM0.54. Singapore: the seller's shipping (courier charge − what the buyer paid −
      Shopee's shipping rebate) + S$0.07 (the transaction fee on the buyer's S$1.99 shipping).
    - **Leave out of the average** an order that was: on a campaign day, paid by instalment (its transaction fee
@@ -84,7 +84,7 @@ Skip any that `rules/shop.json` or `rules/my-shop-info.md` already answer. Ask o
    different): use the fee table instead. "Which of these is closest to what you sell?" (menu of the categories in
    `tools/shopee-fees.json` for their market, using their `covers` words, last option "None of these").
    - Fee % = commission (Mall / programme column) + programme service fee (if on it; Singapore: the category's
-     `service_band`) + transaction fee, + Ads Escrow Top-Up 2.16 (MY, if on). GST-registered SG: as above.
+     `service_band`) + transaction fee. GST-registered SG: as above.
    - Fixed = Malaysia: RM0.54. Singapore: seller shipping by parcel weight + S$0.07. Ask: "How heavy is a typical
      parcel, box included?" A) Under 1 kg ★ (S$2.30) B) 1–5 kg (S$3.21) C) 5–10 kg (S$3.79) D) Heavier: tell me.
      A big light box counts by size (L × W × H in cm ÷ 6000). Save `parcel_size`. Fulfilled by Shopee shops use

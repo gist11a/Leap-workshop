@@ -144,15 +144,12 @@
     "transaction_fee_percent_instalment": 4.86,
     "platform_fee_per_order": 0.54,
     "optional_fee_percent": {
-      "ads_escrow_topup": {
-        "percent": 2.16,
-        "when": "only if the shop switched on Ads Escrow Top-Up (paying ads from order money)"
-      },
       "preorder": {
         "percent": 2.16,
         "when": "only on completed pre-order items (some made-to-order categories are exempt)"
       }
     },
+    "ads_escrow_topup_note": "Ads Escrow Top-Up (opt-in) moves about 2% + SST of each order into the shop's ad credit. It's ad money, not a Shopee fee: the ads check counts ad spend, so keep it out of the fee % or it's counted twice.",
     "seller_shipping_per_order": 0,
     "shipping_note": "With Shopee Supported Logistics the seller normally pays nothing for delivery: the buyer pays part and Shopee rebates the rest. Real orders show it.",
     "income_details_note": "On a Malaysian order's Income Details, the one 'Service Fee' line is TWO fees added together: the Cashback service fee (% of the price) + the RM0.54 platform support fee. Take RM0.54 off before working out the %.",

@@ -88,8 +88,8 @@ programme fee  = price after voucher × Promo Xtra (SG, two bands) / Cashback (M
                  higher on campaign days; capped per item (MY RM108, SG S$60 / S$70)
 transaction fee= what the buyer paid, incl. their shipping × 3.27% SG / 3.78% MY (instalment: MY 4.86%; SG 6.54% only
                  on 6- and 12-month orders in the Special SPayLater Programme)
-MY only        = RM0.54 platform support per order (shown INSIDE the "Service Fee" line); opt-in Ads Escrow Top-Up
-                 2.16%; pre-order items 2.16%
+MY only        = RM0.54 platform support per order (shown INSIDE the "Service Fee" line); pre-order items 2.16%.
+                 Ads Escrow Top-Up (opt-in, ~2.16%) is ad money, not a fee: count it once, in ad spend
 shipping       = SG: seller pays by parcel weight (S$2.30 up to 1 kg … S$11.20 up to 30 kg; buyer pays a fixed S$1.99;
                  weight = the bigger of real weight and L×W×H÷6000). MY: usually nothing (Shopee rebates it)
 payout         = price after voucher − Shopee's fees − seller shipping

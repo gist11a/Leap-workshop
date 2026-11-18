@@ -4,7 +4,6 @@
     "on_programme": null,
     "category": null,
     "gst_registered": null,
-    "ads_escrow_topup": null,
     "fee_percent_normal": null,
     "fee_percent_campaign": null,
     "fixed_fee_per_order": null,
@@ -18,7 +17,7 @@
     "monthly_fixed_costs": null,
     "orders_per_month": null,
     "overhead_per_order": 0,
-    "notes": "fee_percent_* = everything Shopee takes as a % of the price after the shop's own voucher (commission + programme service fee + transaction fee, + MY Ads Escrow Top-Up if on; for GST-registered SG shops, Shopee's % ÷ 1.09 + 8.26). fixed_fee_per_order = flat Shopee amounts per order (MY platform support RM0.54; SG seller-paid shipping by parcel weight + S$0.07 transaction fee on the buyer's S$1.99). packing: 'self', 'warehouse' or 'fbs'. other_cost_per_order = warehouse or Fulfilled by Shopee fees per order, tax included. overhead_per_order = monthly_fixed_costs ÷ orders_per_month (staff, rent, tools, warehouse minimums). fees_from: 'real orders' or 'fee table'."
+    "notes": "fee_percent_* = everything Shopee takes as a % of the price after the shop's own voucher (commission + programme service fee + transaction fee; never MY Ads Escrow Top-Up, which is ad money counted in ad spend; for GST-registered SG shops, Shopee's % ÷ 1.09 + 8.26). fixed_fee_per_order = flat Shopee amounts per order (MY platform support RM0.54; SG seller-paid shipping by parcel weight + S$0.07 transaction fee on the buyer's S$1.99). packing: 'self', 'warehouse' or 'fbs'. other_cost_per_order = warehouse or Fulfilled by Shopee fees per order, tax included. overhead_per_order = monthly_fixed_costs ÷ orders_per_month (staff, rent, tools, warehouse minimums). fees_from: 'real orders' or 'fee table'."
   },
   "products": [],
   "notes": "products: {\"product\", \"price\", \"cost\", \"preorder\", \"left_before_ads\", \"margin_percent\", \"break_even_roas\", \"break_even_ad_cost\"}. cost = what one unit costs you to buy or make, including getting it to you or your warehouse. preorder (MY only) adds Shopee's 2.16% pre-order fee. The last four are worked out by Claude."
