@@ -351,7 +351,7 @@ tr:hover td{background:#FBFAF6}
   }
   function statusChip(t){
     var l = t.toLowerCase();
-    var c = /out of stock|order now|urgent|no orders|wasted|bad|overdue|failed|ends today|hand to you|needs you/.test(l) ? ["chip-r", "alert"]
+    var c = /out of stock|order now|urgent|no orders|wasted|bad|overdue|failed|ends today|hand to you|needs you|confirm price|loss/.test(l) ? ["chip-r", "alert"]
       : /soon|watch|waiting|ready|check|low|due|deadline/.test(l) ? ["chip-y", "clock"]
       : /fine|good|great|best|ok|done|sent|replied|joined|nominated/.test(l) ? ["chip-m", "check"] : ["chip-g", "info"];
     return chip([c[0], c[1], t]);

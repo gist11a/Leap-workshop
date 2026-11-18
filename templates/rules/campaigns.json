@@ -1,9 +1,16 @@
 {
-  "join_types": [],
+  "join_types": [
+    "Big Campaign",
+    "Voucher Campaign"
+  ],
   "never_join": [],
-  "price_floor": { "method": null, "min_margin_percent": null, "lowest_prices": {} },
+  "price_floor": {
+    "min_margin_percent": 10,
+    "lowest_prices": {},
+    "owner_lowest_prices": {}
+  },
   "exclude_products": [],
   "prepare_days_before_deadline": 2,
-  "nominations_need_my_yes": true,
-  "notes": "method: lowest_price_list (owner's own list) or cost_plus_margin (from costs.json)."
+  "owner_submits": true,
+  "notes": "lowest_prices = worked out by Claude: the lowest campaign price that still keeps min_margin_percent after campaign-day Shopee fees, product cost and packing. owner_lowest_prices = the owner's own list; for each product the HIGHER of the two wins. Claude prepares nominations; the owner presses Nominate / Confirm."
 }

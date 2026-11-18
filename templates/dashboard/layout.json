@@ -171,7 +171,14 @@
         "type",
         "deadline",
         "status"
-      ]
+      ],
+      "fields": [
+        "open_to_join",
+        "deadlines_this_week",
+        "pending_confirmation",
+        "nominated"
+      ],
+      "about": "Sale events Shopee invites you to. Claude checks prices against your floor; you press Nominate."
     },
     {
       "topic": "affiliates",
@@ -239,7 +246,11 @@
     "cost_of_goods": "Product costs",
     "ad_spend": "Ads",
     "estimated_percent": "Estimated part %",
-    "units": "Sold"
+    "units": "Sold",
+    "open_to_join": "Open to join",
+    "deadlines_this_week": "Deadlines in 7 days",
+    "pending_confirmation": "Waiting for your confirm",
+    "nominated": "Nominated"
   },
   "money_fields": [
     "ad_spend",
