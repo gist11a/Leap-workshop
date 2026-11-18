@@ -37,7 +37,7 @@ They move on by typing the next module word (`module1`, `module2` …), never wi
 |---|---|---|
 | 9:30 | Welcome (trainer, laptops closed) | Why this matters, what "Claude does it in the browser" means |
 | 9:50 | **0 · Get set up** | Shopee HQ folder ready, Claude can see their Seller Centre |
-| 10:20 | **1 · Your shop's brain and rules** | Shop profile + store, chat, stock, ads, campaign and cost rules |
+| 10:20 | **1 · Your shop's brain and rules** | Shop profile, promises to buyers, chat voice + buyer FAQ, live reply test (stock, ads, cost and campaign rules are set in their own modules) |
 | 11:00 | Break | |
 | 11:15 | **2 · Your dashboard** | Their own dashboard, opening in their browser (empty tiles that fill up as the day goes on) |
 | 11:40 | **3 · Stock and reorders** | Low-stock list + reorder amounts, saved and on the dashboard |

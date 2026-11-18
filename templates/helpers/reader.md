@@ -40,5 +40,7 @@ Paths are added after the Seller Centre address in `rules/shop.json` (for Malays
 - Shopee Ads: `/portal/marketing/pas/index`
 - Affiliate Marketing: `/portal/web-seller-affiliate/homepage`
 - Campaign: `/portal/marketing/cmt/campaign` · Vouchers: `/portal/marketing/vouchers/list` · Discount: `/portal/marketing/list/discount`
-- Chat Management: `/portal/chat-management` · Review Management: `/portal/settings/shop/rating`
+- Chat Management (chat numbers for the last 30 days): `/portal/chat-management` · Review Management: `/portal/settings/shop/rating`
+- Shipping Channel (which couriers are on): `/portal/all-settings/shipping/shipping-channel` — has on/off switches, **never touch them**
+- Shop Settings: `/portal/all-settings` (Shipping, Chat, Vacation Mode…) — read only
 - My Income: in the Finance menu · Business Insights: in the Data menu

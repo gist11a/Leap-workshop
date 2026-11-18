@@ -6,8 +6,15 @@
   "sign_off": null,
   "always_hand_to_me": ["refund or return request", "damaged or wrong item", "angry buyer", "medical or safety question", "anything about money not in the rules"],
   "never_say": [],
+  "shopee_rules": [
+    "Never ask the buyer to pay, order or chat outside Shopee (WhatsApp, Telegram, bank transfer, another website).",
+    "Never ask for or share phone numbers, emails or home addresses in chat.",
+    "Never ask the buyer to cancel their order.",
+    "Never offer a gift, refund or discount in exchange for a good review, and never ask them to change a review.",
+    "No rude words, no pressure, no spam."
+  ],
   "faq": [],
   "review_replies": { "thank_good_reviews": true, "bad_reviews_need_my_yes": true },
   "auto_send": false,
-  "notes": "auto_send stays false: every reply waits for the owner's YES."
+  "notes": "shopee_rules come from Shopee's own chat and review rules: they apply to every reply and can't be switched off. auto_send stays false: every reply waits for the owner's YES. faq items look like {\"q\": \"...\", \"a\": \"...\"}."
 }

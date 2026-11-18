@@ -24,12 +24,14 @@ Keep it short. Details live in `rules/`.
 
 ## Folder map
 - `rules/` — the owner's rules: shop, store, chat, stock, ads, campaigns, affiliates, costs.
+- `rules/my-shop-info.md` — what the owner brought (costs, policies, buyer questions, lowest prices…), in their words.
+  Later modules take their numbers from here before asking again.
 - `automations/` — one recipe per automation (what to read, what to check, what to save).
 - `automations.json` — the list of automations: on/paused, when, last run, result.
 - `approvals.json` — changes waiting for the owner's YES.
 - `alerts.json` — things the owner should look at (newest first, keep 50).
 - `data/<topic>/<YYYY-MM-DD>.json` — what was read that day. Same job twice a day replaces the file.
-  Topics: stock, orders, ads, chats, reviews, campaigns, affiliates, profit, images, runs.
+  Topics: home, shop, stock, orders, ads, chats, reviews, campaigns, affiliates, profit, images, runs.
 - `dashboard/index.html` — the dashboard. `dashboard/data.js` is rebuilt by the refresh step.
 - `course/` — the workshop files. Don't edit.
 

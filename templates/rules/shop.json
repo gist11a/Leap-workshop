@@ -10,6 +10,7 @@
   "what_we_sell": null,
   "main_goal": null,
   "how_to_talk_to_me": null,
+  "morning_check_at": "09:00",
   "alert_email": null,
   "notes": "Filled in during Module 1. Change anything by asking Claude."
 }
